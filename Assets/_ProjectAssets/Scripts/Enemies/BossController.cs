@@ -29,8 +29,8 @@ public class BossController : MonoBehaviour
     [HideInInspector] public bool inAnimation;
     public SpawnManagerLvls spawnManagerLvl;
     public bool nextStage;
-    
-    
+
+
     private Animator _animator;
     private GameObject barier;
     private Rigidbody2D _rb;
@@ -118,22 +118,22 @@ public class BossController : MonoBehaviour
                 switch (t.barrierPosition)
                 {
                     case Constants.BarrierPosition.Left:
-                    {
-                        DefineBarrierType(t.barrierType);
-                        GameObject newBarrier =
-                            Instantiate(barier, leftBarrierSpawnPPoint.position, Quaternion.identity);
-                        newBarrier.GetComponent<BarierBehaviour>().Appear(Constants.BarrierPosition.Left);
-                        break;
-                    }
+                        {
+                            DefineBarrierType(t.barrierType);
+                            GameObject newBarrier =
+                                Instantiate(barier, leftBarrierSpawnPPoint.position, Quaternion.identity);
+                            newBarrier.GetComponent<BarierBehaviour>().Appear(Constants.BarrierPosition.Left);
+                            break;
+                        }
 
                     case Constants.BarrierPosition.Right:
-                    {
-                        DefineBarrierType(t.barrierType);
-                        GameObject newBarrier =
-                            Instantiate(barier, rightBarrierSpawnPPoint.position, Quaternion.identity);
-                        newBarrier.GetComponent<BarierBehaviour>().Appear(Constants.BarrierPosition.Right);
-                        break;
-                    }
+                        {
+                            DefineBarrierType(t.barrierType);
+                            GameObject newBarrier =
+                                Instantiate(barier, rightBarrierSpawnPPoint.position, Quaternion.identity);
+                            newBarrier.GetComponent<BarierBehaviour>().Appear(Constants.BarrierPosition.Right);
+                            break;
+                        }
                 }
 
                 await UniTask.Delay((int)timeBetweenSpawnBarrier * 1000);
@@ -150,21 +150,21 @@ public class BossController : MonoBehaviour
         switch (barrierType)
         {
             case Constants.BarrierType.LittleBarrier:
-            {
-                barier = littleBarrier;
-                break;
-            }
+                {
+                    barier = littleBarrier;
+                    break;
+                }
             case Constants.BarrierType.MediumBarrier:
-            {
-                barier = mediumBarrier;
-                break;
-            }
+                {
+                    barier = mediumBarrier;
+                    break;
+                }
 
             case Constants.BarrierType.BigBarrier:
-            {
-                barier = bigBarrier;
-                break;
-            }
+                {
+                    barier = bigBarrier;
+                    break;
+                }
         }
     }
 
@@ -182,17 +182,17 @@ public class BossController : MonoBehaviour
         else
         {
             _animator.SetBool("NextStage", true);
-            nextStage=true;
+            nextStage = true;
             life--;
         }
-        
+
     }
-    
+
     public void Death()
     {
         GetComponent<BoxCollider2D>().enabled = false;
         _rb.gravityScale = 1;
-        _rb.drag= 16;
+        _rb.drag = 16;
         foreach (var particleSystem in destroyEffect)
         {
             particleSystem.Play();
@@ -201,19 +201,19 @@ public class BossController : MonoBehaviour
         LeanTween.rotate(gameObject, new Vector3(0, 0, 180), 30f).setEaseInQuad();
         LeanTween.scale(rewardText, new Vector3(1, 1, 1), 1f).setEaseInQuad().setOnComplete(() =>
         {
-            UIManagerGameRoom.instance.UpdateMoney(500);
+            DataManager.MoneyCollected = 500;
             UIManagerGameRoom.instance.FinishLvlState();
         });
-        
-        
+
+
 
     }
 
     public void SetBossPosition()
     {
-        LeanTween.moveLocalY(gameObject, 2.951164f, 4f).setEaseInQuad().setOnComplete(()=>_animator.SetTrigger("StartBossBehaviour"));
+        LeanTween.moveLocalY(gameObject, 2.951164f, 4f).setEaseInQuad().setOnComplete(() => _animator.SetTrigger("StartBossBehaviour"));
     }
-    
+
     private void OnParticleCollision(GameObject other)
     {
         TakeDamage();

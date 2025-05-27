@@ -12,7 +12,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: df0ccddf8a69bad4ab1146b85c144d19, type: 3}
   m_Name: Lvl3
   m_EditorClassIdentifier: 
-  geometryFigures: 1
+  geometryFigures: 0
+  square: 1
+  circle: 0
+  hexagon: 1
   lasers: 0
   maze: 0
   tetris: 0

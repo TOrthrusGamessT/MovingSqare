@@ -139,6 +139,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   speed: 1.3
   deadEffect: {fileID: 938355462728799340, guid: 5104cb0027b01e844b6a7c790b66bb6a, type: 3}
+  figure: 1
   aoe: {fileID: 0}
 --- !u!1 &8909514137859914402
 GameObject:

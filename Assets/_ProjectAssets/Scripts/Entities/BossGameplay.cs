@@ -30,7 +30,7 @@ public class BossGameplay : MonoBehaviour
 
     private int index;
     public bool finishedWave;
-    
+
     private void Start()
     {
         StartCoroutine(NextWave());
@@ -41,9 +41,9 @@ public class BossGameplay : MonoBehaviour
         bossPrefab.SetBossStatus(bossWaves[index].bossHP);
 
         yield return new WaitForSeconds(bossWaves[index].durationOfWave);
-        
+
         bossPrefab.gameObject.SetActive(true);
-        
+
         OnBossAppear?.Invoke();
         bossPrefab.InitBoss();
 
@@ -52,7 +52,7 @@ public class BossGameplay : MonoBehaviour
 
         if (index >= bossWaves.Length)
         {
-            uiManagerGameRoom.UpdateMoney(200);
+            DataManager.MoneyCollected = 200;
             dataManager.SaveMoney();
             InitiateSpoiler();
         }
@@ -60,10 +60,10 @@ public class BossGameplay : MonoBehaviour
         {
             finishedWave = false;
             OnBossDisappear?.Invoke();
-            StartCoroutine(NextWave());  
+            StartCoroutine(NextWave());
         }
     }
-    
+
     [ContextMenu("Test Wining State")]
     private void InitiateSpoiler()
     {
@@ -73,7 +73,7 @@ public class BossGameplay : MonoBehaviour
         {
             fireWork.SetActive(true);
         }
-        
+
         LeanTween.scale(winSign, Vector3.one, 1f).setEaseInBounce().setOnComplete(() =>
         {
             LeanTween.scale(winSign, Vector3.zero, 2f).setEaseInBounce().setOnComplete(() =>
@@ -82,11 +82,11 @@ public class BossGameplay : MonoBehaviour
                 {
                     LeanTween.moveX(leaksPrefab, 5, 3f).setEaseInCubic();
                 });
-        
+
                 LeanTween.scaleX(portal.transform.GetChild(0).gameObject, 0.5f, 2f).setEaseInCubic();
             }).setDelay(6f);
         });
-        
-       
+
+
     }
 }

@@ -1,5 +1,3 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 
@@ -8,6 +6,9 @@ public class LvlSettings : ScriptableObject
 {
    [Header("Obstacles")]
    public bool geometryFigures;
+   public bool square;
+   public bool circle;
+   public bool hexagon;
    public bool lasers;
    public bool maze;
    public bool tetris;
@@ -21,22 +22,22 @@ public class LvlSettings : ScriptableObject
    public float timeBetweenSpawnMoney;
    public float timeBetweenSpawnMaze;
    public float timeBetweenSpawnTetrisEnemies;
-   
+
    [Header("Duration")]
    public float linesLife;
    public float powerUpsLife;
-   public float moneyLife;
-   public float lvlDuration;
-   
+   public int moneyLife;
+   public int lvlDuration;
+
    [Header("Obstacle Speed")]
    public float geometricFiguresSpeed;
    public float obstacleSpeed;
    public float tetrisEnemiesSpeed;
 
-   [Header("Obstacle Count")] 
+   [Header("Obstacle Count")]
    public int linesCount;
    public int tetrisCount;
-   
+
    public GameObject obstaclePrefab;
 
 }

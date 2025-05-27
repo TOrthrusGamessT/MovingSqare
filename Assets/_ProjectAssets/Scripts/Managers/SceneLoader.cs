@@ -10,26 +10,27 @@ public class SceneLoader : MonoBehaviour
 {
 
     public static Action onSceneNewSceneLoad;
-    
+
     #region Singleton
-    
+
     public static SceneLoader instance;
-    
+
     private void Awake()
     {
-        instance = FindObjectOfType<SceneLoader>();
-        if (instance == null)
+        if (instance != null && instance != this)
         {
-            instance = this;
+            Destroy(gameObject);
+            return;
         }
+        instance = this;
     }
-    
+
     #endregion
-    
-    public TransitionSettings[] TransitionSettings;
+
+    [SerializeField] private TransitionSettings[] TransitionSettings;
     private bool isLoading;
-    
-    
+
+
     public void ReloadGameScene()
     {
         if (!isLoading)
@@ -37,7 +38,7 @@ public class SceneLoader : MonoBehaviour
             isLoading = !isLoading;
             EasyTransition.TransitionManager.Instance()
                 .Transition(SceneManager.GetActiveScene().buildIndex
-                    ,TransitionSettings[Random.Range(0,TransitionSettings.Length-1)],0);
+                    , TransitionSettings[Random.Range(0, TransitionSettings.Length)], 0);
             onSceneNewSceneLoad?.Invoke();
         }
     }
@@ -49,24 +50,24 @@ public class SceneLoader : MonoBehaviour
         {
             isLoading = !isLoading;
             EasyTransition.TransitionManager.Instance()
-                .Transition(2,TransitionSettings[Random.Range(0,TransitionSettings.Length-1)]
-                    ,0);
+                .Transition(2, TransitionSettings[Random.Range(0, TransitionSettings.Length)]
+                    , 0);
         }
     }
 
 
-    public  void LoadSurviveScene()
+    public void LoadSurviveScene()
     {
         if (!isLoading)
         {
             isLoading = !isLoading;
             EasyTransition.TransitionManager.Instance()
-                .Transition(1,TransitionSettings[Random.Range(0,TransitionSettings.Length-1)]
-                    ,0);
+                .Transition(1, TransitionSettings[Random.Range(0, TransitionSettings.Length)]
+                    , 0);
         }
     }
 
-    public  void LoadMainMenu()
+    public void LoadMainMenu()
     {
         if (!isLoading)
         {
@@ -74,10 +75,9 @@ public class SceneLoader : MonoBehaviour
             GameManager.instance.ResetAd();
             isLoading = !isLoading;
             EasyTransition.TransitionManager.Instance()
-                .Transition(0,TransitionSettings[Random.Range(0,TransitionSettings.Length-1)]
-                    ,0);
+                .Transition(0, TransitionSettings[Random.Range(0, TransitionSettings.Length)], 0);
         }
-        
+
     }
 
     public void LoadLvlScene()
@@ -86,8 +86,8 @@ public class SceneLoader : MonoBehaviour
         {
             isLoading = !isLoading;
             EasyTransition.TransitionManager.Instance()
-                .Transition(2,TransitionSettings[Random.Range(0,TransitionSettings.Length-1)]
-                    ,0);
+                .Transition(2, TransitionSettings[Random.Range(0, TransitionSettings.Length)]
+                    , 0);
             onSceneNewSceneLoad?.Invoke();
         }
     }
@@ -95,7 +95,7 @@ public class SceneLoader : MonoBehaviour
     public void RandomTransition()
     {
         EasyTransition.TransitionManager.Instance()
-            .Transition(TransitionSettings[Random.Range(0,TransitionSettings.Length)]
-                ,0);
+            .Transition(TransitionSettings[Random.Range(0, TransitionSettings.Length)]
+                , 0);
     }
 }

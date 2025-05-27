@@ -12,4 +12,6 @@ public class GameStats : ScriptableObject
    public float spawnPowerUpsTime;
    public float spawnMoneyTime;
    public float spawnEnemyTime;
+
+   public int moneyLifeTime;
 }

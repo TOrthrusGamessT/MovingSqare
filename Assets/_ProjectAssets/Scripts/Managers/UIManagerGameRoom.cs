@@ -25,34 +25,30 @@ public class UIManagerGameRoom : MonoBehaviour
     }
 
     #endregion
-    
-    public TextMeshProUGUI highScore;
-    public TextMeshProUGUI moneyCollected;
-    public CanvasGroup mainUI;
-    public GameObject movingZone;
-    public TextMeshProUGUI money;
-    public GameObject moneyParent;
-    public GameObject revive;
-    public GameObject next;
-    public GameObject doubleCoin;
-    public List<GameObject> playerLives;
-    public GameObject livesParent;
-    public GameObject pauseMenu;
-    public GameObject maineMenu;
-    public TextMeshProUGUI highScorePauseMenu;
-    public TextMeshProUGUI moneyCollectedPauseMenu;
 
-    private bool gameOver;
+    [SerializeField] private TextMeshProUGUI highScore;
+    [SerializeField] private TextMeshProUGUI moneyCollected;
+    [SerializeField] private CanvasGroup mainUI;
+    [SerializeField] private GameObject movingZone;
+    [SerializeField] private GameObject moneyParent;
+    [SerializeField] private GameObject revive;
+    [SerializeField] private GameObject next;
+    [SerializeField] private GameObject doubleCoin;
+    [SerializeField] private List<GameObject> playerLives;
+    [SerializeField] private GameObject livesParent;
+    [SerializeField] private GameObject pauseMenu;
+    [SerializeField] private GameObject maineMenu;
+    [SerializeField] private TextMeshProUGUI highScorePauseMenu;
+    [SerializeField] private TextMeshProUGUI moneyCollectedPauseMenu;
+
     private int index = 0;
-    private int timeToIncreaseMoneyValue;
-    private bool candWatchDoubleCoinAD=true;
-    private bool canWatchReviveAD=true;
-    
-    
+    private bool canWatchDoubleCoinAD = true;
+    private bool canWatchReviveAD = true;
+
+
     private void OnEnable()
     {
-        GameManager.onGameOver += SetGameOver;
-        AdsManager.onReviveADFinish +=()=>
+        AdsManager.onReviveADFinish += () =>
         {
             Debug.LogWarning("Yooo entered in ReviveAdFinish");
             canWatchReviveAD = false;
@@ -61,16 +57,17 @@ public class UIManagerGameRoom : MonoBehaviour
         AdsManager.onDoubleMoneyADFinish += () =>
         {
             RemoveDoubleCoinButton();
-            candWatchDoubleCoinAD = false;
+            canWatchDoubleCoinAD = false;
         };
-        
+
+        PlayerLife.onPlayerGotLife += IncreaseLife;
+
         Timer.onCounterEnd += FinishLvlState;
     }
 
     private void OnDisable()
     {
-        GameManager.onGameOver -= SetGameOver;
-        AdsManager.onReviveADFinish -=()=>
+        AdsManager.onReviveADFinish -= () =>
         {
             Debug.LogWarning("Yooo entered in ReviveAdFinish");
             canWatchReviveAD = false;
@@ -79,19 +76,20 @@ public class UIManagerGameRoom : MonoBehaviour
         AdsManager.onDoubleMoneyADFinish -= () =>
         {
             RemoveDoubleCoinButton();
-            candWatchDoubleCoinAD = false;
+            canWatchDoubleCoinAD = false;
         };
+
+        PlayerLife.onPlayerGotLife -= IncreaseLife;
         Timer.onCounterEnd -= FinishLvlState;
     }
-    
+
 
     private void Start()
     {
-        money.text = "0";
         SetBkSize();
     }
 
-    private void  SetBkSize()
+    private void SetBkSize()
     {
         var sr = movingZone.GetComponent<SpriteRenderer>();
         if (sr == null) return;
@@ -109,28 +107,16 @@ public class UIManagerGameRoom : MonoBehaviour
 
     }
 
-    public void UpdateMoney(int amount)
-    {
-        int amountOfMoney = Int32.Parse(money.text);
-        amountOfMoney += amount;
-        money.text = amountOfMoney.ToString();
 
-        LeanTween.value(1, 0.3f, 0.7f).setOnUpdate(value =>
-        {
-            moneyParent.transform.localScale = Vector3.one * value;
-        }).setEasePunch();
-
-    }
-    
     public void LoseState()
     {
         maineMenu.SetActive(true);
         UpdateScoreUI();
-        
+
         mainUI.gameObject.SetActive(true);
         revive.SetActive(canWatchReviveAD);
         next.SetActive(false);
-        doubleCoin.SetActive(candWatchDoubleCoinAD);
+        doubleCoin.SetActive(canWatchDoubleCoinAD);
 
         FadeInEffect();
     }
@@ -139,12 +125,12 @@ public class UIManagerGameRoom : MonoBehaviour
     {
         maineMenu.SetActive(true);
         UpdateScoreUI();
-        
+
         mainUI.gameObject.SetActive(true);
         revive.SetActive(false);
         next.SetActive(true);
-        doubleCoin.SetActive(candWatchDoubleCoinAD);
-        
+        doubleCoin.SetActive(canWatchDoubleCoinAD);
+
         FadeInEffect();
     }
 
@@ -155,17 +141,17 @@ public class UIManagerGameRoom : MonoBehaviour
         AdListener();
 
         revive.SetActive(canWatchReviveAD);
-        doubleCoin.SetActive(candWatchDoubleCoinAD);
+        doubleCoin.SetActive(canWatchDoubleCoinAD);
         mainUI.gameObject.SetActive(true);
-       
+
         FadeInEffect();
     }
 
-    
+
     private void RemoveDoubleCoinButton()
     {
         doubleCoin.SetActive(false);
-        DoubleTheMoney();
+        DataManager.MoneyCollected = DataManager.MoneyCollected * 2;
         UpdateScoreUI();
     }
 
@@ -183,7 +169,7 @@ public class UIManagerGameRoom : MonoBehaviour
         {
             mainUI.alpha = value;
 
-        }).setEaseInQuad().setOnComplete( ()=>
+        }).setEaseInQuad().setOnComplete(() =>
         {
             mainUI.gameObject.SetActive(false);
         });
@@ -191,50 +177,40 @@ public class UIManagerGameRoom : MonoBehaviour
 
     private void UpdateScoreUI()
     {
-        highScore.text =  $"High Score\n{PlayerPrefs.GetInt("HighScore")}";
-        moneyCollected.text =  $"Score\n{money.text}";
+        highScore.text = $"High Score\n{PlayerPrefs.GetInt("HighScore")}";
+        moneyCollected.text = $"Score\n{DataManager.MoneyCollected}";
     }
 
 
-   
+
 
     private void AdListener()
     {
         revive.GetComponent<Button>().onClick.AddListener(AdsManager.InitReviveAD);
         doubleCoin.GetComponent<Button>().onClick.AddListener(AdsManager.InitDoubleCoinAD);
     }
-    
-    private void DoubleTheMoney()
-    {
-        int amountOfMoney = Int32.Parse(money.text);
-        amountOfMoney *= 2;
-        money.text = amountOfMoney.ToString();
-    }
 
     private void ResetMainMenu()
     {
         revive.GetComponent<Button>().onClick.RemoveAllListeners();
         LeanTween.value(1, 0, 1f).setOnUpdate(value => mainUI.alpha = value).setEaseInQuad()
-            .setOnComplete(()=> mainUI.gameObject.SetActive(false));
+            .setOnComplete(() => mainUI.gameObject.SetActive(false));
     }
-    
-    private void SetGameOver()
+
+
+    void IncreaseLife(int life)
     {
-        gameOver = true;
-    }
-    
-    public void IncreaseLife(int life)
-    {
-        while(index < life-1){
+        while (index < life - 1)
+        {
             index++;
             playerLives[index].SetActive(true);
         }
-        
+
         LeanTween.value(1, 0.5f, 0.7f).setOnUpdate(value =>
         {
             livesParent.transform.localScale = Vector3.one * value;
         }).setEasePunch();
-        
+
     }
 
     public void ShowPauseMenu()
@@ -244,7 +220,7 @@ public class UIManagerGameRoom : MonoBehaviour
         mainUI.alpha = 1;
         pauseMenu.SetActive(true);
     }
-    
+
     public void HidePauseMenu()
     {
         mainUI.alpha = 0;
@@ -260,8 +236,8 @@ public class UIManagerGameRoom : MonoBehaviour
 
     private void UpdateScoreUIPauseMenu()
     {
-        highScorePauseMenu.text =  $"High Score\n{PlayerPrefs.GetInt("HighScore")}";
-        moneyCollectedPauseMenu.text =  $"Score\n{money.text}";
+        highScorePauseMenu.text = $"High Score\n{PlayerPrefs.GetInt("HighScore")}";
+        moneyCollectedPauseMenu.text = $"Score\n{DataManager.MoneyCollected}";
     }
 
 }

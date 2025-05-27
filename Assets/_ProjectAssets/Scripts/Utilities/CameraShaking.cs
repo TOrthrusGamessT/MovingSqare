@@ -1,10 +1,14 @@
-using System;
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class CameraShaking : MonoBehaviour
 {
+    private static GameObject attachedObject;
+
+    void Awake()
+    {
+        attachedObject = gameObject;
+    }
+
     private void OnEnable()
     {
         Boomerang.onBoomerangHit += Shake;
@@ -15,15 +19,15 @@ public class CameraShaking : MonoBehaviour
         Boomerang.onBoomerangHit -= Shake;
     }
 
-    public void Shake()
+    public static void Shake()
     {
-        LeanTween.moveX(gameObject, 0.3f, 0.03f).setEasePunch().setOnComplete(() =>
+        LeanTween.moveX(attachedObject, 0.3f, 0.03f).setEasePunch().setOnComplete(() =>
         {
-            LeanTween.moveY(gameObject, 0.3f, 0.03f).setEasePunch().setOnComplete(() =>
+            LeanTween.moveY(attachedObject, 0.3f, 0.03f).setEasePunch().setOnComplete(() =>
             {
-                LeanTween.moveX(gameObject, -0.3f, 0.03f).setEasePunch().setOnComplete(() =>
+                LeanTween.moveX(attachedObject, -0.3f, 0.03f).setEasePunch().setOnComplete(() =>
                 {
-                    LeanTween.moveY(gameObject, -0.3f, 0.03f).setEasePunch();
+                    LeanTween.moveY(attachedObject, -0.3f, 0.03f).setEasePunch();
                 });
             });
         });

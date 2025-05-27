@@ -1,6 +1,5 @@
 using System;
 using System.Collections;
-using Cysharp.Threading.Tasks;
 using UnityEngine;
 
 public class GameManager : MonoBehaviour
@@ -25,15 +24,15 @@ public class GameManager : MonoBehaviour
 
     public static Action onGameOver;
 
-    public UIManagerGameRoom uiManager;
-    public Spawner spawnManagerSurvive;
+    [SerializeField] private UIManagerGameRoom uiManager;
+    [SerializeField] private Spawner spawnManagerSurvive;
+    [SerializeField] private ItemsPool items;
+    [SerializeField] private int difficultySpeed;
+    [SerializeField] private float extraMoneyIncrease;
+
+    [HideInInspector]
     public Vector2 PlayerPosition => player.position;
-    public ItemsPool items;
-    public int difficultySpeed;
-    public float extraMoneyIncrease;
-    
-    
-    private  Transform player;
+    private Transform player;
     private bool alreadyOver;
     private static bool askedAd;
     private float moneyMultiplayer = 2;
@@ -48,20 +47,20 @@ public class GameManager : MonoBehaviour
         BossGameplay.OnBossDisappear += StartCoroutine;
         onGameOver += StopCoroutine;
         Timer.onCounterEnd += StopCoroutine;
-        
+
         AdsManager.onReviveADFinish += ResetAlreadyOver;
         AdsManager.onReviveADFinish += StartCoroutine;
         AdsManager.onReviveADFinish += SetViewAdTrue;
     }
-    
-    
+
+
     private void OnDisable()
     {
         BossGameplay.OnBossAppear -= StopCoroutine;
         BossGameplay.OnBossDisappear -= StartCoroutine;
         onGameOver -= StopCoroutine;
         Timer.onCounterEnd -= StopCoroutine;
-        
+
         AdsManager.onReviveADFinish -= StartCoroutine;
         AdsManager.onReviveADFinish -= ResetAlreadyOver;
         AdsManager.onReviveADFinish -= SetViewAdTrue;
@@ -70,25 +69,23 @@ public class GameManager : MonoBehaviour
     private void Start()
     {
         Application.targetFrameRate = Screen.currentResolution.refreshRate;
-        
+
         player.GetComponent<PlayerManager>().InitPlayer(items.items[PlayerPrefs.GetInt("currentSkin")]);
-        
+
         StartCoroutine(InitGame());
 
     }
-    
+
     IEnumerator InitGame()
     {
-        //Init Money
         CoinsBehaviour.amount = (int)moneyMultiplayer;
 
         yield return new WaitForSeconds(2f);
         spawnManagerSurvive.StartSpawning();
-        
-        //StartCoroutine(IncreaseDifficulty());
+
         StartCoroutine(IncreaseMoneyValue());
     }
-    
+
 
     public void GameOver()
     {
@@ -107,7 +104,7 @@ public class GameManager : MonoBehaviour
             alreadyOver = !alreadyOver;
         }
     }
-    
+
     public void ResetAlreadyOver()
     {
         alreadyOver = !alreadyOver;
@@ -133,14 +130,13 @@ public class GameManager : MonoBehaviour
     {
         StartCoroutine(IncreaseMoneyValue());
     }
-    
+
     private IEnumerator IncreaseMoneyValue()
     {
         yield return new WaitForSeconds(extraMoneyIncrease);
 
-        moneyMultiplayer += Mathf.Ceil(moneyMultiplayer/10);
+        moneyMultiplayer += Mathf.Ceil(moneyMultiplayer / 10);
         CoinsBehaviour.amount = (int)moneyMultiplayer;
-        //uiManager.SetMoneySign((int)moneyMultiplayer);
 
         StartCoroutine(IncreaseMoneyValue());
     }
@@ -149,11 +145,11 @@ public class GameManager : MonoBehaviour
     {
         Time.timeScale = 0;
     }
-    
+
     public void Resume()
     {
         Time.timeScale = 1;
     }
-    
+
 
 }

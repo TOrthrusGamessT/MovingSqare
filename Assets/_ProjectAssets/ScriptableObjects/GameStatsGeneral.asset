@@ -17,3 +17,4 @@ MonoBehaviour:
   spawnPowerUpsTime: 7
   spawnMoneyTime: 4
   spawnEnemyTime: 1.5
+  moneyLifeTime: 3

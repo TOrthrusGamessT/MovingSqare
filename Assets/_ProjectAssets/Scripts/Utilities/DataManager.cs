@@ -4,33 +4,51 @@ using UnityEngine;
 
 public class DataManager : MonoBehaviour
 {
-    public TextMeshProUGUI money;
+    private static int _money;
+
+    public static int MoneyCollected
+    {
+        get => _money;
+        set => _money += value;
+    }
 
 
     private void OnEnable()
     {
         GameManager.onGameOver += SaveHighScore;
+        CoinsBehaviour.onCoinCollected += UpdateMoney;
     }
 
     private void OnDisable()
     {
         GameManager.onGameOver -= SaveHighScore;
+        CoinsBehaviour.onCoinCollected -= UpdateMoney;
+    }
+
+    void Start()
+    {
+        _money = 0;
+    }
+
+    private void UpdateMoney(int amount)
+    {
+        _money += amount;
     }
 
 
     private void SaveHighScore()
     {
         int highScore = PlayerPrefs.GetInt("HighScore");
-        int score = Int32.Parse(money.text);
-        
-        if(score>highScore)
-            PlayerPrefs.SetInt("HighScore",score);
+        int score = _money;
+
+        if (score > highScore)
+            PlayerPrefs.SetInt("HighScore", score);
     }
 
     public void SaveMoney()
     {
         int amount = PlayerPrefs.GetInt("Money");
-        amount += Int32.Parse(money.text);
+        amount += _money;
         PlayerPrefs.SetInt("Money", amount);
         PlayerPrefs.Save();
     }

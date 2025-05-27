@@ -9,7 +9,7 @@ public class LVLMenuBehaviour : MonoBehaviour
     public RectTransform content;
 
     private int maxLvlReached;
-    
+
     private void Awake()
     {
         if (!PlayerPrefs.HasKey("MaxLvlReached"))
@@ -17,10 +17,10 @@ public class LVLMenuBehaviour : MonoBehaviour
             PlayerPrefs.SetInt("MaxLvlReached", 0);
         }
         else
-        { 
+        {
             maxLvlReached = PlayerPrefs.GetInt("MaxLvlReached", 0);
         }
-        
+
     }
 
 
@@ -28,18 +28,18 @@ public class LVLMenuBehaviour : MonoBehaviour
     {
         for (int i = 0; i <= maxLvlReached; i++)
         {
-            LVLButtonBehaviour lvlButtonBehaviour = Instantiate(lvlWrapper, 
-                content.position, Quaternion.identity,content).GetComponent<LVLButtonBehaviour>();
-            lvlButtonBehaviour.Init((i+1).ToString(),true);
+            LVLButtonBehaviour lvlButtonBehaviour = Instantiate(lvlWrapper,
+                content.position, Quaternion.identity, content).GetComponent<LVLButtonBehaviour>();
+            lvlButtonBehaviour.Init((i + 1).ToString(), true);
         }
-        
-        for (int i = maxLvlReached+1; i < 20; i++)
+
+        for (int i = maxLvlReached + 1; i < 20; i++)
         {
-            LVLButtonBehaviour lvlButtonBehaviour = Instantiate(lvlWrapper, 
-                content.position, Quaternion.identity,content).GetComponent<LVLButtonBehaviour>();
-            lvlButtonBehaviour.Init((i+1).ToString(),false);
+            LVLButtonBehaviour lvlButtonBehaviour = Instantiate(lvlWrapper,
+                content.position, Quaternion.identity, content).GetComponent<LVLButtonBehaviour>();
+            lvlButtonBehaviour.Init((i + 1).ToString(), true);
         }
-        
-        
+
+
     }
 }

@@ -8,15 +8,15 @@ using UnityEngine.Rendering;
 
 public class AdsManager : MonoBehaviour
 {
-    
-    
+
+
     #region Selected Id Based On Device
 
     // These ad units are configured to always serve test ads.
 #if UNITY_ANDROID
-  private static string _adUnitId = "ca-app-pub-1693425253915137/6809078593";
+    private static string _adUnitId = "ca-app-pub-5781212170655183/3816693134";
 #elif UNITY_IPHONE
-  private static string _adUnitId = "ca-app-pub-1693425253915137/3874708352";
+  private static string _adUnitId = "ca-app-pub-5781212170655183/4374278096";
 #else
     private static string _adUnitId = "unused";
 #endif
@@ -24,27 +24,39 @@ public class AdsManager : MonoBehaviour
 
     #endregion
 
+    #region Singleton
+
+    public static AdsManager instance;
+
     private void Awake()
     {
-        DontDestroyOnLoad(this);
+        if (instance != null && instance != this)
+        {
+            Destroy(gameObject);
+            return;
+        }
+        instance = this;
+        DontDestroyOnLoad(gameObject);
     }
+
+    #endregion
 
     public static Action onReviveADFinish;
     public static Action onDoubleMoneyADFinish;
 
 
     private static bool value;
-        private static RewardedAd rewardedAd;
+    private static RewardedAd rewardedAd;
 
     private void Start()
     {
-        
+
         // Initialize the Google Mobile Ads SDK.
         MobileAds.Initialize((InitializationStatus initStatus) =>
         {
             LoadRewardedAd();
         });
-        
+
     }
 
 
@@ -57,7 +69,7 @@ public class AdsManager : MonoBehaviour
             ShowReviveAD(true);
         }
     }
-    
+
     public static void InitDoubleCoinAD()
     {
         if (rewardedAd.CanShowAd())
@@ -83,7 +95,7 @@ public class AdsManager : MonoBehaviour
         Debug.Log("Loading the rewarded ad.");
 
         // create our request used to load the ad.
-        var adRequest = new AdRequest.Builder().Build();
+        var adRequest = new AdRequest();
 
         // send the request to load the ad.
         RewardedAd.Load(_adUnitId, adRequest,
@@ -92,25 +104,25 @@ public class AdsManager : MonoBehaviour
                 // if error is not null, the load request failed.
                 if (error != null || ad == null)
                 {
-                    
+
                     Debug.LogError("Rewarded ad failed to load an ad " +
                                    "with error : " + error);
                     return;
                 }
-               
+
                 Debug.Log("Rewarded ad loaded with response : "
                           + ad.GetResponseInfo());
 
                 rewardedAd = ad;
             });
     }
-    
+
     private static void ShowReviveAD(bool value)
     {
         if (rewardedAd != null && rewardedAd.CanShowAd())
         {
-                Debug.Log("Before Showing Revive AD");
-            
+            Debug.Log("Before Showing Revive AD");
+
             rewardedAd.Show((Reward reward) =>
             {
                 if (value)
@@ -142,8 +154,8 @@ public class AdsManager : MonoBehaviour
             LoadRewardedAd();
         };
     }
-    
-    
+
+
     private static void RegisterEventHandlers(RewardedAd ad)
     {
         // Raised when the ad is estimated to have earned money.
@@ -157,7 +169,7 @@ public class AdsManager : MonoBehaviour
         // Raised when an impression is recorded for an ad.
         ad.OnAdImpressionRecorded += () =>
         {
-            
+
             Debug.Log("Rewarded ad recorded an impression.");
         };
         // Raised when a click is recorded for an ad.
@@ -170,7 +182,7 @@ public class AdsManager : MonoBehaviour
         {
             Debug.LogWarning("In OnAdFullScreenContentOpened");
             Debug.Log("Rewarded ad full screen content opened.");
-            
+
             /*
             if (value)
             {
@@ -183,7 +195,7 @@ public class AdsManager : MonoBehaviour
                 onDoubleMoneyADFinish?.Invoke();
             }
             */
-            
+
         };
         // Raised when the ad closed full screen content.
         ad.OnAdFullScreenContentClosed += () =>

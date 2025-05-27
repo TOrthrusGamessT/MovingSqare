@@ -8,9 +8,9 @@ using Random = UnityEngine.Random;
 
 public class SpawnManagerSurvive : Spawner
 {
-    
+
     public GameStats gameStats;
-    
+
     public List<GameObject> obstacles;
 
     private float lvlDuration;
@@ -26,43 +26,46 @@ public class SpawnManagerSurvive : Spawner
         timeBetweenSpawnPowerUps = gameStats.spawnPowerUpsTime;
         timeBetweenSpawnMoney = gameStats.spawnMoneyTime;
         timeBetweenSpawnsGeometricFigures = gameStats.spawnEnemyTime;
+
+        onSpawnManagerSetCoins?.Invoke(timeBetweenSpawnMoney);
     }
 
-    
+
     protected override void InitPowerUps()
     {
         availablePowerUps = new();
-        
+
         if (PlayerPrefs.HasKey(PowerUps.heal.ToString()))
         {
             availablePowerUps.Add(powerUps[0]);
         }
-        
+
         if (PlayerPrefs.HasKey(PowerUps.size.ToString()))
         {
             availablePowerUps.Add(powerUps[1]);
         }
-        
+
         if (PlayerPrefs.HasKey(PowerUps.speed.ToString()))
         {
             availablePowerUps.Add(powerUps[2]);
         }
-        
+
     }
-    
+
 
     public override void StartSpawning()
     {
+        CoinsBehaviour.Lifetime = gameStats.moneyLifeTime;
         StartCoroutine(SpawnMoney());
         StartCoroutine(SpawnGeometricFigures());
-        
+
         if (availablePowerUps.Count != 0)
         {
             StartCoroutine(SpawnPowerUps());
         }
-        
+
         Debug.Log("Start Spawning");
-        
+
     }
 
 
@@ -71,13 +74,13 @@ public class SpawnManagerSurvive : Spawner
     public IEnumerator SpawnObstacle()
     {
         yield return new WaitForSeconds(DificultyManager.instance.obstacleTimeDelay);
-        
+
         Instantiate(obstacles[Random.Range(0, obstacles.Count)], obstacleSpawnPoint.position, Quaternion.identity);
         StopSpawning();
     }
 
     #endregion
-    
+
     #region Spawn fullScreenLines
 
     public override IEnumerator SpawnLines()
@@ -86,17 +89,17 @@ public class SpawnManagerSurvive : Spawner
 
         for (int i = 0; i < timeBetweenSpawnLasers; i++)
         {
-          fullScreenLineObjects.Add(Instantiate(laser, new Vector2(Random.Range(minX, maxX)
-            , Random.Range(minY, maxY)), Quaternion.Euler(0, 0, Random.RandomRange(0, 180))).GetComponent<FullScreenLine>());
-          
-          yield return new WaitForSeconds(0.5f);
+            fullScreenLineObjects.Add(Instantiate(laser, new Vector2(Random.Range(minX, maxX)
+              , Random.Range(minY, maxY)), Quaternion.Euler(0, 0, Random.RandomRange(0, 180))).GetComponent<FullScreenLine>());
+
+            yield return new WaitForSeconds(0.5f);
         }
 
         yield return new WaitForSeconds(1.5f);
 
         foreach (var line in fullScreenLineObjects)
         {
-            line.Activate();            
+            line.Activate();
         }
 
         yield return new WaitForSeconds(linesLife);
@@ -107,7 +110,7 @@ public class SpawnManagerSurvive : Spawner
         }
 
         fullScreenLineObjects.Clear();
-        
+
         StartCoroutine(SpawnLines());
     }
 
@@ -132,11 +135,11 @@ public class SpawnManagerSurvive : Spawner
     {
         yield return new WaitForSeconds(DificultyManager.instance.enemyTimeDelay);
 
-        GameObject objectToSpawn = geometricFigures[Random.Range(0, geometricFigures.Count)];
+        EnemyBehaviour objectToSpawn = geometricFigures[Random.Range(0, geometricFigures.Count)];
         Transform spawnPoint = spawningPoints[Random.Range(0, spawningPoints.Count)];
 
         //Set direction and Target 
-        
+
         attentionSignBehaviour = Instantiate(enemyAlertSignPrefab, spawnPoint.position, spawnPoint.rotation)
             .GetComponent<AttentionSignBehaviour>();
         SetEnemyDirection(spawnPoint);
@@ -180,7 +183,7 @@ public class SpawnManagerSurvive : Spawner
     protected override IEnumerator SpawnPowerUps()
     {
         yield return new WaitForSeconds(timeBetweenSpawnPowerUps);
-        Instantiate(availablePowerUps[Random.Range(0, availablePowerUps.Count-1)], new Vector2(Random.Range(minX, maxX)
+        Instantiate(availablePowerUps[Random.Range(0, availablePowerUps.Count - 1)], new Vector2(Random.Range(minX, maxX)
             , Random.Range(minY, maxY)), Quaternion.identity);
         StartCoroutine(SpawnPowerUps());
     }

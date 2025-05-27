@@ -7,13 +7,13 @@ public class LVLIndexer : MonoBehaviour
 {
     public static int currentLvlIndex;
     public static bool lvlCompleted;
-    public LvlSettings[] levles;
+    public LvlSettings[] levels;
 
 
     private void OnEnable()
     {
         SceneLoader.onSceneNewSceneLoad += ResetLvlCompleted;
-        
+
         Timer.onCounterEnd += () =>
         {
             lvlCompleted = true;
@@ -38,9 +38,9 @@ public class LVLIndexer : MonoBehaviour
     {
         if (!lvlCompleted)
             return;
-        int maxLvl =  PlayerPrefs.GetInt("MaxLvlReached", 0);
+        int maxLvl = PlayerPrefs.GetInt("MaxLvlReached", 0);
         if (maxLvl <= currentLvlIndex)
-           PlayerPrefs.SetInt("MaxLvlReached", currentLvlIndex+1);
+            PlayerPrefs.SetInt("MaxLvlReached", currentLvlIndex + 1);
     }
 
     public void NextLevel()
@@ -51,6 +51,6 @@ public class LVLIndexer : MonoBehaviour
 
     public LvlSettings GetCurrentLvlSettings()
     {
-        return levles[currentLvlIndex];
+        return levels[currentLvlIndex];
     }
 }

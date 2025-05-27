@@ -9785,7 +9785,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 253d14f21424808408317dd2981d8dc6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  uiManagerGameRoom: {fileID: 0}
+  _playerBody: {fileID: 2657927057336435722}
 --- !u!114 &178476164381607096
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -9800,10 +9800,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   playerLife: {fileID: 178476164381607097}
   movement: {fileID: 178476164381607092}
-  cameraShaking: {fileID: 0}
   deathEffect: {fileID: 548490630}
   trail: {fileID: 173581239}
-  _spriteRenderer: {fileID: 2657927057336435722}
+  _playerBody: {fileID: 2657927057336435722}
 --- !u!114 &178476164381607092
 MonoBehaviour:
   m_ObjectHideFlags: 0

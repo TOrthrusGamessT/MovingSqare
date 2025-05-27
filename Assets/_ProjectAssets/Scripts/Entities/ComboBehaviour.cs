@@ -1,8 +1,4 @@
-using System;
-using System.Collections;
-using System.Collections.Generic;
-using System.Threading;
-using Cysharp.Threading.Tasks;
+using DG.Tweening;
 using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
@@ -10,22 +6,24 @@ using UnityEngine.UI;
 public class ComboBehaviour : MonoBehaviour
 {
    [SerializeField] private TextMeshProUGUI comboTXT;
-   
+
    [Header("Fill Effect")]
    [SerializeField] private RectTransform fillImage;
-   [ColorUsage(true,true)]
+   [ColorUsage(true, true)]
    public Color fillColorActive;
-   [ColorUsage(true,false)]
+   [ColorUsage(true, false)]
    public Color fillColorInactive;
 
    private RawImage _fillRawImage;
-   
-   
+
    private RectTransform _rectTransform;
-   
+
 
    private int comboAmount;
    private int leanTweenID;
+   private float remainingTime;
+   private float timeBetweenSpawningCoins;
+   private Tween fillTween;
 
    private void Awake()
    {
@@ -37,16 +35,23 @@ public class ComboBehaviour : MonoBehaviour
    private void OnEnable()
    {
       CoinsBehaviour.onCoinDestroy += ComboStatus;
+      Spawner.onSpawnManagerSetCoins += SetTimeBetweenSpawningCoins;
    }
 
    private void OnDisable()
    {
       CoinsBehaviour.onCoinDestroy -= ComboStatus;
+      Spawner.onSpawnManagerSetCoins -= SetTimeBetweenSpawningCoins;
    }
 
    private void Start()
    {
       UpdateComboText();
+   }
+
+   private void SetTimeBetweenSpawningCoins(float time)
+   {
+      timeBetweenSpawningCoins = time;
    }
 
 
@@ -66,30 +71,29 @@ public class ComboBehaviour : MonoBehaviour
 
    private void UpdateComboText()
    {
-     // BackgroundParticlesManager.instance.InitAnimation();
+      // BackgroundParticlesManager.instance.InitAnimation();
       comboAmount++;
       comboTXT.text = $"X{comboAmount}";
-      
+
       CoinsBehaviour.amount = comboAmount;
       ScaleAnimation();
 
    }
-   
+
    private void LoseCombo()
    {
-      comboAmount=1;
+      comboAmount = 1;
       comboTXT.text = $"X{comboAmount}";
-      
       CoinsBehaviour.amount = comboAmount;
       ScaleAnimation();
    }
-   
+
    private void ScaleAnimation()
    {
       LeanTween.scale(_rectTransform, Vector3.zero, 0.1f).setEasePunch()
          .setOnComplete(() =>
          {
-            LeanTween.scale(_rectTransform, new Vector3(1f,1f,1f), 1f)
+            LeanTween.scale(_rectTransform, new Vector3(1f, 1f, 1f), 1f)
                .setEaseInElastic();
          });
    }
@@ -98,16 +102,24 @@ public class ComboBehaviour : MonoBehaviour
    {
       ResetFillAnimation();
       _fillRawImage.color = fillColorActive;
-      leanTweenID = LeanTween.moveY(fillImage, -427f, 7.46f).setEaseLinear().id;
+      //TODO find a formula to calculate this 7.26
+      fillTween = fillImage.DOLocalMoveY(-408f, 7.26f).SetEase(Ease.Linear);
    }
 
    private void ResetFillAnimation()
    {
+      if (fillTween != null && fillTween.IsActive())
+      {
+         remainingTime = fillTween.Duration() - fillTween.Elapsed();
+         fillTween.Kill();
+         Debug.Log("Fill animation remaining time: " + remainingTime);
+      }
+
       LeanTween.cancel(leanTweenID);
       Vector3 initialPosition = fillImage.localPosition;
-      initialPosition.y = -5.72f;
+      initialPosition.y = 0f;
       fillImage.localPosition = initialPosition;
       _fillRawImage.color = fillColorInactive;
    }
-   
+
 }

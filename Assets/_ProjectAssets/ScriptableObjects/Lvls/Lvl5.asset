@@ -12,21 +12,28 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: df0ccddf8a69bad4ab1146b85c144d19, type: 3}
   m_Name: Lvl5
   m_EditorClassIdentifier: 
-  geometryFigures: 1
+  geometryFigures: 0
+  square: 1
+  circle: 0
+  hexagon: 0
   lasers: 1
   maze: 0
   tetris: 0
+  tetrisBoss: 0
+  lvl10Boss: 0
   timeBetweenSpawnGeometricFigures: 1
   timeBetweenSpawnLasers: 5
   timeBetweenSpawnPowerUps: 5
   timeBetweenSpawnMoney: 3
   timeBetweenSpawnMaze: 5
+  timeBetweenSpawnTetrisEnemies: 0
   linesLife: 2
   powerUpsLife: 3
   moneyLife: 3
   lvlDuration: 90
   geometricFiguresSpeed: 1.2
   obstacleSpeed: 2
+  tetrisEnemiesSpeed: 0
   linesCount: 1
   tetrisCount: 1
   obstaclePrefab: {fileID: 5005138153044578103, guid: ce2e3abd58bdcd64d86eb07f14a97405, type: 3}

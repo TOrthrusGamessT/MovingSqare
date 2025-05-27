@@ -7,29 +7,30 @@ using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.UI;
 using Random = UnityEngine.Random;
+using DG.Tweening;
 
-public class Skin :  ShopItem
+public class Skin : ShopItem
 {
     private Sprite itemSprite;
     [SerializeField]
     private RawImage skinImageShow;
-    [SerializeField] 
+    [SerializeField]
     private RawImage buttonSprite;
-    [SerializeField] 
+    [SerializeField]
     private TextMeshProUGUI text;
-    [SerializeField] 
+    [SerializeField]
     private Color selectedColor, unselectedColor;
-    [SerializeField] 
+    [SerializeField]
     private GameObject selectedVFX;
-    [SerializeField] 
+    [SerializeField]
     private RawImage margin;
 
     private String description;
     private int price;
     private int id;
     private ElementType type;
-    
-    public override ShopItem Initialize(Item shopItem,bool status,ShopText shopText)
+
+    public override ShopItem Initialize(Item shopItem, bool status, ShopText shopText)
     {
         elementType = ElementType.Skin;
         effects = shopItem.effects;
@@ -38,14 +39,14 @@ public class Skin :  ShopItem
         price = type == ElementType.Skin ? effects[0].price : effects[PlayerPrefs.GetInt(effects[0].name)].price;
 
         itemSprite = shopItem.sprite;
-        
+
         SetDesctiption(shopText);
         SetStatus(status);
         return this;
     }
-    
-    public override ShopItem Initialize(Item shopItem,bool status){return null;}
-    
+
+    public override ShopItem Initialize(Item shopItem, bool status) { return null; }
+
 
     public void SetStatus(bool status)
     {
@@ -67,23 +68,26 @@ public class Skin :  ShopItem
         }
     }
 
-    private void SetDesctiption(ShopText shopText){
-        foreach(EffectTypeString current in shopText.effectTypeString){
-            if(current.type == effects[0].effect){
+    private void SetDesctiption(ShopText shopText)
+    {
+        foreach (EffectTypeString current in shopText.effectTypeString)
+        {
+            if (current.type == effects[0].effect)
+            {
                 description = effects[0].value.ToString() + current.text;
             }
         }
     }
-    
-    
+
+
     public override void Buy()
     {
         int currentMoney = PlayerPrefs.GetInt("Money");
-        if ( currentMoney >= price)
+        if (currentMoney >= price)
         {
             SetDesctiption(ShopManager.instance.shopText);
             currentMoney -= price;
-            PlayerPrefs.SetInt("Money",currentMoney);
+            PlayerPrefs.SetInt("Money", currentMoney);
             ShopManager.instance.SetMoney(currentMoney);
             ShopManager.instance.purchaseAnimation.SetActive(true);
             ShopManager.instance.purchaseAnimation.GetComponent<PurchaseAnimation>().SetSkin(itemSprite);
@@ -93,32 +97,42 @@ public class Skin :  ShopItem
             AddListener(true);
             text.text = description;
         }
+        else
+        {
+            NotEnoughMoney();
+        }
     }
-    
+
+    public override void NotEnoughMoney()
+    {
+        Color originalMarginColor = margin.color;
+        Color originalSkinColor = skinImageShow.color;
+        Color red = Color.red;
+        Color white = Color.white;
+
+
+        margin.DOColor(red, 0.5f).OnComplete(() =>
+        {
+
+            margin.DOColor(white, 0.5f);
+        });
+
+        skinImageShow.DOColor(red, 0.5f).OnComplete(() =>
+        {
+            skinImageShow.DOColor(white, 0.5f);
+        });
+    }
+
+
     IEnumerator AnimatePurchase()
     {
-       // StartCoroutine(ColorAnimation());
-        LeanTween.scale(skinImageShow.gameObject, new Vector3(0,0,0),1f);
+        // StartCoroutine(ColorAnimation());
+        LeanTween.scale(skinImageShow.gameObject, new Vector3(0, 0, 0), 1f);
         yield return new WaitForSeconds(1f);
         skinImageShow.texture = itemSprite.texture;
         text.color = new Color32(255, 255, 255, 255);
-        LeanTween.scale(skinImageShow.gameObject, new Vector3(1,1,1), 0.5f).setEase(LeanTweenType.easeOutBack);
+        LeanTween.scale(skinImageShow.gameObject, new Vector3(1, 1, 1), 0.5f).setEase(LeanTweenType.easeOutBack);
     }
-
-    /*IEnumerator ColorAnimation()
-    {
-        for (int i = 0; i < 15; i++)
-        {
-            yield return new WaitForSeconds(0.1f);
-            text.color =Random.ColorHSV(0,1,0,1,1,1,1,1);
-            margin.color = Random.ColorHSV(0,1,0,1,1,1,1,1);
-            skinImageShow.color = Random.ColorHSV(0,1,0,1,1,1,1,1);
-        }
-        skinImageShow.color = Color.white;
-        text.text = description;
-        text.color = unselectedColor;
-        margin.color = unselectedColor;
-    }*/
 
     public void Unselect(Texture2D unselectedTexture)
     {
@@ -127,7 +141,7 @@ public class Skin :  ShopItem
         selectedVFX.SetActive(false);
         buttonSprite.texture = unselectedTexture;
     }
-    
+
     public override void Select()
     {
         margin.color = selectedColor;
@@ -137,20 +151,20 @@ public class Skin :  ShopItem
         buttonSprite.texture = ShopManager.instance.selectTexture;
         PlayerPrefs.SetInt("currentSkin", id);
     }
-    
+
     private void AddListener(bool status)
     {
         if (status)
         {
-            buttonSprite.gameObject.GetComponent<Button>().onClick.AddListener(()=>
-            { 
+            buttonSprite.gameObject.GetComponent<Button>().onClick.AddListener(() =>
+            {
                 ShopManager.instance.ChangeSelectedSkin(id);
                 Select();
             });
         }
         else
         {
-            buttonSprite.gameObject.GetComponent<Button>().onClick.AddListener(Buy);   
+            buttonSprite.gameObject.GetComponent<Button>().onClick.AddListener(Buy);
         }
     }
 

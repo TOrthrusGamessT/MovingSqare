@@ -239,6 +239,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   speed: 2.3
   deadEffect: {fileID: 938355462728799340, guid: 5104cb0027b01e844b6a7c790b66bb6a, type: 3}
+  figure: 2
   collider: {fileID: 0}
 --- !u!1 &8957595394389511976
 GameObject:

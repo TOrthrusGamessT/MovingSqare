@@ -278,17 +278,6 @@ GameObject:
   m_CorrespondingSourceObject: {fileID: 1918229621, guid: 0565bcfb184537347b50f13119c5bfb7, type: 3}
   m_PrefabInstance: {fileID: 646571524}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &417674925 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 3648714190113248332, guid: 0565bcfb184537347b50f13119c5bfb7, type: 3}
-  m_PrefabInstance: {fileID: 646571524}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 1344c3c82d62a2a41a3576d8abb8e3ea, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!114 &417674926 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 3648714188704094993, guid: 0565bcfb184537347b50f13119c5bfb7, type: 3}
@@ -660,7 +649,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 11cde94f7e11d2245a7db8611b9b23b2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  money: {fileID: 646571525}
 --- !u!1 &622868994 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 3648714189960822839, guid: 0565bcfb184537347b50f13119c5bfb7, type: 3}
@@ -961,7 +949,56 @@ PrefabInstance:
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_Target
       value: 
       objectReference: {fileID: 597441479}
-    m_RemovedComponents: []
+    - target: {fileID: 3648714189897594600, guid: 0565bcfb184537347b50f13119c5bfb7, type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3648714189897594600, guid: 0565bcfb184537347b50f13119c5bfb7, type: 3}
+      propertyPath: m_AnchorMin.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3648714189897594600, guid: 0565bcfb184537347b50f13119c5bfb7, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3648714189897594600, guid: 0565bcfb184537347b50f13119c5bfb7, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3648714190113248333, guid: 0565bcfb184537347b50f13119c5bfb7, type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3648714190113248333, guid: 0565bcfb184537347b50f13119c5bfb7, type: 3}
+      propertyPath: m_AnchorMin.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3648714190113248333, guid: 0565bcfb184537347b50f13119c5bfb7, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3648714190534796782, guid: 0565bcfb184537347b50f13119c5bfb7, type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3648714190534796782, guid: 0565bcfb184537347b50f13119c5bfb7, type: 3}
+      propertyPath: m_AnchorMin.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3648714190534796782, guid: 0565bcfb184537347b50f13119c5bfb7, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3648714190534796782, guid: 0565bcfb184537347b50f13119c5bfb7, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 9108258095551921189, guid: 0565bcfb184537347b50f13119c5bfb7, type: 3}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
+    m_RemovedComponents:
+    - {fileID: 747931765339372503, guid: 0565bcfb184537347b50f13119c5bfb7, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: 0565bcfb184537347b50f13119c5bfb7, type: 3}
 --- !u!114 &646571525 stripped
 MonoBehaviour:
@@ -1274,7 +1311,6 @@ MonoBehaviour:
   moneyCollected: {fileID: 646571531}
   mainUI: {fileID: 646571533}
   movingZone: {fileID: 859896079}
-  money: {fileID: 646571525}
   moneyParent: {fileID: 622868995}
   revive: {fileID: 646571530}
   next: {fileID: 0}
@@ -1839,7 +1875,7 @@ MonoBehaviour:
   - {fileID: 417674928}
   - {fileID: 417674927}
   - {fileID: 417674926}
-  moneySign: {fileID: 417674925}
+  moneySign: {fileID: 0}
   pauseButton: {fileID: 317279755}
   money: {fileID: 646571525}
 --- !u!1 &1876896042
@@ -2155,6 +2191,10 @@ PrefabInstance:
       propertyPath: deathColor.r
       value: 0.6320754
       objectReference: {fileID: 0}
+    - target: {fileID: 5115600189782291648, guid: 45ebaa4b895a5f3499d39a7cfa5ad49e, type: 3}
+      propertyPath: m_SortingOrder
+      value: -5
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 45ebaa4b895a5f3499d39a7cfa5ad49e, type: 3}
 --- !u!1 &7534325334839782980
@@ -2187,9 +2227,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   geometricFigures:
-  - {fileID: 5141665547245863844, guid: 7b9ef30859cb37e46891fea3c3c2f63b, type: 3}
-  - {fileID: 2023566006283250090, guid: 2732291cf6bb83744a4d0f2b73c1e981, type: 3}
-  - {fileID: 2203469339562770796, guid: 04e1c91305786594981ed930483713ff, type: 3}
+  - {fileID: 472596213449615522, guid: 2732291cf6bb83744a4d0f2b73c1e981, type: 3}
+  - {fileID: -1280477191582366774, guid: 7b9ef30859cb37e46891fea3c3c2f63b, type: 3}
+  - {fileID: 463005363, guid: 04e1c91305786594981ed930483713ff, type: 3}
   enemyAlertSignPrefab: {fileID: 7786718456191243107, guid: e29cc032366c1044495bb74baaacdfd9, type: 3}
   laser: {fileID: 7159293786856718687, guid: 928d9da3d80284f4793091c4ec7b021a, type: 3}
   spawningPoints:
@@ -2204,7 +2244,7 @@ MonoBehaviour:
   coinPrefab: {fileID: 141189488381344411, guid: 652c2241b038b0645b53c3361c825e58, type: 3}
   timeBetweenSpawnsGeometricFigures: 0
   timeBetweenSpawnPowerUps: 0
-  timeBetweenSpawnMoney: 0
+  timeBetweenSpawnMoney: 3
   timeBetweenSpawnLasers: 0
   linesLife: 1.5
   obstacleSpawnPoint: {fileID: 2205941659688731135}

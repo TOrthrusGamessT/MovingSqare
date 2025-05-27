@@ -9,7 +9,7 @@ public class BackgroundParticlesManager : MonoBehaviour
     public Color defColor, actionColor, deathColor;
     public ParticleSystem[] children;
     private int _tween;
-    
+
     #region Singleton
 
     public static BackgroundParticlesManager instance;
@@ -42,9 +42,9 @@ public class BackgroundParticlesManager : MonoBehaviour
                     ClearTween();
                 }
             }).id;
-            
+
             await Task.Delay(2000);
-            
+
             _tween = LeanTween.value(0, 1, 1500f).setOnUpdate((value) =>
             {
                 try
@@ -56,7 +56,7 @@ public class BackgroundParticlesManager : MonoBehaviour
                 {
                     ClearTween();
                 }
-                
+
             }).id;
         }
     }
@@ -76,11 +76,11 @@ public class BackgroundParticlesManager : MonoBehaviour
                 {
                     ClearTween();
                 }
-               
+
             }).id;
-            
+
             await Task.Delay(2000);
-            
+
             _tween = LeanTween.value(0, 1, 1500f).setOnUpdate((value) =>
             {
                 try
@@ -92,7 +92,7 @@ public class BackgroundParticlesManager : MonoBehaviour
                 {
                     ClearTween();
                 }
-               
+
             }).id;
         }
     }
@@ -100,6 +100,11 @@ public class BackgroundParticlesManager : MonoBehaviour
     private void ClearTween()
     {
         LeanTween.cancel(_tween);
+    }
+
+    void OnDestroy()
+    {
+        LeanTween.cancel(this.gameObject);
     }
 
 }

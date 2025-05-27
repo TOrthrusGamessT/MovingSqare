@@ -1,24 +1,25 @@
 using System;
 using System.Collections;
+using System.Collections.Generic;
 using Cysharp.Threading.Tasks;
-using Unity.VisualScripting;
 using UnityEngine;
 using Random = UnityEngine.Random;
 
 public class SpawnManagerLvls : Spawner
 {
 
+   //TODO this should be in Game Manager
    public LVLIndexer LvlIndexer;
    public GameObject boss;
-   
+
    [Header("Lvl Settings")]
    public Vector2 tetrisRange;
    public Transform tetrisSpawnPoint;
-   
+
    [Header("Tetris Prefabs")]
    public GameObject[] tetrisPrefabs;
    public GameObject tetrisDestroyEffect;
-   
+
    private GameObject _mazePrefab;
    private float _geometryFiguresSpeed;
    private float _tetrisEnemiesSpeed;
@@ -29,6 +30,8 @@ public class SpawnManagerLvls : Spawner
    private int _tetrisPeacesOnTime;
    private LvlSettings _lvlSettings;
 
+   private List<EnemyBehaviour> _geometryToSpawn = new();
+
    protected override void OnEnable()
    {
       base.OnEnable();
@@ -38,7 +41,7 @@ public class SpawnManagerLvls : Spawner
          StopSpawning();
       };
    }
-   
+
    protected override void OnDisable()
    {
       base.OnDisable();
@@ -75,27 +78,29 @@ public class SpawnManagerLvls : Spawner
       _tetrisEnemiesSpeed = _lvlSettings.tetrisEnemiesSpeed;
       _timeBetweenSpawnTetrisEnemies = _lvlSettings.timeBetweenSpawnTetrisEnemies;
       Timer.Duration = _lvlSettings.lvlDuration;
+
+      onSpawnManagerSetCoins?.Invoke(timeBetweenSpawnMoney);
    }
-   
+
    protected override void InitPowerUps()
    {
       availablePowerUps = new();
-        
+
       if (PlayerPrefs.HasKey(PowerUps.heal.ToString()))
       {
          availablePowerUps.Add(powerUps[0]);
       }
-        
+
       if (PlayerPrefs.HasKey(PowerUps.size.ToString()))
       {
          availablePowerUps.Add(powerUps[1]);
       }
-        
+
       if (PlayerPrefs.HasKey(PowerUps.speed.ToString()))
       {
          availablePowerUps.Add(powerUps[2]);
       }
-        
+
    }
 
    public override void StartSpawning()
@@ -108,20 +113,39 @@ public class SpawnManagerLvls : Spawner
          boss.SetActive(true);
          return;
       }
-      
+
       if (_lvlSettings.geometryFigures)
       {
+         _geometryToSpawn = geometricFigures;
+      }
+      else
+      {
+         if (_lvlSettings.square)
+         {
+            _geometryToSpawn.Add(geometricFigures.Find(x => x.figure == Constants.GeometryFigure.Square));
+         }
+
+         if (_lvlSettings.circle)
+         {
+            _geometryToSpawn.Add(geometricFigures.Find(x => x.figure == Constants.GeometryFigure.Circle));
+         }
+
+         if (_lvlSettings.hexagon)
+         {
+            _geometryToSpawn.Add(geometricFigures.Find(x => x.figure == Constants.GeometryFigure.Hexagon));
+         }
          StartCoroutine(SpawnGeometricFigures());
       }
+
 
       if (_lvlSettings.lasers)
       {
          StartCoroutine(SpawnLines());
       }
-      
-      if(_lvlSettings.maze)
+
+      if (_lvlSettings.maze)
       {
-         _mazePrefab=_lvlSettings.obstaclePrefab;
+         _mazePrefab = _lvlSettings.obstaclePrefab;
          StartCoroutine(SpawnMaze());
       }
 
@@ -135,14 +159,16 @@ public class SpawnManagerLvls : Spawner
          StartCoroutine(SpawnTetrisEnemies());
       }
 
+      CoinsBehaviour.Lifetime = _lvlSettings.moneyLife;
+
       StartCoroutine(SpawnMoney());
-      
+
       if (availablePowerUps.Count != 0)
       {
          StartCoroutine(SpawnPowerUps());
       }
-      
-      
+
+
       Timer.instance.StartCounter();
    }
 
@@ -152,15 +178,15 @@ public class SpawnManagerLvls : Spawner
    IEnumerator SpawnMaze()
    {
       yield return new WaitForSeconds(_timeBetweenSpawnMaze);
-      
-      Instantiate(_mazePrefab,obstacleSpawnPoint.position,Quaternion.identity);
+
+      Instantiate(_mazePrefab, obstacleSpawnPoint.position, Quaternion.identity);
       ObstacleBehaviour.speed = _lvlSettings.obstacleSpeed;
       StopSpawning();
-      
+
    }
 
    #endregion
-   
+
    #region Spawn fullScreenLines
 
    public override IEnumerator SpawnLines()
@@ -171,7 +197,7 @@ public class SpawnManagerLvls : Spawner
       {
          fullScreenLineObjects.Add(Instantiate(laser, new Vector2(Random.Range(minX, maxX)
             , Random.Range(minY, maxY)), Quaternion.Euler(0, 0, Random.RandomRange(0, 180))).GetComponent<FullScreenLine>());
-          
+
          yield return new WaitForSeconds(0.5f);
       }
 
@@ -179,7 +205,7 @@ public class SpawnManagerLvls : Spawner
 
       foreach (var line in fullScreenLineObjects)
       {
-         line.Activate();            
+         line.Activate();
       }
 
       yield return new WaitForSeconds(linesLife);
@@ -190,7 +216,7 @@ public class SpawnManagerLvls : Spawner
       }
 
       fullScreenLineObjects.Clear();
-        
+
       StartCoroutine(SpawnLines());
    }
 
@@ -206,7 +232,7 @@ public class SpawnManagerLvls : Spawner
 
       StartCoroutine(SpawnMoney());
    }
-   
+
 
    #endregion
 
@@ -217,12 +243,12 @@ public class SpawnManagerLvls : Spawner
    {
       yield return new WaitForSeconds(timeBetweenSpawnsGeometricFigures);
 
-      GameObject objectToSpawn = geometricFigures[Random.Range(0, geometricFigures.Count-1)];
-      objectToSpawn.GetComponent<EnemyBehaviour>().UpdateSpeedBasedOnFigure(_geometryFiguresSpeed);
-      Transform spawnPoint = spawningPoints[Random.Range(0, spawningPoints.Count-1)];
+      EnemyBehaviour objectToSpawn = _geometryToSpawn[Random.Range(0, _geometryToSpawn.Count)];
+      objectToSpawn.UpdateSpeedBasedOnFigure(_geometryFiguresSpeed);
+      Transform spawnPoint = spawningPoints[Random.Range(0, spawningPoints.Count - 1)];
 
       //Set direction and Target 
-        
+
       attentionSignBehaviour = Instantiate(enemyAlertSignPrefab, spawnPoint.position, spawnPoint.rotation)
          .GetComponent<AttentionSignBehaviour>();
       SetEnemyDirection(spawnPoint);
@@ -269,70 +295,70 @@ public class SpawnManagerLvls : Spawner
       yield return new WaitForSeconds(_timeBetweenSpawnTetrisEnemies);
 
       GameObject objectToSpawn = tetrisPrefabs[Random.Range(0, tetrisPrefabs.Length)];
-      Transform spawnPoint = spawningPoints[Random.Range(0, spawningPoints.Count-1)];
+      Transform spawnPoint = spawningPoints[Random.Range(0, spawningPoints.Count - 1)];
 
       //Set direction and Target 
-        
+
       attentionSignBehaviour = Instantiate(enemyAlertSignPrefab, spawnPoint.position, spawnPoint.rotation)
          .GetComponent<AttentionSignBehaviour>();
       SetEnemyDirection(spawnPoint);
       attentionSignBehaviour.target =
          Instantiate(objectToSpawn, positionToSpawn, Quaternion.identity).GetComponent<Transform>();
       GameObject newTetrisObject = attentionSignBehaviour.target.gameObject;
-      SetTetrisObject(newTetrisObject,objectToSpawn);
+      SetTetrisObject(newTetrisObject, objectToSpawn);
       newTetrisObject.GetComponent<EnemyBehaviour>().UpdateSpeedBasedOnFigure(_tetrisEnemiesSpeed);
       StartCoroutine(SpawnTetrisEnemies());
    }
 
-    
-    private void SetTetrisObject(GameObject newTetrisObject,GameObject tetrisPrefab)
-    {
-       
-       newTetrisObject.AddComponent<Rigidbody2D>();
-       newTetrisObject.GetComponent<Rigidbody2D>().gravityScale = 0;
-       newTetrisObject.tag= "Enemy";
-       newTetrisObject.layer = 3;
-       
-       switch (tetrisPrefab.name)
-       {
-          case "Cube":
-          {
-             newTetrisObject.AddComponent<Square>();
-             newTetrisObject.GetComponent<BoxCollider2D>().isTrigger = false;
-             break;
-          }
-          case "L_Down":
-          {
-             newTetrisObject.AddComponent<Hexagon>();
-             newTetrisObject.GetComponent<EdgeCollider2D>().isTrigger = false;   
-             break;
-          }
-         
-          case "L_Up":
-          {
-             newTetrisObject.AddComponent<Hexagon>();
-             newTetrisObject.GetComponent<EdgeCollider2D>().isTrigger = false;   
-             break;
-          }
 
-          case "Line_UP":
-          {
-             newTetrisObject.AddComponent<Circle>();
-             newTetrisObject.GetComponent<BoxCollider2D>().isTrigger = false;
-             break;
-          }
+   private void SetTetrisObject(GameObject newTetrisObject, GameObject tetrisPrefab)
+   {
 
-          default:
-          {
-             Debug.LogError("Tetris Object Undefined",this);
-             break;
-          }
-       }
+      newTetrisObject.AddComponent<Rigidbody2D>();
+      newTetrisObject.GetComponent<Rigidbody2D>().gravityScale = 0;
+      newTetrisObject.tag = "Enemy";
+      newTetrisObject.layer = 3;
 
-       
-       newTetrisObject.GetComponent<EnemyBehaviour>().deadEffect = tetrisDestroyEffect;
-    }
-    
+      switch (tetrisPrefab.name)
+      {
+         case "Cube":
+            {
+               newTetrisObject.AddComponent<Square>();
+               newTetrisObject.GetComponent<BoxCollider2D>().isTrigger = false;
+               break;
+            }
+         case "L_Down":
+            {
+               newTetrisObject.AddComponent<Hexagon>();
+               newTetrisObject.GetComponent<EdgeCollider2D>().isTrigger = false;
+               break;
+            }
+
+         case "L_Up":
+            {
+               newTetrisObject.AddComponent<Hexagon>();
+               newTetrisObject.GetComponent<EdgeCollider2D>().isTrigger = false;
+               break;
+            }
+
+         case "Line_UP":
+            {
+               newTetrisObject.AddComponent<Circle>();
+               newTetrisObject.GetComponent<BoxCollider2D>().isTrigger = false;
+               break;
+            }
+
+         default:
+            {
+               Debug.LogError("Tetris Object Undefined", this);
+               break;
+            }
+      }
+
+
+      newTetrisObject.GetComponent<EnemyBehaviour>().deadEffect = tetrisDestroyEffect;
+   }
+
    #endregion
 
    #region Spawn Power Ups
@@ -340,7 +366,7 @@ public class SpawnManagerLvls : Spawner
    protected override IEnumerator SpawnPowerUps()
    {
       yield return new WaitForSeconds(timeBetweenSpawnPowerUps);
-      Instantiate(availablePowerUps[Random.Range(0, availablePowerUps.Count-1)], new Vector2(Random.Range(minX, maxX)
+      Instantiate(availablePowerUps[Random.Range(0, availablePowerUps.Count - 1)], new Vector2(Random.Range(minX, maxX)
          , Random.Range(minY, maxY)), Quaternion.identity);
       StartCoroutine(SpawnPowerUps());
    }
@@ -352,48 +378,48 @@ public class SpawnManagerLvls : Spawner
    IEnumerator SpawnTetrisPiece()
    {
       yield return new WaitForSeconds(_timeBetweenSpawnMaze);
-     
+
       ObstacleBehaviour.speed = _lvlSettings.obstacleSpeed;
-      
+
       for (int tetrisIndex = 0; tetrisIndex < _lvlSettings.tetrisCount; tetrisIndex++)
       {
-       GameObject newTetrisObject =  Instantiate(_lvlSettings.obstaclePrefab,
-            new Vector2(Random.Range(tetrisRange.x,tetrisRange.y),tetrisSpawnPoint.position.y)
-            ,Quaternion.identity);
-       newTetrisObject.AddComponent<ObstacleBehaviour>();
-       yield return new WaitForSeconds(1f);
+         GameObject newTetrisObject = Instantiate(_lvlSettings.obstaclePrefab,
+              new Vector2(Random.Range(tetrisRange.x, tetrisRange.y), tetrisSpawnPoint.position.y)
+              , Quaternion.identity);
+         newTetrisObject.AddComponent<ObstacleBehaviour>();
+         yield return new WaitForSeconds(1f);
       }
-      
+
       yield return new WaitForSeconds(4f);
 
       StartCoroutine(SpawnTetrisPiece());
    }
 
    #endregion
-   
+
    #region SpawnBossAttacks
-   
+
    public void StartSecondAttack()
    {
-      
+
       UniTask.Void(async () =>
       {
          int roundTime = 10;
-         int geometricFigureIndex=0;
+         int geometricFigureIndex = 0;
          while (geometricFigureIndex < geometricFigures.Count)
          {
-            GameObject objectToSpawn = geometricFigures[geometricFigureIndex];
-            objectToSpawn.GetComponent<EnemyBehaviour>().UpdateSpeedBasedOnFigure(_geometryFiguresSpeed);
-            objectToSpawn.GetComponent<EnemyBehaviour>().SetTransformRight();
-            
+            EnemyBehaviour objectToSpawn = geometricFigures[geometricFigureIndex];
+            objectToSpawn.UpdateSpeedBasedOnFigure(_geometryFiguresSpeed);
+            objectToSpawn.SetTransformRight();
+
             Transform spawnPoint = spawningPoints[3];
-            
+
             attentionSignBehaviour = Instantiate(enemyAlertSignPrefab, spawnPoint.position, spawnPoint.rotation)
                .GetComponent<AttentionSignBehaviour>();
             SetEnemyDirection(spawnPoint);
             attentionSignBehaviour.target =
                Instantiate(objectToSpawn, positionToSpawn, Quaternion.identity).GetComponent<Transform>();
-            
+
             await UniTask.Delay(TimeSpan.FromSeconds(1));
             roundTime--;
             if (roundTime == 0)
