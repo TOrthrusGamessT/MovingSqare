@@ -24,7 +24,7 @@ public class ShopManager : MonoBehaviour
 
     #endregion
     public ShopText shopText;
-    //public ItemsPool itemsPool;
+    public ItemsPool upgradesPool;
     public SkinsData skinsData;
     public GameObject skinContainer;
     public GameObject powerUpContainer;
@@ -99,18 +99,18 @@ public class ShopManager : MonoBehaviour
 
             }
         }
-        //TODO: FIX
-        //create items
-        // foreach (var t in itemsPool.items)
-        // {
-        //     if (t.type == elementType && elementType == ElementType.PowerUp)
-        //     {
-        //         shopElements.Add(Instantiate(powerUpContainer, contentContainer)
-        //             .GetComponent<ShopItem>().Initialize(t, skinStatus[t.id]));
-        //     }
-        // }
-        //TODO choose selectedSkin
-
+        else
+        {
+            
+            foreach (var t in upgradesPool.items)
+            {
+               
+                    shopElements.Add(Instantiate(powerUpContainer, contentContainer)
+                        .GetComponent<ShopItem>().Initialize(t, skinStatus[t.id]));
+                
+            }
+            
+        }
     }
     
     private void SetBkSquares()

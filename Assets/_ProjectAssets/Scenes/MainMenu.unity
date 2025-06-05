@@ -1629,6 +1629,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   shopText: {fileID: 11400000, guid: 1716db25e7ff706429a945f2a9f70c53, type: 2}
+  upgradesPool: {fileID: 11400000, guid: b7ea795655413406ea507c2ff8ac869a, type: 2}
   skinsData: {fileID: 11400000, guid: cf0e038a3d8ba154db01ab386130d8bc, type: 2}
   skinContainer: {fileID: 4838253340333488280, guid: 68f6ac2d68cbc4e05af26bde9bed0732, type: 3}
   powerUpContainer: {fileID: 4838253340333488280, guid: 0b3187cd90b2f9e4eaa3b8d3766c1e64, type: 3}
