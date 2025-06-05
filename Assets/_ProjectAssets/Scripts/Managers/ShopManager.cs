@@ -24,7 +24,8 @@ public class ShopManager : MonoBehaviour
 
     #endregion
     public ShopText shopText;
-    public ItemsPool itemsPool;
+    //public ItemsPool itemsPool;
+    public SkinsData skinsData;
     public GameObject skinContainer;
     public GameObject powerUpContainer;
     public GameObject purchaseAnimation;
@@ -36,18 +37,19 @@ public class ShopManager : MonoBehaviour
     public Texture2D unselectedTexture;
     public Texture2D selectTexture;
 
+    [Header("TopButtons")]
+    public GameObject skinsOn;
+    public GameObject upgradesOn;
+
     [Header("Item Main Image")] 
     public Texture2D unBoughtImage;
-    
-    [SerializeField]
-    private TMP_Text shopType;
     private readonly List<ShopItem> shopElements = new ();
     private  List<BgMovement> bkSquares = new();
     private Dictionary<int,bool> skinStatus = new();
     private ElementType elementType;
-    
 
-    
+
+
     void Start()
     {
         bkSquares = FindObjectsOfType<BgMovement>().ToList();
@@ -59,13 +61,9 @@ public class ShopManager : MonoBehaviour
 
     private void InitPlayerPrefs()
     {
-        foreach (var skin in itemsPool.items)
+        foreach (var skinData in skinsData.skins)
         {
-            if (skin.type == ElementType.Skin)
-            {
-                skinStatus.Add(skin.id, PlayerPrefs.HasKey($"unlockedSkin{skin.id}"));
-            }
-            
+            skinStatus.Add(skinData.id, PlayerPrefs.HasKey($"unlockedSkin{skinData.id}"));   
         }
 
         selectedSkin = PlayerPrefs.HasKey("currentSkin") ? PlayerPrefs.GetInt("currentSkin") : 0;
@@ -74,38 +72,45 @@ public class ShopManager : MonoBehaviour
   
     public void ChangeSelectedSkin(int skinID)
     {
-        Skin skin = (Skin)shopElements[selectedSkin];
+        Skin skin = contentContainer.transform.GetChild(selectedSkin).GetComponent<Skin>();
         skin.Unselect(unselectedTexture);
-        skin = null;
         selectedSkin = skinID;
         SetBkSquares();
     }
-   
+
+    public void SetShop(int type)
+    {
+        elementType = (ElementType)type;
+        skinsOn.SetActive(type == 0);
+        upgradesOn.SetActive(type == 1);
+        DestroyAllShopElements();
+        InitPlayerPrefs();
+        InitShopElements(elementType);
+   }
     private void InitShopElements(ElementType elementType)
     {
         //header
-        shopType.text = elementType.ToString();
+        if (elementType == ElementType.Skin)
+        {
+            foreach (var skin in skinsData.skins)
+            {
+                Instantiate(skinContainer, contentContainer)
+                .GetComponent<Skin>().Initialize(skin, skinStatus[skin.id], skin.id == selectedSkin);
 
+            }
+        }
+        //TODO: FIX
         //create items
-        foreach (var t in itemsPool.items)
-        {
-            if (t.type==elementType && elementType == ElementType.Skin)
-            {
-                shopElements.Add(Instantiate(skinContainer, contentContainer)
-                .GetComponent<ShopItem>().Initialize(t,skinStatus[t.id], shopText));
-            }
-            if(t.type==elementType && elementType == ElementType.PowerUp)
-            {
-                shopElements.Add(Instantiate(powerUpContainer, contentContainer)
-                    .GetComponent<ShopItem>().Initialize(t,skinStatus[t.id]));
-            }
-        }
-        //choose selectedSkin
-        if(elementType == ElementType.Skin)
-        {
-            shopElements[selectedSkin].GetComponent<Skin>().SetStatus(true);
-            shopElements[selectedSkin].Select();
-        }
+        // foreach (var t in itemsPool.items)
+        // {
+        //     if (t.type == elementType && elementType == ElementType.PowerUp)
+        //     {
+        //         shopElements.Add(Instantiate(powerUpContainer, contentContainer)
+        //             .GetComponent<ShopItem>().Initialize(t, skinStatus[t.id]));
+        //     }
+        // }
+        //TODO choose selectedSkin
+
     }
     
     private void SetBkSquares()
@@ -115,24 +120,7 @@ public class ShopManager : MonoBehaviour
             square.SetSkin();
         }
     }
-    public void NextShopPage(){
-        elementType++;
-        if(System.Enum.GetValues(typeof(ElementType)).Length-1 < elementType.GetHashCode()){
-            elementType =0;
-        }
-        DestroyAllShopElements();
-        InitPlayerPrefs();
-        InitShopElements(elementType);
-    }
-    public void PrevShopPage(){
-        elementType--;
-        if(elementType.GetHashCode()<0){
-            elementType += System.Enum.GetValues(typeof(ElementType)).Length;
-        }
-        DestroyAllShopElements();
-        InitPlayerPrefs();
-        InitShopElements(elementType);
-    }
+   
     private void DestroyAllShopElements(){
         shopElements.Clear();
         skinStatus.Clear();

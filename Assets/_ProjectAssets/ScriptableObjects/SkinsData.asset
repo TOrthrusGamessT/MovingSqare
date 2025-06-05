@@ -1,0 +1,55 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5c3c58673d137484199f9dd65ed8231e, type: 3}
+  m_Name: SkinsData
+  m_EditorClassIdentifier: 
+  skins:
+  - id: 0
+    sprite: {fileID: 21300000, guid: 3b71f6232a4fd4a148b5b3522e3940f4, type: 3}
+    trailTexture: {fileID: 2800000, guid: d271d6a1aed6848559ecad6252e333b1, type: 3}
+    unlocked: 0
+    price: 0
+    lives: 1
+    speedBonus: 1
+    sizeBonus: 1
+  - id: 1
+    sprite: {fileID: 21300000, guid: 3ee517a458907475aa1b85f6720456b6, type: 3}
+    trailTexture: {fileID: 2800000, guid: 3ee517a458907475aa1b85f6720456b6, type: 3}
+    unlocked: 0
+    price: 200
+    lives: 1
+    speedBonus: 1
+    sizeBonus: 1.232
+  - id: 2
+    sprite: {fileID: 21300000, guid: 0dff90288618d41e6a13fac2286ecbac, type: 3}
+    trailTexture: {fileID: 2800000, guid: 0dff90288618d41e6a13fac2286ecbac, type: 3}
+    unlocked: 0
+    price: 200
+    lives: 1
+    speedBonus: 1.131
+    sizeBonus: 1
+  - id: 3
+    sprite: {fileID: 21300000, guid: 0c19f9591a80c486da5873753c192fc8, type: 3}
+    trailTexture: {fileID: 2800000, guid: 0c19f9591a80c486da5873753c192fc8, type: 3}
+    unlocked: 0
+    price: 500
+    lives: 1
+    speedBonus: 1.131
+    sizeBonus: 1.076
+  - id: 4
+    sprite: {fileID: 21300000, guid: b28d95fe3d1594f2dbefccbdfc7a8dba, type: 3}
+    trailTexture: {fileID: 2800000, guid: b28d95fe3d1594f2dbefccbdfc7a8dba, type: 3}
+    unlocked: 0
+    price: 600
+    lives: 2
+    speedBonus: 1
+    sizeBonus: 1

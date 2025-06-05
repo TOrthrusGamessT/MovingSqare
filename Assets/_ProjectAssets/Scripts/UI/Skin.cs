@@ -1,101 +1,113 @@
-using System.Xml.Schema;
 using System;
 using System.Collections;
-using System.Collections.Generic;
 using TMPro;
-using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.UI;
-using Random = UnityEngine.Random;
 using DG.Tweening;
 
-public class Skin : ShopItem
+public class Skin : MonoBehaviour
 {
-    private Sprite itemSprite;
     [SerializeField]
     private RawImage skinImageShow;
     [SerializeField]
     private RawImage buttonSprite;
     [SerializeField]
-    private TextMeshProUGUI text;
+    private TextMeshProUGUI priceText;
     [SerializeField]
     private Color selectedColor, unselectedColor;
     [SerializeField]
     private GameObject selectedVFX;
     [SerializeField]
     private RawImage margin;
+    [SerializeField]
+    private Transform _upgradesContainer;
+    [SerializeField]
+    private Slider speedSlider;
+    [SerializeField]
+    private Slider sizeSlider;
+    [SerializeField]
+    private GameObject[] lifeIcons; // Assign your 3 life images in the Inspector
 
-    private String description;
-    private int price;
-    private int id;
-    private ElementType type;
+    private SkinData skinData;
+    private string description;
 
-    public override ShopItem Initialize(Item shopItem, bool status, ShopText shopText)
+    public void Initialize(SkinData data, bool bought, bool isSelected = false)
     {
-        elementType = ElementType.Skin;
-        effects = shopItem.effects;
-        type = shopItem.type;
-        id = shopItem.id;
-        price = type == ElementType.Skin ? effects[0].price : effects[PlayerPrefs.GetInt(effects[0].name)].price;
-
-        itemSprite = shopItem.sprite;
-
-        SetDesctiption(shopText);
-        SetStatus(status);
-        return this;
+        skinData = data;
+        SetDescription();
+        SetStatus(bought);
+        if(isSelected)Select();
     }
 
-    public override ShopItem Initialize(Item shopItem, bool status) { return null; }
-
-
-    public void SetStatus(bool status)
+    public void SetStatus(bool bought)
     {
-        AddListener(status);
-        if (status)
+        AddListener(bought);
+
+        SetDescription();
+        if (bought)
         {
-            //Unselect Case
             buttonSprite.texture = ShopManager.instance.unselectedTexture;
-            skinImageShow.texture = itemSprite.texture;
-            text.color = new Color32(255, 255, 255, 255);
-            text.text = description;
+            skinImageShow.texture = skinData.sprite.texture;
+            priceText.color = Color.white;
+            priceText.text = "";
+            _upgradesContainer.gameObject.SetActive(true);
+           
         }
         else
         {
-            //Need to be bought case
             skinImageShow.texture = ShopManager.instance.unBoughtImage;
-            text.color = new Color32(255, 255, 255, 255);
-            text.text = price.ToString();
+            priceText.color = Color.white;
+            priceText.text = skinData.price.ToString();
+            _upgradesContainer.gameObject.SetActive(false);
         }
     }
 
-    private void SetDesctiption(ShopText shopText)
+    private void SetDescription()
     {
-        foreach (EffectTypeString current in shopText.effectTypeString)
+        // If you want to use bonuses in the description, you can format them here
+         // Update sliders with skin bonuses
+        if (speedSlider != null)
         {
-            if (current.type == effects[0].effect)
-            {
-                description = effects[0].value.ToString() + current.text;
-            }
+            speedSlider.value = skinData.speedBonus;
+            speedSlider.interactable = false; // Make read-only
+        }
+        if (sizeSlider != null)
+        {
+            sizeSlider.value = skinData.sizeBonus;
+            sizeSlider.interactable = false; // Make read-only
+        }
+
+        // Show correct number of life icons
+        UpdateLifeIcons();
+    }
+
+    private void UpdateLifeIcons()
+    {
+        if (lifeIcons == null) return;
+        for (int i = 0; i < lifeIcons.Length; i++)
+        {
+            lifeIcons[i].SetActive(i < skinData.lives);
         }
     }
 
-
-    public override void Buy()
+    public void Buy()
     {
         int currentMoney = PlayerPrefs.GetInt("Money");
-        if (currentMoney >= price)
+        if (currentMoney >= skinData.price)
         {
-            SetDesctiption(ShopManager.instance.shopText);
-            currentMoney -= price;
+            SetDescription();
+            currentMoney -= skinData.price;
             PlayerPrefs.SetInt("Money", currentMoney);
             ShopManager.instance.SetMoney(currentMoney);
             ShopManager.instance.purchaseAnimation.SetActive(true);
-            ShopManager.instance.purchaseAnimation.GetComponent<PurchaseAnimation>().SetSkin(itemSprite);
-            StartCoroutine(AnimatePurchase());
-            PlayerPrefs.SetInt("unlockedSkin" + id, 1);
+            ShopManager.instance.purchaseAnimation.GetComponent<PurchaseAnimation>().SetSkin(skinData.sprite);
+            ShopManager.instance.StartCoroutine(AnimatePurchase());
+            PlayerPrefs.SetInt("unlockedSkin" + skinData.id, 1);
             ClearListener();
             AddListener(true);
-            text.text = description;
+            _upgradesContainer.gameObject.SetActive(true);
+            SetDescription();
+            priceText.text = description;
         }
         else
         {
@@ -103,74 +115,60 @@ public class Skin : ShopItem
         }
     }
 
-    public override void NotEnoughMoney()
+    public void NotEnoughMoney()
     {
-        Color originalMarginColor = margin.color;
-        Color originalSkinColor = skinImageShow.color;
         Color red = Color.red;
         Color white = Color.white;
 
-
-        margin.DOColor(red, 0.5f).OnComplete(() =>
-        {
-
-            margin.DOColor(white, 0.5f);
-        });
-
-        skinImageShow.DOColor(red, 0.5f).OnComplete(() =>
-        {
-            skinImageShow.DOColor(white, 0.5f);
-        });
+        margin.DOColor(red, 0.5f).OnComplete(() => margin.DOColor(white, 0.5f));
+        skinImageShow.DOColor(red, 0.5f).OnComplete(() => skinImageShow.DOColor(white, 0.5f));
     }
-
 
     IEnumerator AnimatePurchase()
     {
-        // StartCoroutine(ColorAnimation());
-        LeanTween.scale(skinImageShow.gameObject, new Vector3(0, 0, 0), 1f);
+        LeanTween.scale(skinImageShow.gameObject, Vector3.zero, 1f);
         yield return new WaitForSeconds(1f);
-        skinImageShow.texture = itemSprite.texture;
-        text.color = new Color32(255, 255, 255, 255);
-        LeanTween.scale(skinImageShow.gameObject, new Vector3(1, 1, 1), 0.5f).setEase(LeanTweenType.easeOutBack);
+        skinImageShow.texture = skinData.sprite.texture;
+        priceText.color = Color.white;
+        LeanTween.scale(skinImageShow.gameObject, Vector3.one, 0.5f).setEase(LeanTweenType.easeOutBack);
     }
 
     public void Unselect(Texture2D unselectedTexture)
     {
         margin.color = unselectedColor;
-        text.color = unselectedColor;
+        priceText.color = unselectedColor;
         selectedVFX.SetActive(false);
         buttonSprite.texture = unselectedTexture;
     }
 
-    public override void Select()
+    public void Select()
     {
+        PlayerPrefs.SetInt("currentSkin", skinData.id);
         margin.color = selectedColor;
-        text.color = selectedColor;
         selectedVFX.SetActive(true);
-        ShopManager.instance.selectedSkin = id;
-        buttonSprite.texture = ShopManager.instance.selectTexture;
-        PlayerPrefs.SetInt("currentSkin", id);
     }
 
-    private void AddListener(bool status)
+    private void AddListener(bool bought)
     {
-        if (status)
+        var btn = buttonSprite.gameObject.GetComponent<Button>();
+        btn.onClick.RemoveAllListeners();
+        if (bought)
         {
-            buttonSprite.gameObject.GetComponent<Button>().onClick.AddListener(() =>
+            btn.onClick.AddListener(() =>
             {
-                ShopManager.instance.ChangeSelectedSkin(id);
                 Select();
+                ShopManager.instance.ChangeSelectedSkin(skinData.id);
             });
         }
         else
         {
-            buttonSprite.gameObject.GetComponent<Button>().onClick.AddListener(Buy);
+            btn.onClick.AddListener(Buy);
         }
     }
-
 
     private void ClearListener()
     {
         buttonSprite.GetComponent<Button>().onClick.RemoveAllListeners();
     }
+
 }

@@ -1,7 +1,5 @@
 using System;
 using System.Collections;
-using System.Collections.Generic;
-using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.UI;
 using Random = UnityEngine.Random;
@@ -9,14 +7,14 @@ using Random = UnityEngine.Random;
 public class BgMovement : MonoBehaviour
 {
     public GameObject obj1;
-    public ItemsPool itemsPool;
+    public SkinsData skinsData;
     public Sprite currentSprite;
     public GameObject prefab;
     // Start is called before the first frame update
     
     void Start()
     {
-        currentSprite = PlayerPrefs.HasKey("currentSkin") ? itemsPool.items[PlayerPrefs.GetInt("currentSkin")].sprite : itemsPool.items[0].sprite;
+        currentSprite = PlayerPrefs.HasKey("currentSkin") ? skinsData.skins[PlayerPrefs.GetInt("currentSkin")].sprite : skinsData.skins[0].sprite;
         SetBGAnimation();
     }
 
@@ -66,8 +64,8 @@ public class BgMovement : MonoBehaviour
             Random.Range(4f, 7f));
         StartCoroutine(ResetDest(obj));
     }
-   public void SetSkin()
-   {
-        currentSprite = itemsPool.items[PlayerPrefs.GetInt("currentSkin")].sprite;
+    public void SetSkin()
+    {
+        currentSprite = skinsData.skins[PlayerPrefs.GetInt("currentSkin")].sprite;
     }
 }
