@@ -10,7 +10,6 @@ using UnityEngine.UI;
 
 public class MenuAnimation : MonoBehaviour
 {
-    public Image[] buttonsFill;
     public TextMeshProUGUI[] textFade;
     public TextMeshProUGUI money;
     public GameObject main, shop, topBar, startButton, gameModeMenu;
@@ -35,14 +34,7 @@ public class MenuAnimation : MonoBehaviour
 
     private void InitAnimations()
     {
-        for(int i=0; i < buttonsFill.Length; i++)
-        {
-            buttonsFill[i].fillAmount = 0;
-            int index = i;
-            LeanTween.value(0, 1, 1f).setOnUpdate(value => {
-                buttonsFill[index].fillAmount = value;
-            });
-        }
+        
         for(int i=0; i< textFade.Length; i++)
         {
             textFade[i].color = new Color32(255, 255, 255, 1);
