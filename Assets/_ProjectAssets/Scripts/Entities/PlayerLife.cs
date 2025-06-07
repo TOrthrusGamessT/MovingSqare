@@ -63,6 +63,7 @@ public class PlayerLife : MonoBehaviour
         life -= damage;
         Invincible();
         EffectManager.DamageEffect();
+        UIManagerGameRoom.instance.DecreaseLife();
         if (life <= 0)
         {
             onPlayerDie?.Invoke();

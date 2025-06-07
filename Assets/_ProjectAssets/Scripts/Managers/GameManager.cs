@@ -26,7 +26,8 @@ public class GameManager : MonoBehaviour
 
     [SerializeField] private UIManagerGameRoom uiManager;
     [SerializeField] private Spawner spawnManagerSurvive;
-    [SerializeField] private ItemsPool items;
+    [SerializeField] private ItemsPool upgrades;
+    [SerializeField] private SkinsData skins;
     [SerializeField] private int difficultySpeed;
     [SerializeField] private float extraMoneyIncrease;
 
@@ -70,7 +71,7 @@ public class GameManager : MonoBehaviour
     {
         Application.targetFrameRate = Screen.currentResolution.refreshRate;
 
-        player.GetComponent<PlayerManager>().InitPlayer(items.items[PlayerPrefs.GetInt("currentSkin")]);
+        player.GetComponent<PlayerManager>().InitPlayer(skins.skins[PlayerPrefs.GetInt("currentSkin")]);
 
         StartCoroutine(InitGame());
 

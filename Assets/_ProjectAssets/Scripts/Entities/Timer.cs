@@ -18,9 +18,15 @@ public class Timer : MonoBehaviour
 
       if (instance == null)
          instance = this;
+
+      if (isSurviveMode)
+      {
+         StartSurviveModeTimer().Forget();
+      }
    }
    #endregion
 
+   [SerializeField] private bool isSurviveMode = false;
    public static Action onCounterEnd;
 
    [SerializeField] private TextMeshProUGUI timerText;
@@ -29,6 +35,7 @@ public class Timer : MonoBehaviour
    private static int lvlDuration;
    private CancellationTokenSource _ct = new();
    private UniTask _counterTask = default;
+   private int elapsedSeconds = 0;
 
 
    public static int Duration
@@ -110,6 +117,17 @@ public class Timer : MonoBehaviour
             onCounterEnd?.Invoke();
             break;
          }
+      }
+   }
+
+   private async UniTask StartSurviveModeTimer()
+   {
+      elapsedSeconds = 0;
+      while (true)
+      {
+         await UniTask.Delay(TimeSpan.FromSeconds(1), cancellationToken: this.GetCancellationTokenOnDestroy());
+         elapsedSeconds++;
+         UpdateUITimer(elapsedSeconds);
       }
    }
 }

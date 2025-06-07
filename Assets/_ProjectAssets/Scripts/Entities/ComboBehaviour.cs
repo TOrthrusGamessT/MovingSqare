@@ -9,9 +9,7 @@ public class ComboBehaviour : MonoBehaviour
 
    [Header("Fill Effect")]
    [SerializeField] private RectTransform fillImage;
-   [ColorUsage(true, true)]
    public Color fillColorActive;
-   [ColorUsage(true, false)]
    public Color fillColorInactive;
 
    private RawImage _fillRawImage;
@@ -24,6 +22,7 @@ public class ComboBehaviour : MonoBehaviour
    private float remainingTime;
    private float timeBetweenSpawningCoins;
    private Tween fillTween;
+   private Coroutine surviveModeCoroutine;
 
    private void Awake()
    {

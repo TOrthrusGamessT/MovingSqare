@@ -32,43 +32,21 @@ public class PlayerManager : MonoBehaviour
         trail = transform.GetChild(0).GetComponent<ParticleSystem>();
     }
 
-    public void InitPlayer(Item item)
+    public void InitPlayer(SkinData skin)
     {
-        _playerBody.sprite = item.sprite;
-        trail.GetComponent<Renderer>().material.SetTexture("_BaseMap", item.trailTexture);
+        _playerBody.sprite = skin.sprite;
+        trail.GetComponent<Renderer>().material.SetTexture("_BaseMap", skin.trailTexture);
 
-        ApplyEffect(item);
+        ApplyEffect(skin);
     }
 
 
-    private void ApplyEffect(Item item)
+    private void ApplyEffect(SkinData skin)
     {
 
-        switch (item.effects[0].effect)
-        {
-            case EffectType.Size:
-                {
-                    transform.localScale -= CalculatePercentage(item.effects[0].value) * Vector3.one;
-                    //float scale =  GetComponent<TrailRenderer>().widthMultiplier - 0.12f*PlayerPrefs.GetInt(item.effects[0].name);
-                    //GetComponent<TrailRenderer>().widthMultiplier = scale;
-                    break;
-                }
-            case EffectType.Speed:
-                {
-                    movement.speed += CalculateSpeed(movement.speed, item.effects[0].value);
-                    break;
-                }
-            case EffectType.Life:
-                {
-                    playerLife.AddLife((int)item.effects[0].value);
-                    break;
-                }
-            default:
-                {
-                    Debug.Log("NoEffectApplied");
-                    break;
-                }
-        }
+        transform.localScale /= skin.sizeBonus;
+        movement.speed*= skin.speedBonus;
+        playerLife.AddLife(skin.lives);
     }
 
     private void WinLvl()
