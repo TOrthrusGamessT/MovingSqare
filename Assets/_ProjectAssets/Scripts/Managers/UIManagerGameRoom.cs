@@ -230,7 +230,6 @@ public class UIManagerGameRoom : MonoBehaviour
 
     public void DecreaseLife()
     {
-        Debug.LogError("Decreasing life");
         playerLives[index].SetActive(false);
         index--;
     }

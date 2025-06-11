@@ -14,8 +14,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   skins:
   - id: 0
-    sprite: {fileID: 21300000, guid: 3b71f6232a4fd4a148b5b3522e3940f4, type: 3}
-    trailTexture: {fileID: 2800000, guid: d271d6a1aed6848559ecad6252e333b1, type: 3}
+    sprite: {fileID: 21300000, guid: 1e42b9a0c63893e488c5a3202518a6a1, type: 3}
+    trailTexture: {fileID: 2800000, guid: 1e42b9a0c63893e488c5a3202518a6a1, type: 3}
     unlocked: 0
     price: 0
     lives: 1
@@ -33,7 +33,7 @@ MonoBehaviour:
     sprite: {fileID: 21300000, guid: 0dff90288618d41e6a13fac2286ecbac, type: 3}
     trailTexture: {fileID: 2800000, guid: 0dff90288618d41e6a13fac2286ecbac, type: 3}
     unlocked: 0
-    price: 200
+    price: 400
     lives: 1
     speedBonus: 1.131
     sizeBonus: 1
@@ -53,3 +53,99 @@ MonoBehaviour:
     lives: 2
     speedBonus: 1
     sizeBonus: 1
+  - id: 5
+    sprite: {fileID: 21300000, guid: 29cdcd86d79ca48fd89bb068df8a0368, type: 3}
+    trailTexture: {fileID: 2800000, guid: 29cdcd86d79ca48fd89bb068df8a0368, type: 3}
+    unlocked: 0
+    price: 800
+    lives: 1
+    speedBonus: 1.383
+    sizeBonus: 1
+  - id: 6
+    sprite: {fileID: 21300000, guid: f538602a63e784cf18c51486d9655672, type: 3}
+    trailTexture: {fileID: 2800000, guid: f538602a63e784cf18c51486d9655672, type: 3}
+    unlocked: 0
+    price: 1500
+    lives: 1
+    speedBonus: 1
+    sizeBonus: 1.678
+  - id: 7
+    sprite: {fileID: 21300000, guid: 3b71f6232a4fd4a148b5b3522e3940f4, type: 3}
+    trailTexture: {fileID: 2800000, guid: 3b71f6232a4fd4a148b5b3522e3940f4, type: 3}
+    unlocked: 0
+    price: 1800
+    lives: 2
+    speedBonus: 1.291
+    sizeBonus: 1
+  - id: 8
+    sprite: {fileID: 21300000, guid: b543536a7a46b4eff82cae855d03db7d, type: 3}
+    trailTexture: {fileID: 2800000, guid: b543536a7a46b4eff82cae855d03db7d, type: 3}
+    unlocked: 0
+    price: 2500
+    lives: 2
+    speedBonus: 1
+    sizeBonus: 1.418
+  - id: 9
+    sprite: {fileID: 21300000, guid: ee7f8419038d1495c927def42ea4b88b, type: 3}
+    trailTexture: {fileID: 2800000, guid: ee7f8419038d1495c927def42ea4b88b, type: 3}
+    unlocked: 0
+    price: 3050
+    lives: 3
+    speedBonus: 1
+    sizeBonus: 1
+  - id: 10
+    sprite: {fileID: 21300000, guid: a4a0588fb50cd3d47855f85f6b796268, type: 3}
+    trailTexture: {fileID: 2800000, guid: a4a0588fb50cd3d47855f85f6b796268, type: 3}
+    unlocked: 0
+    price: 3333
+    lives: 2
+    speedBonus: 1.492
+    sizeBonus: 1.5
+  - id: 11
+    sprite: {fileID: 21300000, guid: 8080fb88e6ba9994f9d87ca2488757d5, type: 3}
+    trailTexture: {fileID: 2800000, guid: 8080fb88e6ba9994f9d87ca2488757d5, type: 3}
+    unlocked: 0
+    price: 4000
+    lives: 2
+    speedBonus: 1.64
+    sizeBonus: 1.77
+  - id: 12
+    sprite: {fileID: 21300000, guid: 28394af313cd51045b622c1a7873c167, type: 3}
+    trailTexture: {fileID: 2800000, guid: 28394af313cd51045b622c1a7873c167, type: 3}
+    unlocked: 0
+    price: 4500
+    lives: 2
+    speedBonus: 1.453
+    sizeBonus: 2
+  - id: 13
+    sprite: {fileID: 21300000, guid: 375d636d21a817a49bb93b0b913b8592, type: 3}
+    trailTexture: {fileID: 2800000, guid: 375d636d21a817a49bb93b0b913b8592, type: 3}
+    unlocked: 0
+    price: 5500
+    lives: 2
+    speedBonus: 1.748
+    sizeBonus: 1
+  - id: 14
+    sprite: {fileID: 21300000, guid: e67ed92120950cc4b932bac8b67a7095, type: 3}
+    trailTexture: {fileID: 2800000, guid: e67ed92120950cc4b932bac8b67a7095, type: 3}
+    unlocked: 0
+    price: 6000
+    lives: 2
+    speedBonus: 1.744
+    sizeBonus: 1.64
+  - id: 15
+    sprite: {fileID: 21300000, guid: 1fa61193d0495da44bc3901ef96121b5, type: 3}
+    trailTexture: {fileID: 2800000, guid: 1fa61193d0495da44bc3901ef96121b5, type: 3}
+    unlocked: 0
+    price: 7000
+    lives: 3
+    speedBonus: 1.569
+    sizeBonus: 1.778
+  - id: 16
+    sprite: {fileID: 21300000, guid: 2aa5266d2dfa3694cb781b8ea5cf6cbe, type: 3}
+    trailTexture: {fileID: 2800000, guid: 2aa5266d2dfa3694cb781b8ea5cf6cbe, type: 3}
+    unlocked: 0
+    price: 10000
+    lives: 3
+    speedBonus: 2
+    sizeBonus: 2
