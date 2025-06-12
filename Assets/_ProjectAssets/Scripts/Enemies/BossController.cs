@@ -192,7 +192,7 @@ public class BossController : MonoBehaviour
     {
         GetComponent<BoxCollider2D>().enabled = false;
         _rb.gravityScale = 1;
-        _rb.drag = 16;
+        _rb.linearDamping = 16;
         foreach (var particleSystem in destroyEffect)
         {
             particleSystem.Play();

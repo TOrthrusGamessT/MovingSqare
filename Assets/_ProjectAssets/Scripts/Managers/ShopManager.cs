@@ -35,7 +35,7 @@ public class ShopManager : MonoBehaviour
 
     [Header("Buttons")]
     public Texture2D unselectedTexture;
-    public Texture2D selectTexture;
+    public Texture2D selectedTexture;
 
     [Header("TopButtons")]
     public GameObject skinsOn;

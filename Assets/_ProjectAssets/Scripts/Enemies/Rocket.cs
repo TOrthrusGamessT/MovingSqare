@@ -27,7 +27,7 @@ public class Rocket : MonoBehaviour
 
         _rb.angularVelocity = -rotateAmount * speedRotation; 
 
-        _rb.velocity = transform.up * speed;
+        _rb.linearVelocity = transform.up * speed;
     }
 
 

@@ -20,35 +20,34 @@ public class MenuManager : MonoBehaviour
         AudioSetup();
     }
     
-    public void MusicToogle(GameObject img)
+    public void MusicToogle(GameObject parent)
     {
         if (musicOn)
         {
             musicOn = false;
             this.GetComponent<AudioSource>().Stop();
-            
         }
         else
         {
             musicOn = true;
             this.GetComponent<AudioSource>().Play();
         }
-        img.SetActive(!musicOn);
         
+        GameObject onIcon = parent.transform.GetChild(0).gameObject;
+        GameObject offIcon = parent.transform.GetChild(1).gameObject;
+        
+        onIcon.SetActive(musicOn);
+        offIcon.SetActive(!musicOn);
     }
-    public void SoundToogle(GameObject img)
+    public void SoundToogle(GameObject parent)
     {
-        if (soundOn)
-        {
-            soundOn = false;
-
-        }
-        else
-        {
-            soundOn = true;
-        }
-        img.SetActive(!soundOn);
-
+        soundOn = !soundOn;
+    
+        GameObject onIcon = parent.transform.GetChild(0).gameObject;
+        GameObject offIcon = parent.transform.GetChild(1).gameObject;
+    
+        onIcon.SetActive(soundOn);
+        offIcon.SetActive(!soundOn);
     }
     public void SaveData()
     {
@@ -71,6 +70,7 @@ public class MenuManager : MonoBehaviour
     }
     public void AudioSetup()
     {
+        // Music setup
         if (PlayerPrefs.HasKey("music"))
         {
             if (PlayerPrefs.GetInt("music") == 1)
@@ -81,7 +81,6 @@ public class MenuManager : MonoBehaviour
             else
             {
                 musicOn = false;
-                GameObject.Find("Music").transform.GetChild(1).gameObject.SetActive(true);
             }
         }
         else
@@ -89,6 +88,14 @@ public class MenuManager : MonoBehaviour
             musicOn = true;
             this.GetComponent<AudioSource>().Play();
         }
+        
+        // Update music icons
+        GameObject musicOnIcon = GameObject.Find("Music").transform.GetChild(0).gameObject;
+        GameObject musicOffIcon = GameObject.Find("Music").transform.GetChild(1).gameObject;
+        musicOnIcon.SetActive(musicOn);
+        musicOffIcon.SetActive(!musicOn);
+        
+        // Sound setup
         if (PlayerPrefs.HasKey("sound"))
         {
             if (PlayerPrefs.GetInt("sound") == 1)
@@ -98,13 +105,17 @@ public class MenuManager : MonoBehaviour
             else
             {
                 soundOn = false;
-                GameObject.Find("Sound").transform.GetChild(1).gameObject.SetActive(true);
             }
-                
         }
         else
         {
             soundOn = true;
         }
+        
+        // Update sound icons
+        GameObject soundOnIcon = GameObject.Find("Sound").transform.GetChild(0).gameObject;
+        GameObject soundOffIcon = GameObject.Find("Sound").transform.GetChild(1).gameObject;
+        soundOnIcon.SetActive(soundOn);
+        soundOffIcon.SetActive(!soundOn);
     }
 }

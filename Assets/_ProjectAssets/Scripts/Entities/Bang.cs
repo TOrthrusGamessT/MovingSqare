@@ -19,6 +19,6 @@ public class Bang : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        _rb.velocity = transform.right * 2;
+        _rb.linearVelocity = transform.right * 2;
     }
 }
