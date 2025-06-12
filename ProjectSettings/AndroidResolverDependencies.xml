@@ -1,8 +1,13 @@
 <dependencies>
   <packages>
     <package>androidx.constraintlayout:constraintlayout:2.1.4</package>
+<<<<<<< Updated upstream
     <package>com.google.android.gms:play-services-ads:24.2.0</package>
     <package>com.google.android.gms:play-services-base:18.2.0</package>
+=======
+    <package>com.google.android.gms:play-services-ads:24.3.0</package>
+    <package>com.google.android.gms:play-services-base:18.6.0</package>
+>>>>>>> Stashed changes
     <package>com.google.android.ump:user-messaging-platform:3.2.0</package>
     <package>com.google.firebase:firebase-analytics:21.3.0</package>
     <package>com.google.firebase:firebase-analytics-unity:11.3.0</package>
@@ -11,7 +16,7 @@
   </packages>
   <files />
   <settings>
-    <setting name="androidAbis" value="arm64-v8a,armeabi-v7a" />
+    <setting name="androidAbis" value="arm64-v8a" />
     <setting name="bundleId" value="com.UnknownGames.MoveTheSquare" />
     <setting name="explodeAars" value="True" />
     <setting name="gradleBuildEnabled" value="True" />
