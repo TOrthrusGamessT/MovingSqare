@@ -4,9 +4,13 @@
 <<<<<<< Updated upstream
     <package>com.google.android.gms:play-services-ads:24.2.0</package>
 <<<<<<< Updated upstream
+<<<<<<< Updated upstream
     <package>com.google.android.gms:play-services-base:18.2.0</package>
 =======
     <package>com.google.android.gms:play-services-ads:24.3.0</package>
+    <package>com.google.android.gms:play-services-base:18.6.0</package>
+>>>>>>> Stashed changes
+=======
     <package>com.google.android.gms:play-services-base:18.6.0</package>
 >>>>>>> Stashed changes
 =======

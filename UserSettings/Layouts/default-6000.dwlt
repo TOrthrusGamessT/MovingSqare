@@ -20,7 +20,11 @@ MonoBehaviour:
     height: 989
   m_ShowMode: 4
 <<<<<<< Updated upstream
+<<<<<<< Updated upstream
   m_Title: Hierarchy
+=======
+  m_Title: Simulator
+>>>>>>> Stashed changes
 =======
   m_Title: Simulator
 >>>>>>> Stashed changes
@@ -123,7 +127,11 @@ MonoBehaviour:
   m_MaxSize: {x: 32384, y: 16192}
   vertical: 1
 <<<<<<< Updated upstream
+<<<<<<< Updated upstream
   controlID: 113
+=======
+  controlID: 78
+>>>>>>> Stashed changes
 =======
   controlID: 78
 >>>>>>> Stashed changes
@@ -153,7 +161,11 @@ MonoBehaviour:
   m_MaxSize: {x: 32384, y: 16192}
   vertical: 0
 <<<<<<< Updated upstream
+<<<<<<< Updated upstream
   controlID: 114
+=======
+  controlID: 79
+>>>>>>> Stashed changes
 =======
   controlID: 79
 >>>>>>> Stashed changes
@@ -183,7 +195,11 @@ MonoBehaviour:
   m_MaxSize: {x: 24288, y: 16192}
   vertical: 1
 <<<<<<< Updated upstream
+<<<<<<< Updated upstream
   controlID: 54
+=======
+  controlID: 126
+>>>>>>> Stashed changes
 =======
   controlID: 126
 >>>>>>> Stashed changes
@@ -210,17 +226,23 @@ MonoBehaviour:
     y: 0
     width: 1379
 <<<<<<< Updated upstream
+<<<<<<< Updated upstream
     height: 633
   m_MinSize: {x: 300, y: 50}
   m_MaxSize: {x: 24288, y: 8096}
   vertical: 0
   controlID: 55
 =======
+=======
+>>>>>>> Stashed changes
     height: 654
   m_MinSize: {x: 300, y: 50}
   m_MaxSize: {x: 24288, y: 8096}
   vertical: 0
   controlID: 127
+<<<<<<< Updated upstream
+>>>>>>> Stashed changes
+=======
 >>>>>>> Stashed changes
   draggingID: 0
 --- !u!114 &9
@@ -241,15 +263,21 @@ MonoBehaviour:
     x: 0
     y: 0
 <<<<<<< Updated upstream
+<<<<<<< Updated upstream
     width: 366
     height: 633
   m_MinSize: {x: 200, y: 200}
   m_MaxSize: {x: 4000, y: 4000}
 =======
+=======
+>>>>>>> Stashed changes
     width: 367
     height: 654
   m_MinSize: {x: 201, y: 226}
   m_MaxSize: {x: 4001, y: 4026}
+<<<<<<< Updated upstream
+>>>>>>> Stashed changes
+=======
 >>>>>>> Stashed changes
   m_ActualView: {fileID: 15}
   m_Panes:
@@ -272,6 +300,7 @@ MonoBehaviour:
   m_Position:
     serializedVersion: 2
 <<<<<<< Updated upstream
+<<<<<<< Updated upstream
     x: 366
     y: 0
     width: 526
@@ -279,12 +308,17 @@ MonoBehaviour:
   m_MinSize: {x: 200, y: 200}
   m_MaxSize: {x: 4000, y: 4000}
 =======
+=======
+>>>>>>> Stashed changes
     x: 367
     y: 0
     width: 526
     height: 654
   m_MinSize: {x: 202, y: 226}
   m_MaxSize: {x: 4002, y: 4026}
+<<<<<<< Updated upstream
+>>>>>>> Stashed changes
+=======
 >>>>>>> Stashed changes
   m_ActualView: {fileID: 16}
   m_Panes:
@@ -307,6 +341,7 @@ MonoBehaviour:
   m_Position:
     serializedVersion: 2
 <<<<<<< Updated upstream
+<<<<<<< Updated upstream
     x: 892
     y: 0
     width: 487
@@ -314,12 +349,17 @@ MonoBehaviour:
   m_MinSize: {x: 200, y: 200}
   m_MaxSize: {x: 4000, y: 4000}
 =======
+=======
+>>>>>>> Stashed changes
     x: 893
     y: 0
     width: 486
     height: 654
   m_MinSize: {x: 202, y: 226}
   m_MaxSize: {x: 4002, y: 4026}
+<<<<<<< Updated upstream
+>>>>>>> Stashed changes
+=======
 >>>>>>> Stashed changes
   m_ActualView: {fileID: 14}
   m_Panes:
@@ -338,7 +378,11 @@ MonoBehaviour:
   m_EditorHideFlags: 1
   m_Script: {fileID: 12006, guid: 0000000000000000e000000000000000, type: 0}
 <<<<<<< Updated upstream
+<<<<<<< Updated upstream
   m_Name: ConsoleWindow
+=======
+  m_Name: ProjectBrowser
+>>>>>>> Stashed changes
 =======
   m_Name: ProjectBrowser
 >>>>>>> Stashed changes
@@ -348,6 +392,7 @@ MonoBehaviour:
     serializedVersion: 2
     x: 0
 <<<<<<< Updated upstream
+<<<<<<< Updated upstream
     y: 633
     width: 1379
     height: 300
@@ -355,20 +400,30 @@ MonoBehaviour:
   m_MaxSize: {x: 4000, y: 4000}
   m_ActualView: {fileID: 19}
 =======
+=======
+>>>>>>> Stashed changes
     y: 654
     width: 1379
     height: 279
   m_MinSize: {x: 231, y: 276}
   m_MaxSize: {x: 10001, y: 10026}
   m_ActualView: {fileID: 18}
+<<<<<<< Updated upstream
+>>>>>>> Stashed changes
+=======
 >>>>>>> Stashed changes
   m_Panes:
   - {fileID: 18}
   - {fileID: 19}
   - {fileID: 20}
 <<<<<<< Updated upstream
+<<<<<<< Updated upstream
   m_Selected: 1
   m_LastSelected: 0
+=======
+  m_Selected: 0
+  m_LastSelected: 1
+>>>>>>> Stashed changes
 =======
   m_Selected: 0
   m_LastSelected: 1
@@ -393,8 +448,13 @@ MonoBehaviour:
     width: 541
     height: 933
 <<<<<<< Updated upstream
+<<<<<<< Updated upstream
   m_MinSize: {x: 275, y: 50}
   m_MaxSize: {x: 4000, y: 4000}
+=======
+  m_MinSize: {x: 276, y: 76}
+  m_MaxSize: {x: 4001, y: 4026}
+>>>>>>> Stashed changes
 =======
   m_MinSize: {x: 276, y: 76}
   m_MaxSize: {x: 4001, y: 4026}
@@ -428,15 +488,21 @@ MonoBehaviour:
   m_Pos:
     serializedVersion: 2
 <<<<<<< Updated upstream
+<<<<<<< Updated upstream
     x: 892
     y: 79
     width: 485
     height: 607
 =======
+=======
+>>>>>>> Stashed changes
     x: 894
     y: 24
     width: 484
     height: 628
+<<<<<<< Updated upstream
+>>>>>>> Stashed changes
+=======
 >>>>>>> Stashed changes
   m_SerializedDataModeController:
     m_DataMode: 0
@@ -466,7 +532,11 @@ MonoBehaviour:
   m_SimulatorState:
     controlPanelVisible: 0
 <<<<<<< Updated upstream
+<<<<<<< Updated upstream
     controlPanelWidth: 0
+=======
+    controlPanelWidth: NaN
+>>>>>>> Stashed changes
 =======
     controlPanelWidth: NaN
 >>>>>>> Stashed changes
@@ -516,9 +586,15 @@ MonoBehaviour:
     serializedVersion: 2
     x: 0
 <<<<<<< Updated upstream
+<<<<<<< Updated upstream
     y: 79
     width: 365
     height: 607
+=======
+    y: 24
+    width: 366
+    height: 628
+>>>>>>> Stashed changes
 =======
     y: 24
     width: 366
@@ -541,7 +617,11 @@ MonoBehaviour:
       m_SelectedIDs: 
       m_LastClickedID: 0
 <<<<<<< Updated upstream
+<<<<<<< Updated upstream
       m_ExpandedIDs: 4a24fdffb825fdffa42bfdff302dfdff7a2dfdff943bfdff023dfdffee42fdff7a44fdffc444fdff4c4efdffba4ffdfffc55fdff8857fdffd257fdff4c6efdffba6ffdfffc75fdff8877fdffd277fdffb0bcfdffb4bcfdff50bdfdff5ccffdff1018fefff2a3feffb8a5feffb0cffeff96eefeffe0200100582101000a2201004e2201007e2201009c220100ae220100c8220100d6220100ec220100f022010008230100
+=======
+      m_ExpandedIDs: 7864feff8065feff0670feff5c71feff248bfeff30b6ffff42b6ffffceb6ffff38b7ffff8cb8ffff7ebcffff10c8ffff8ad1ffffeae8ffffa4e9ffff82edffff22fbfffff87600000c830000eab6000054bb00006ec00000dec0000056c1000008c200009ac20000d4c2000078c30000484a0100
+>>>>>>> Stashed changes
 =======
       m_ExpandedIDs: 7864feff8065feff0670feff5c71feff248bfeff30b6ffff42b6ffffceb6ffff38b7ffff8cb8ffff7ebcffff10c8ffff8ad1ffffeae8ffffa4e9ffff82edffff22fbfffff87600000c830000eab6000054bb00006ec00000dec0000056c1000008c200009ac20000d4c2000078c30000484a0100
 >>>>>>> Stashed changes
@@ -591,15 +671,21 @@ MonoBehaviour:
   m_Pos:
     serializedVersion: 2
 <<<<<<< Updated upstream
+<<<<<<< Updated upstream
     x: 366
     y: 79
     width: 524
     height: 607
 =======
+=======
+>>>>>>> Stashed changes
     x: 368
     y: 24
     width: 524
     height: 628
+<<<<<<< Updated upstream
+>>>>>>> Stashed changes
+=======
 >>>>>>> Stashed changes
   m_SerializedDataModeController:
     m_DataMode: 0
@@ -658,17 +744,23 @@ MonoBehaviour:
       id: unity-search-toolbar
       index: 2
 <<<<<<< Updated upstream
+<<<<<<< Updated upstream
       contents: '{"m_Layout":1,"m_Collapsed":false,"m_Floating":false,"m_FloatingSnapOffset":{"x":0.0,"y":0.0},"m_SnapOffsetDelta":{"x":-24.0,"y":0.0},"m_FloatingSnapCorner":1,"m_Size":{"x":0.0,"y":0.0},"m_SizeOverridden":false}'
       floating: 0
       collapsed: 0
       snapOffset: {x: 0, y: 0}
       snapOffsetDelta: {x: -24, y: 0}
 =======
+=======
+>>>>>>> Stashed changes
       contents: '{"m_Layout":1,"m_Collapsed":false,"m_Floating":false,"m_FloatingSnapOffset":{"x":0.0,"y":0.0},"m_SnapOffsetDelta":{"x":0.0,"y":0.0},"m_FloatingSnapCorner":1,"m_Size":{"x":0.0,"y":0.0},"m_SizeOverridden":false}'
       floating: 0
       collapsed: 0
       snapOffset: {x: 0, y: 0}
       snapOffsetDelta: {x: 0, y: 0}
+<<<<<<< Updated upstream
+>>>>>>> Stashed changes
+=======
 >>>>>>> Stashed changes
       snapCorner: 1
       layout: 1
@@ -680,17 +772,23 @@ MonoBehaviour:
       id: Scene View/Open Tile Palette
       index: 3
 <<<<<<< Updated upstream
+<<<<<<< Updated upstream
       contents: '{"m_Layout":4,"m_Collapsed":false,"m_Floating":false,"m_FloatingSnapOffset":{"x":0.0,"y":0.0},"m_SnapOffsetDelta":{"x":24.0,"y":0.0},"m_FloatingSnapCorner":0,"m_Size":{"x":0.0,"y":0.0},"m_SizeOverridden":false}'
       floating: 0
       collapsed: 0
       snapOffset: {x: 0, y: 0}
       snapOffsetDelta: {x: 24, y: 0}
 =======
+=======
+>>>>>>> Stashed changes
       contents: '{"m_Layout":4,"m_Collapsed":false,"m_Floating":false,"m_FloatingSnapOffset":{"x":0.0,"y":0.0},"m_SnapOffsetDelta":{"x":0.0,"y":0.0},"m_FloatingSnapCorner":0,"m_Size":{"x":0.0,"y":0.0},"m_SizeOverridden":false}'
       floating: 0
       collapsed: 0
       snapOffset: {x: 0, y: 0}
       snapOffsetDelta: {x: 0, y: 0}
+<<<<<<< Updated upstream
+>>>>>>> Stashed changes
+=======
 >>>>>>> Stashed changes
       snapCorner: 0
       layout: 4
@@ -702,17 +800,23 @@ MonoBehaviour:
       id: Scene View/Tilemap Focus
       index: 4
 <<<<<<< Updated upstream
+<<<<<<< Updated upstream
       contents: '{"m_Layout":4,"m_Collapsed":false,"m_Floating":false,"m_FloatingSnapOffset":{"x":0.0,"y":0.0},"m_SnapOffsetDelta":{"x":24.0,"y":0.0},"m_FloatingSnapCorner":0,"m_Size":{"x":0.0,"y":0.0},"m_SizeOverridden":false}'
       floating: 0
       collapsed: 0
       snapOffset: {x: 0, y: 0}
       snapOffsetDelta: {x: 24, y: 0}
 =======
+=======
+>>>>>>> Stashed changes
       contents: '{"m_Layout":4,"m_Collapsed":false,"m_Floating":false,"m_FloatingSnapOffset":{"x":0.0,"y":0.0},"m_SnapOffsetDelta":{"x":0.0,"y":0.0},"m_FloatingSnapCorner":0,"m_Size":{"x":0.0,"y":0.0},"m_SizeOverridden":false}'
       floating: 0
       collapsed: 0
       snapOffset: {x: 0, y: 0}
       snapOffsetDelta: {x: 0, y: 0}
+<<<<<<< Updated upstream
+>>>>>>> Stashed changes
+=======
 >>>>>>> Stashed changes
       snapCorner: 0
       layout: 4
@@ -752,17 +856,23 @@ MonoBehaviour:
       id: Scene View/Light Settings
       index: 1
 <<<<<<< Updated upstream
+<<<<<<< Updated upstream
       contents: '{"m_Layout":4,"m_Collapsed":false,"m_Floating":false,"m_FloatingSnapOffset":{"x":0.0,"y":0.0},"m_SnapOffsetDelta":{"x":24.0,"y":0.0},"m_FloatingSnapCorner":0,"m_Size":{"x":0.0,"y":0.0},"m_SizeOverridden":false}'
       floating: 0
       collapsed: 0
       snapOffset: {x: 0, y: 0}
       snapOffsetDelta: {x: 24, y: 0}
 =======
+=======
+>>>>>>> Stashed changes
       contents: '{"m_Layout":4,"m_Collapsed":false,"m_Floating":false,"m_FloatingSnapOffset":{"x":0.0,"y":0.0},"m_SnapOffsetDelta":{"x":0.0,"y":0.0},"m_FloatingSnapCorner":0,"m_Size":{"x":0.0,"y":0.0},"m_SizeOverridden":false}'
       floating: 0
       collapsed: 0
       snapOffset: {x: 0, y: 0}
       snapOffsetDelta: {x: 0, y: 0}
+<<<<<<< Updated upstream
+>>>>>>> Stashed changes
+=======
 >>>>>>> Stashed changes
       snapCorner: 0
       layout: 4
@@ -788,17 +898,23 @@ MonoBehaviour:
       id: Scene View/Cloth Constraints
       index: 3
 <<<<<<< Updated upstream
+<<<<<<< Updated upstream
       contents: '{"m_Layout":4,"m_Collapsed":false,"m_Floating":false,"m_FloatingSnapOffset":{"x":0.0,"y":0.0},"m_SnapOffsetDelta":{"x":24.0,"y":0.0},"m_FloatingSnapCorner":0,"m_Size":{"x":0.0,"y":0.0},"m_SizeOverridden":false}'
       floating: 0
       collapsed: 0
       snapOffset: {x: 0, y: 0}
       snapOffsetDelta: {x: 24, y: 0}
 =======
+=======
+>>>>>>> Stashed changes
       contents: '{"m_Layout":4,"m_Collapsed":false,"m_Floating":false,"m_FloatingSnapOffset":{"x":0.0,"y":0.0},"m_SnapOffsetDelta":{"x":0.0,"y":0.0},"m_FloatingSnapCorner":0,"m_Size":{"x":0.0,"y":0.0},"m_SizeOverridden":false}'
       floating: 0
       collapsed: 0
       snapOffset: {x: 0, y: 0}
       snapOffsetDelta: {x: 0, y: 0}
+<<<<<<< Updated upstream
+>>>>>>> Stashed changes
+=======
 >>>>>>> Stashed changes
       snapCorner: 0
       layout: 4
@@ -810,17 +926,23 @@ MonoBehaviour:
       id: Scene View/Cloth Collisions
       index: 4
 <<<<<<< Updated upstream
+<<<<<<< Updated upstream
       contents: '{"m_Layout":4,"m_Collapsed":false,"m_Floating":false,"m_FloatingSnapOffset":{"x":0.0,"y":0.0},"m_SnapOffsetDelta":{"x":24.0,"y":0.0},"m_FloatingSnapCorner":0,"m_Size":{"x":0.0,"y":0.0},"m_SizeOverridden":false}'
       floating: 0
       collapsed: 0
       snapOffset: {x: 0, y: 0}
       snapOffsetDelta: {x: 24, y: 0}
 =======
+=======
+>>>>>>> Stashed changes
       contents: '{"m_Layout":4,"m_Collapsed":false,"m_Floating":false,"m_FloatingSnapOffset":{"x":0.0,"y":0.0},"m_SnapOffsetDelta":{"x":0.0,"y":0.0},"m_FloatingSnapCorner":0,"m_Size":{"x":0.0,"y":0.0},"m_SizeOverridden":false}'
       floating: 0
       collapsed: 0
       snapOffset: {x: 0, y: 0}
       snapOffsetDelta: {x: 0, y: 0}
+<<<<<<< Updated upstream
+>>>>>>> Stashed changes
+=======
 >>>>>>> Stashed changes
       snapCorner: 0
       layout: 4
@@ -874,17 +996,23 @@ MonoBehaviour:
       id: Scene View/Occlusion Culling
       index: 5
 <<<<<<< Updated upstream
+<<<<<<< Updated upstream
       contents: '{"m_Layout":4,"m_Collapsed":false,"m_Floating":false,"m_FloatingSnapOffset":{"x":0.0,"y":0.0},"m_SnapOffsetDelta":{"x":24.0,"y":0.0},"m_FloatingSnapCorner":0,"m_Size":{"x":0.0,"y":0.0},"m_SizeOverridden":false}'
       floating: 0
       collapsed: 0
       snapOffset: {x: 0, y: 0}
       snapOffsetDelta: {x: 24, y: 0}
 =======
+=======
+>>>>>>> Stashed changes
       contents: '{"m_Layout":4,"m_Collapsed":false,"m_Floating":false,"m_FloatingSnapOffset":{"x":0.0,"y":0.0},"m_SnapOffsetDelta":{"x":0.0,"y":0.0},"m_FloatingSnapCorner":0,"m_Size":{"x":0.0,"y":0.0},"m_SizeOverridden":false}'
       floating: 0
       collapsed: 0
       snapOffset: {x: 0, y: 0}
       snapOffsetDelta: {x: 0, y: 0}
+<<<<<<< Updated upstream
+>>>>>>> Stashed changes
+=======
 >>>>>>> Stashed changes
       snapCorner: 0
       layout: 4
@@ -896,17 +1024,23 @@ MonoBehaviour:
       id: Scene View/Physics Debugger
       index: 6
 <<<<<<< Updated upstream
+<<<<<<< Updated upstream
       contents: '{"m_Layout":4,"m_Collapsed":false,"m_Floating":false,"m_FloatingSnapOffset":{"x":0.0,"y":0.0},"m_SnapOffsetDelta":{"x":24.0,"y":0.0},"m_FloatingSnapCorner":0,"m_Size":{"x":0.0,"y":0.0},"m_SizeOverridden":false}'
       floating: 0
       collapsed: 0
       snapOffset: {x: 0, y: 0}
       snapOffsetDelta: {x: 24, y: 0}
 =======
+=======
+>>>>>>> Stashed changes
       contents: '{"m_Layout":4,"m_Collapsed":false,"m_Floating":false,"m_FloatingSnapOffset":{"x":0.0,"y":0.0},"m_SnapOffsetDelta":{"x":0.0,"y":0.0},"m_FloatingSnapCorner":0,"m_Size":{"x":0.0,"y":0.0},"m_SizeOverridden":false}'
       floating: 0
       collapsed: 0
       snapOffset: {x: 0, y: 0}
       snapOffsetDelta: {x: 0, y: 0}
+<<<<<<< Updated upstream
+>>>>>>> Stashed changes
+=======
 >>>>>>> Stashed changes
       snapCorner: 0
       layout: 4
@@ -918,17 +1052,23 @@ MonoBehaviour:
       id: Scene View/Scene Visibility
       index: 7
 <<<<<<< Updated upstream
+<<<<<<< Updated upstream
       contents: '{"m_Layout":4,"m_Collapsed":false,"m_Floating":false,"m_FloatingSnapOffset":{"x":0.0,"y":0.0},"m_SnapOffsetDelta":{"x":24.0,"y":0.0},"m_FloatingSnapCorner":0,"m_Size":{"x":0.0,"y":0.0},"m_SizeOverridden":false}'
       floating: 0
       collapsed: 0
       snapOffset: {x: 0, y: 0}
       snapOffsetDelta: {x: 24, y: 0}
 =======
+=======
+>>>>>>> Stashed changes
       contents: '{"m_Layout":4,"m_Collapsed":false,"m_Floating":false,"m_FloatingSnapOffset":{"x":0.0,"y":0.0},"m_SnapOffsetDelta":{"x":0.0,"y":0.0},"m_FloatingSnapCorner":0,"m_Size":{"x":0.0,"y":0.0},"m_SizeOverridden":false}'
       floating: 0
       collapsed: 0
       snapOffset: {x: 0, y: 0}
       snapOffsetDelta: {x: 0, y: 0}
+<<<<<<< Updated upstream
+>>>>>>> Stashed changes
+=======
 >>>>>>> Stashed changes
       snapCorner: 0
       layout: 4
@@ -954,17 +1094,23 @@ MonoBehaviour:
       id: Brush Attributes
       index: 2
 <<<<<<< Updated upstream
+<<<<<<< Updated upstream
       contents: '{"m_Layout":4,"m_Collapsed":false,"m_Floating":false,"m_FloatingSnapOffset":{"x":0.0,"y":0.0},"m_SnapOffsetDelta":{"x":24.0,"y":0.0},"m_FloatingSnapCorner":0,"m_Size":{"x":0.0,"y":0.0},"m_SizeOverridden":false}'
       floating: 0
       collapsed: 0
       snapOffset: {x: 0, y: 0}
       snapOffsetDelta: {x: 24, y: 0}
 =======
+=======
+>>>>>>> Stashed changes
       contents: '{"m_Layout":4,"m_Collapsed":false,"m_Floating":false,"m_FloatingSnapOffset":{"x":0.0,"y":0.0},"m_SnapOffsetDelta":{"x":0.0,"y":0.0},"m_FloatingSnapCorner":0,"m_Size":{"x":0.0,"y":0.0},"m_SizeOverridden":false}'
       floating: 0
       collapsed: 0
       snapOffset: {x: 0, y: 0}
       snapOffsetDelta: {x: 0, y: 0}
+<<<<<<< Updated upstream
+>>>>>>> Stashed changes
+=======
 >>>>>>> Stashed changes
       snapCorner: 0
       layout: 4
@@ -976,15 +1122,21 @@ MonoBehaviour:
       id: unity-scene-view-camera-mode-toolbar
       index: 1
 <<<<<<< Updated upstream
+<<<<<<< Updated upstream
       contents: '{"m_Layout":1,"m_Collapsed":false,"m_Floating":false,"m_FloatingSnapOffset":{"x":24.0,"y":25.0},"m_SnapOffsetDelta":{"x":0.0,"y":0.0},"m_FloatingSnapCorner":0,"m_Size":{"x":0.0,"y":0.0},"m_SizeOverridden":false}'
       floating: 0
       collapsed: 0
       snapOffset: {x: 24, y: 25}
 =======
+=======
+>>>>>>> Stashed changes
       contents: '{"m_Layout":1,"m_Collapsed":false,"m_Floating":false,"m_FloatingSnapOffset":{"x":24.0,"y":0.0},"m_SnapOffsetDelta":{"x":0.0,"y":0.0},"m_FloatingSnapCorner":0,"m_Size":{"x":0.0,"y":0.0},"m_SizeOverridden":false}'
       floating: 0
       collapsed: 0
       snapOffset: {x: 24, y: 0}
+<<<<<<< Updated upstream
+>>>>>>> Stashed changes
+=======
 >>>>>>> Stashed changes
       snapOffsetDelta: {x: 0, y: 0}
       snapCorner: 0
@@ -997,17 +1149,23 @@ MonoBehaviour:
       id: Terrain Tools
       index: 0
 <<<<<<< Updated upstream
+<<<<<<< Updated upstream
       contents: '{"m_Layout":4,"m_Collapsed":false,"m_Floating":false,"m_FloatingSnapOffset":{"x":0.0,"y":0.0},"m_SnapOffsetDelta":{"x":24.0,"y":0.0},"m_FloatingSnapCorner":0,"m_Size":{"x":0.0,"y":0.0},"m_SizeOverridden":false}'
       floating: 0
       collapsed: 0
       snapOffset: {x: 0, y: 0}
       snapOffsetDelta: {x: 24, y: 0}
 =======
+=======
+>>>>>>> Stashed changes
       contents: '{"m_Layout":4,"m_Collapsed":false,"m_Floating":false,"m_FloatingSnapOffset":{"x":0.0,"y":0.0},"m_SnapOffsetDelta":{"x":0.0,"y":0.0},"m_FloatingSnapCorner":0,"m_Size":{"x":0.0,"y":0.0},"m_SizeOverridden":false}'
       floating: 0
       collapsed: 0
       snapOffset: {x: 0, y: 0}
       snapOffsetDelta: {x: 0, y: 0}
+<<<<<<< Updated upstream
+>>>>>>> Stashed changes
+=======
 >>>>>>> Stashed changes
       snapCorner: 0
       layout: 4
@@ -1019,17 +1177,23 @@ MonoBehaviour:
       id: Brush Masks
       index: 1
 <<<<<<< Updated upstream
+<<<<<<< Updated upstream
       contents: '{"m_Layout":4,"m_Collapsed":false,"m_Floating":false,"m_FloatingSnapOffset":{"x":0.0,"y":0.0},"m_SnapOffsetDelta":{"x":24.0,"y":0.0},"m_FloatingSnapCorner":0,"m_Size":{"x":0.0,"y":0.0},"m_SizeOverridden":false}'
       floating: 0
       collapsed: 0
       snapOffset: {x: 0, y: 0}
       snapOffsetDelta: {x: 24, y: 0}
 =======
+=======
+>>>>>>> Stashed changes
       contents: '{"m_Layout":4,"m_Collapsed":false,"m_Floating":false,"m_FloatingSnapOffset":{"x":0.0,"y":0.0},"m_SnapOffsetDelta":{"x":0.0,"y":0.0},"m_FloatingSnapCorner":0,"m_Size":{"x":0.0,"y":0.0},"m_SizeOverridden":false}'
       floating: 0
       collapsed: 0
       snapOffset: {x: 0, y: 0}
       snapOffsetDelta: {x: 0, y: 0}
+<<<<<<< Updated upstream
+>>>>>>> Stashed changes
+=======
 >>>>>>> Stashed changes
       snapCorner: 0
       layout: 4
@@ -1041,17 +1205,23 @@ MonoBehaviour:
       id: Scene View/Lighting Visualization Colors
       index: 0
 <<<<<<< Updated upstream
+<<<<<<< Updated upstream
       contents: '{"m_Layout":4,"m_Collapsed":false,"m_Floating":false,"m_FloatingSnapOffset":{"x":0.0,"y":0.0},"m_SnapOffsetDelta":{"x":24.0,"y":0.0},"m_FloatingSnapCorner":0,"m_Size":{"x":0.0,"y":0.0},"m_SizeOverridden":false}'
       floating: 0
       collapsed: 0
       snapOffset: {x: 0, y: 0}
       snapOffsetDelta: {x: 24, y: 0}
 =======
+=======
+>>>>>>> Stashed changes
       contents: '{"m_Layout":4,"m_Collapsed":false,"m_Floating":false,"m_FloatingSnapOffset":{"x":0.0,"y":0.0},"m_SnapOffsetDelta":{"x":0.0,"y":0.0},"m_FloatingSnapCorner":0,"m_Size":{"x":0.0,"y":0.0},"m_SizeOverridden":false}'
       floating: 0
       collapsed: 0
       snapOffset: {x: 0, y: 0}
       snapOffsetDelta: {x: 0, y: 0}
+<<<<<<< Updated upstream
+>>>>>>> Stashed changes
+=======
 >>>>>>> Stashed changes
       snapCorner: 0
       layout: 4
@@ -1063,15 +1233,21 @@ MonoBehaviour:
       id: Overlays/OverlayMenu
       index: 1
 <<<<<<< Updated upstream
+<<<<<<< Updated upstream
       contents: '{"m_Layout":1,"m_Collapsed":false,"m_Floating":false,"m_FloatingSnapOffset":{"x":24.0,"y":25.0},"m_SnapOffsetDelta":{"x":0.0,"y":0.0},"m_FloatingSnapCorner":0,"m_Size":{"x":0.0,"y":0.0},"m_SizeOverridden":false}'
       floating: 0
       collapsed: 0
       snapOffset: {x: 24, y: 25}
 =======
+=======
+>>>>>>> Stashed changes
       contents: '{"m_Layout":1,"m_Collapsed":false,"m_Floating":false,"m_FloatingSnapOffset":{"x":24.0,"y":0.0},"m_SnapOffsetDelta":{"x":0.0,"y":0.0},"m_FloatingSnapCorner":0,"m_Size":{"x":0.0,"y":0.0},"m_SizeOverridden":false}'
       floating: 0
       collapsed: 0
       snapOffset: {x: 24, y: 0}
+<<<<<<< Updated upstream
+>>>>>>> Stashed changes
+=======
 >>>>>>> Stashed changes
       snapOffsetDelta: {x: 0, y: 0}
       snapCorner: 0
@@ -1084,17 +1260,23 @@ MonoBehaviour:
       id: Scene View/Tile Palette Clipboard
       index: 0
 <<<<<<< Updated upstream
+<<<<<<< Updated upstream
       contents: '{"m_Layout":4,"m_Collapsed":false,"m_Floating":false,"m_FloatingSnapOffset":{"x":0.0,"y":0.0},"m_SnapOffsetDelta":{"x":24.0,"y":0.0},"m_FloatingSnapCorner":0,"m_Size":{"x":0.0,"y":0.0},"m_SizeOverridden":false}'
       floating: 0
       collapsed: 0
       snapOffset: {x: 0, y: 0}
       snapOffsetDelta: {x: 24, y: 0}
 =======
+=======
+>>>>>>> Stashed changes
       contents: '{"m_Layout":4,"m_Collapsed":false,"m_Floating":false,"m_FloatingSnapOffset":{"x":0.0,"y":0.0},"m_SnapOffsetDelta":{"x":0.0,"y":0.0},"m_FloatingSnapCorner":0,"m_Size":{"x":0.0,"y":0.0},"m_SizeOverridden":false}'
       floating: 0
       collapsed: 0
       snapOffset: {x: 0, y: 0}
       snapOffsetDelta: {x: 0, y: 0}
+<<<<<<< Updated upstream
+>>>>>>> Stashed changes
+=======
 >>>>>>> Stashed changes
       snapCorner: 0
       layout: 4
@@ -1106,17 +1288,23 @@ MonoBehaviour:
       id: Scene View/Tile Palette Brush Pick
       index: 2
 <<<<<<< Updated upstream
+<<<<<<< Updated upstream
       contents: '{"m_Layout":4,"m_Collapsed":false,"m_Floating":false,"m_FloatingSnapOffset":{"x":0.0,"y":0.0},"m_SnapOffsetDelta":{"x":24.0,"y":0.0},"m_FloatingSnapCorner":0,"m_Size":{"x":0.0,"y":0.0},"m_SizeOverridden":false}'
       floating: 0
       collapsed: 0
       snapOffset: {x: 0, y: 0}
       snapOffsetDelta: {x: 24, y: 0}
 =======
+=======
+>>>>>>> Stashed changes
       contents: '{"m_Layout":4,"m_Collapsed":false,"m_Floating":false,"m_FloatingSnapOffset":{"x":0.0,"y":0.0},"m_SnapOffsetDelta":{"x":0.0,"y":0.0},"m_FloatingSnapCorner":0,"m_Size":{"x":0.0,"y":0.0},"m_SizeOverridden":false}'
       floating: 0
       collapsed: 0
       snapOffset: {x: 0, y: 0}
       snapOffsetDelta: {x: 0, y: 0}
+<<<<<<< Updated upstream
+>>>>>>> Stashed changes
+=======
 >>>>>>> Stashed changes
       snapCorner: 0
       layout: 4
@@ -1128,17 +1316,23 @@ MonoBehaviour:
       id: APV Overlay
       index: 9
 <<<<<<< Updated upstream
+<<<<<<< Updated upstream
       contents: '{"m_Layout":4,"m_Collapsed":false,"m_Floating":false,"m_FloatingSnapOffset":{"x":0.0,"y":0.0},"m_SnapOffsetDelta":{"x":24.0,"y":0.0},"m_FloatingSnapCorner":0,"m_Size":{"x":0.0,"y":0.0},"m_SizeOverridden":false}'
       floating: 0
       collapsed: 0
       snapOffset: {x: 0, y: 0}
       snapOffsetDelta: {x: 24, y: 0}
 =======
+=======
+>>>>>>> Stashed changes
       contents: '{"m_Layout":4,"m_Collapsed":false,"m_Floating":false,"m_FloatingSnapOffset":{"x":0.0,"y":0.0},"m_SnapOffsetDelta":{"x":0.0,"y":0.0},"m_FloatingSnapCorner":0,"m_Size":{"x":0.0,"y":0.0},"m_SizeOverridden":false}'
       floating: 0
       collapsed: 0
       snapOffset: {x: 0, y: 0}
       snapOffsetDelta: {x: 0, y: 0}
+<<<<<<< Updated upstream
+>>>>>>> Stashed changes
+=======
 >>>>>>> Stashed changes
       snapCorner: 0
       layout: 4
@@ -1150,15 +1344,21 @@ MonoBehaviour:
       id: AINavigationOverlay
       index: 10
 <<<<<<< Updated upstream
+<<<<<<< Updated upstream
       contents: '{"m_Layout":4,"m_Collapsed":false,"m_Floating":false,"m_FloatingSnapOffset":{"x":24.0,"y":25.0},"m_SnapOffsetDelta":{"x":0.0,"y":0.0},"m_FloatingSnapCorner":0,"m_Size":{"x":0.0,"y":0.0},"m_SizeOverridden":false}'
       floating: 0
       collapsed: 0
       snapOffset: {x: 24, y: 25}
 =======
+=======
+>>>>>>> Stashed changes
       contents: '{"m_Layout":4,"m_Collapsed":false,"m_Floating":false,"m_FloatingSnapOffset":{"x":24.0,"y":0.0},"m_SnapOffsetDelta":{"x":0.0,"y":0.0},"m_FloatingSnapCorner":0,"m_Size":{"x":0.0,"y":0.0},"m_SizeOverridden":false}'
       floating: 0
       collapsed: 0
       snapOffset: {x: 24, y: 0}
+<<<<<<< Updated upstream
+>>>>>>> Stashed changes
+=======
 >>>>>>> Stashed changes
       snapOffsetDelta: {x: 0, y: 0}
       snapCorner: 0
@@ -1171,17 +1371,23 @@ MonoBehaviour:
       id: Scene View/Path
       index: 11
 <<<<<<< Updated upstream
+<<<<<<< Updated upstream
       contents: '{"m_Layout":4,"m_Collapsed":false,"m_Floating":false,"m_FloatingSnapOffset":{"x":0.0,"y":0.0},"m_SnapOffsetDelta":{"x":24.0,"y":0.0},"m_FloatingSnapCorner":0,"m_Size":{"x":0.0,"y":0.0},"m_SizeOverridden":false}'
       floating: 0
       collapsed: 0
       snapOffset: {x: 0, y: 0}
       snapOffsetDelta: {x: 24, y: 0}
 =======
+=======
+>>>>>>> Stashed changes
       contents: '{"m_Layout":4,"m_Collapsed":false,"m_Floating":false,"m_FloatingSnapOffset":{"x":0.0,"y":0.0},"m_SnapOffsetDelta":{"x":0.0,"y":0.0},"m_FloatingSnapCorner":0,"m_Size":{"x":0.0,"y":0.0},"m_SizeOverridden":false}'
       floating: 0
       collapsed: 0
       snapOffset: {x: 0, y: 0}
       snapOffsetDelta: {x: 0, y: 0}
+<<<<<<< Updated upstream
+>>>>>>> Stashed changes
+=======
 >>>>>>> Stashed changes
       snapCorner: 0
       layout: 4
@@ -1193,17 +1399,23 @@ MonoBehaviour:
       id: Scene View/Sprite Swap
       index: 12
 <<<<<<< Updated upstream
+<<<<<<< Updated upstream
       contents: '{"m_Layout":4,"m_Collapsed":false,"m_Floating":false,"m_FloatingSnapOffset":{"x":0.0,"y":0.0},"m_SnapOffsetDelta":{"x":24.0,"y":0.0},"m_FloatingSnapCorner":0,"m_Size":{"x":0.0,"y":0.0},"m_SizeOverridden":false}'
       floating: 0
       collapsed: 0
       snapOffset: {x: 0, y: 0}
       snapOffsetDelta: {x: 24, y: 0}
 =======
+=======
+>>>>>>> Stashed changes
       contents: '{"m_Layout":4,"m_Collapsed":false,"m_Floating":false,"m_FloatingSnapOffset":{"x":0.0,"y":0.0},"m_SnapOffsetDelta":{"x":0.0,"y":0.0},"m_FloatingSnapCorner":0,"m_Size":{"x":0.0,"y":0.0},"m_SizeOverridden":false}'
       floating: 0
       collapsed: 0
       snapOffset: {x: 0, y: 0}
       snapOffsetDelta: {x: 0, y: 0}
+<<<<<<< Updated upstream
+>>>>>>> Stashed changes
+=======
 >>>>>>> Stashed changes
       snapCorner: 0
       layout: 4
@@ -1215,17 +1427,23 @@ MonoBehaviour:
       id: SceneView/CamerasOverlay
       index: 13
 <<<<<<< Updated upstream
+<<<<<<< Updated upstream
       contents: '{"m_Layout":4,"m_Collapsed":false,"m_Floating":false,"m_FloatingSnapOffset":{"x":0.0,"y":0.0},"m_SnapOffsetDelta":{"x":24.0,"y":0.0},"m_FloatingSnapCorner":0,"m_Size":{"x":0.0,"y":0.0},"m_SizeOverridden":false}'
       floating: 0
       collapsed: 0
       snapOffset: {x: 0, y: 0}
       snapOffsetDelta: {x: 24, y: 0}
 =======
+=======
+>>>>>>> Stashed changes
       contents: '{"m_Layout":4,"m_Collapsed":false,"m_Floating":false,"m_FloatingSnapOffset":{"x":0.0,"y":0.0},"m_SnapOffsetDelta":{"x":0.0,"y":0.0},"m_FloatingSnapCorner":0,"m_Size":{"x":0.0,"y":0.0},"m_SizeOverridden":false}'
       floating: 0
       collapsed: 0
       snapOffset: {x: 0, y: 0}
       snapOffsetDelta: {x: 0, y: 0}
+<<<<<<< Updated upstream
+>>>>>>> Stashed changes
+=======
 >>>>>>> Stashed changes
       snapCorner: 0
       layout: 4
@@ -1237,17 +1455,23 @@ MonoBehaviour:
       id: Scene View/PBR Validation Settings
       index: 14
 <<<<<<< Updated upstream
+<<<<<<< Updated upstream
       contents: '{"m_Layout":4,"m_Collapsed":false,"m_Floating":false,"m_FloatingSnapOffset":{"x":0.0,"y":0.0},"m_SnapOffsetDelta":{"x":24.0,"y":0.0},"m_FloatingSnapCorner":0,"m_Size":{"x":0.0,"y":0.0},"m_SizeOverridden":false}'
       floating: 0
       collapsed: 0
       snapOffset: {x: 0, y: 0}
       snapOffsetDelta: {x: 24, y: 0}
 =======
+=======
+>>>>>>> Stashed changes
       contents: '{"m_Layout":4,"m_Collapsed":false,"m_Floating":false,"m_FloatingSnapOffset":{"x":0.0,"y":0.0},"m_SnapOffsetDelta":{"x":0.0,"y":0.0},"m_FloatingSnapCorner":0,"m_Size":{"x":0.0,"y":0.0},"m_SizeOverridden":false}'
       floating: 0
       collapsed: 0
       snapOffset: {x: 0, y: 0}
       snapOffsetDelta: {x: 0, y: 0}
+<<<<<<< Updated upstream
+>>>>>>> Stashed changes
+=======
 >>>>>>> Stashed changes
       snapCorner: 0
       layout: 4
@@ -1259,17 +1483,23 @@ MonoBehaviour:
       id: Scene View/TrailRenderer
       index: 15
 <<<<<<< Updated upstream
+<<<<<<< Updated upstream
       contents: '{"m_Layout":4,"m_Collapsed":false,"m_Floating":false,"m_FloatingSnapOffset":{"x":0.0,"y":0.0},"m_SnapOffsetDelta":{"x":24.0,"y":0.0},"m_FloatingSnapCorner":0,"m_Size":{"x":0.0,"y":0.0},"m_SizeOverridden":false}'
       floating: 0
       collapsed: 0
       snapOffset: {x: 0, y: 0}
       snapOffsetDelta: {x: 24, y: 0}
 =======
+=======
+>>>>>>> Stashed changes
       contents: '{"m_Layout":4,"m_Collapsed":false,"m_Floating":false,"m_FloatingSnapOffset":{"x":0.0,"y":0.0},"m_SnapOffsetDelta":{"x":0.0,"y":0.0},"m_FloatingSnapCorner":0,"m_Size":{"x":0.0,"y":0.0},"m_SizeOverridden":false}'
       floating: 0
       collapsed: 0
       snapOffset: {x: 0, y: 0}
       snapOffsetDelta: {x: 0, y: 0}
+<<<<<<< Updated upstream
+>>>>>>> Stashed changes
+=======
 >>>>>>> Stashed changes
       snapCorner: 0
       layout: 4
@@ -1303,9 +1533,15 @@ MonoBehaviour:
   m_DebugDrawModesUseInteractiveLightBakingData: 0
   m_Position:
 <<<<<<< Updated upstream
+<<<<<<< Updated upstream
     m_Target: {x: -1.5924644, y: 2.0217943, z: 0.051021308}
     speed: 2
     m_Value: {x: -1.5924644, y: 2.0217943, z: 0.051021308}
+=======
+    m_Target: {x: 0, y: 0, z: 0}
+    speed: 2
+    m_Value: {x: 782.4074, y: 1353.4349, z: 977.0663}
+>>>>>>> Stashed changes
 =======
     m_Target: {x: 0, y: 0, z: 0}
     speed: 2
@@ -1361,9 +1597,15 @@ MonoBehaviour:
     m_Value: {x: 0, y: 0, z: 0, w: 1}
   m_Size:
 <<<<<<< Updated upstream
+<<<<<<< Updated upstream
     m_Target: 4.8978596
     speed: 2
     m_Value: 4.8978596
+=======
+    m_Target: 10
+    speed: 2
+    m_Value: 1413.8129
+>>>>>>> Stashed changes
 =======
     m_Target: 10
     speed: 2
@@ -1562,9 +1804,15 @@ MonoBehaviour:
     serializedVersion: 2
     x: 0
 <<<<<<< Updated upstream
+<<<<<<< Updated upstream
     y: 712
     width: 1378
     height: 274
+=======
+    y: 678
+    width: 1378
+    height: 253
+>>>>>>> Stashed changes
 =======
     y: 678
     width: 1378
@@ -1593,7 +1841,11 @@ MonoBehaviour:
     m_SearchArea: 1
     m_Folders:
 <<<<<<< Updated upstream
+<<<<<<< Updated upstream
     - Assets/_ProjectAssets/Textures/UI
+=======
+    - Assets/_ProjectAssets/Scenes
+>>>>>>> Stashed changes
 =======
     - Assets/_ProjectAssets/Scenes
 >>>>>>> Stashed changes
@@ -1607,7 +1859,11 @@ MonoBehaviour:
   m_StartGridSize: 16
   m_LastFolders:
 <<<<<<< Updated upstream
+<<<<<<< Updated upstream
   - Assets/_ProjectAssets/Textures/UI
+=======
+  - Assets/_ProjectAssets/Scenes
+>>>>>>> Stashed changes
 =======
   - Assets/_ProjectAssets/Scenes
 >>>>>>> Stashed changes
@@ -1617,15 +1873,21 @@ MonoBehaviour:
     m_IsLocked: 0
   m_FolderTreeState:
 <<<<<<< Updated upstream
+<<<<<<< Updated upstream
     scrollPos: {x: 0, y: 562}
     m_SelectedIDs: bc360100
     m_LastClickedID: 79548
     m_ExpandedIDs: 0000000006130100221501002e150100321501003815010056150100861701002c200100b4330100b6330100b8330100405c010000ca9a3b
 =======
+=======
+>>>>>>> Stashed changes
     scrollPos: {x: 0, y: 144}
     m_SelectedIDs: 26800000
     m_LastClickedID: 32806
     m_ExpandedIDs: 
+<<<<<<< Updated upstream
+>>>>>>> Stashed changes
+=======
 >>>>>>> Stashed changes
     m_RenameOverlay:
       m_UserAcceptedRename: 0
@@ -1682,6 +1944,7 @@ MonoBehaviour:
       m_ResourceFile: 
   m_ListAreaState:
 <<<<<<< Updated upstream
+<<<<<<< Updated upstream
     m_SelectedInstanceIDs: 6ee3feff
     m_LastClickedInstanceID: -72850
     m_HadKeyboardFocusLastEvent: 1
@@ -1691,6 +1954,8 @@ MonoBehaviour:
       m_Name: SkinCard
       m_OriginalName: SkinCard
 =======
+=======
+>>>>>>> Stashed changes
     m_SelectedInstanceIDs: 
     m_LastClickedInstanceID: 0
     m_HadKeyboardFocusLastEvent: 1
@@ -1699,6 +1964,9 @@ MonoBehaviour:
       m_UserAcceptedRename: 0
       m_Name: 
       m_OriginalName: 
+<<<<<<< Updated upstream
+>>>>>>> Stashed changes
+=======
 >>>>>>> Stashed changes
       m_EditFieldRect:
         serializedVersion: 2
@@ -1707,15 +1975,21 @@ MonoBehaviour:
         width: 0
         height: 0
 <<<<<<< Updated upstream
+<<<<<<< Updated upstream
       m_UserData: 73720
       m_IsWaitingForDelay: 0
       m_IsRenaming: 0
       m_OriginalEventType: 0
 =======
+=======
+>>>>>>> Stashed changes
       m_UserData: 0
       m_IsWaitingForDelay: 0
       m_IsRenaming: 0
       m_OriginalEventType: 11
+<<<<<<< Updated upstream
+>>>>>>> Stashed changes
+=======
 >>>>>>> Stashed changes
       m_IsRenamingFilename: 1
       m_TrimLeadingAndTrailingWhitespace: 0
@@ -1754,9 +2028,15 @@ MonoBehaviour:
     serializedVersion: 2
     x: 0
 <<<<<<< Updated upstream
+<<<<<<< Updated upstream
     y: 712
     width: 1378
     height: 274
+=======
+    y: 731
+    width: 1378
+    height: 260
+>>>>>>> Stashed changes
 =======
     y: 731
     width: 1378
@@ -1812,7 +2092,11 @@ MonoBehaviour:
   m_LockTracker:
     m_IsLocked: 0
 <<<<<<< Updated upstream
+<<<<<<< Updated upstream
   m_LastSelectedObjectID: 100652
+=======
+  m_LastSelectedObjectID: 50122
+>>>>>>> Stashed changes
 =======
   m_LastSelectedObjectID: 50122
 >>>>>>> Stashed changes
@@ -1838,8 +2122,13 @@ MonoBehaviour:
   m_Pos:
     serializedVersion: 2
 <<<<<<< Updated upstream
+<<<<<<< Updated upstream
     x: 1379
     y: 79
+=======
+    x: 1380
+    y: 24
+>>>>>>> Stashed changes
 =======
     x: 1380
     y: 24
@@ -1893,9 +2182,15 @@ MonoBehaviour:
     serializedVersion: 2
     x: 1379
 <<<<<<< Updated upstream
+<<<<<<< Updated upstream
     y: 79
     width: 540
     height: 907
+=======
+    y: 73
+    width: 540
+    height: 918
+>>>>>>> Stashed changes
 =======
     y: 73
     width: 540
