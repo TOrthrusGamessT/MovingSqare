@@ -30,7 +30,7 @@ public abstract class EnemyBehaviour : MonoBehaviour
 
     private void FixedUpdate()
     {
-        _rb.velocity = transform.right * speed;
+        _rb.linearVelocity = transform.right * speed;
     }
 
     private void OnCollisionEnter2D(Collision2D col)

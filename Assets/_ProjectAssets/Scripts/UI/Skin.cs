@@ -18,7 +18,7 @@ public class Skin : MonoBehaviour
     [SerializeField]
     private GameObject selectedVFX;
     [SerializeField]
-    private RawImage margin;
+    private RawImage bg;
     [SerializeField]
     private Transform _upgradesContainer;
     [SerializeField]
@@ -26,7 +26,11 @@ public class Skin : MonoBehaviour
     [SerializeField]
     private Slider sizeSlider;
     [SerializeField]
-    private GameObject[] lifeIcons; // Assign your 3 life images in the Inspector
+    private GameObject[] lifeIcons;
+    [SerializeField]
+    private Texture2D selectedTexture; // Add this
+    [SerializeField]
+    private Texture2D unselectedTexture; // Add this
 
     private SkinData skinData;
     private string description;
@@ -120,7 +124,7 @@ public class Skin : MonoBehaviour
         Color red = Color.red;
         Color white = Color.white;
 
-        margin.DOColor(red, 0.5f).OnComplete(() => margin.DOColor(white, 0.5f));
+        bg.DOColor(red, 0.5f).OnComplete(() => bg.DOColor(white, 0.5f));
         skinImageShow.DOColor(red, 0.5f).OnComplete(() => skinImageShow.DOColor(white, 0.5f));
     }
 
@@ -133,18 +137,22 @@ public class Skin : MonoBehaviour
         LeanTween.scale(skinImageShow.gameObject, Vector3.one, 0.5f).setEase(LeanTweenType.easeOutBack);
     }
 
-    public void Unselect(Texture2D unselectedTexture)
+    public void Unselect(Texture2D unselectedTex = null)
     {
-        margin.color = unselectedColor;
+        Texture2D texToUse = unselectedTex != null ? unselectedTex : unselectedTexture;
+        bg.texture = texToUse;
         priceText.color = unselectedColor;
         selectedVFX.SetActive(false);
-        buttonSprite.texture = unselectedTexture;
+        buttonSprite.texture = texToUse;
     }
 
     public void Select()
     {
         PlayerPrefs.SetInt("currentSkin", skinData.id);
-        margin.color = selectedColor;
+        if (selectedTexture != null)
+        {
+            bg.texture = selectedTexture;
+        }
         selectedVFX.SetActive(true);
     }
 
