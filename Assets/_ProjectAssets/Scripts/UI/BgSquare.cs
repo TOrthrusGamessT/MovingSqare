@@ -11,6 +11,7 @@ public class BgSquare : MonoBehaviour
     public void Initialize(Sprite sprite)
     {
         myImg.sprite = sprite;
+        myImg.color = new Color(1, 1, 1, 0.5f);
     }
 
 }
