@@ -30,7 +30,7 @@ public class SpawnManagerLvls : Spawner
    private int _tetrisPeacesOnTime;
    private LvlSettings _lvlSettings;
 
-   private List<EnemyBehaviour> _geometryToSpawn = new();
+   private List<EnemyBehaviour> _geometryToSpawn = new List<EnemyBehaviour>();
 
    protected override void OnEnable()
    {

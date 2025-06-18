@@ -39,7 +39,13 @@ public class LVLMenuBehaviour : MonoBehaviour
                 content.position, Quaternion.identity, content).GetComponent<LVLButtonBehaviour>();
             lvlButtonBehaviour.Init((i + 1).ToString(), true);
         }
+    }
 
-
+    private void OnDisable()
+    {
+        foreach (Transform child in content)
+        {
+            Destroy(child.gameObject);
+        }
     }
 }
