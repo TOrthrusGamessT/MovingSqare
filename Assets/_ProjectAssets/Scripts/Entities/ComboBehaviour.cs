@@ -111,7 +111,6 @@ public class ComboBehaviour : MonoBehaviour
       {
          remainingTime = fillTween.Duration() - fillTween.Elapsed();
          fillTween.Kill();
-         Debug.Log("Fill animation remaining time: " + remainingTime);
       }
 
       LeanTween.cancel(leanTweenID);

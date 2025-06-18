@@ -37,7 +37,7 @@ public class LVLMenuBehaviour : MonoBehaviour
         {
             LVLButtonBehaviour lvlButtonBehaviour = Instantiate(lvlWrapper,
                 content.position, Quaternion.identity, content).GetComponent<LVLButtonBehaviour>();
-            lvlButtonBehaviour.Init((i + 1).ToString(), true);
+            lvlButtonBehaviour.Init((i + 1).ToString(), false);
         }
     }
 

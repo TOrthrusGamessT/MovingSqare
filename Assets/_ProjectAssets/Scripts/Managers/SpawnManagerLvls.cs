@@ -32,6 +32,11 @@ public class SpawnManagerLvls : Spawner
 
    private List<EnemyBehaviour> _geometryToSpawn = new List<EnemyBehaviour>();
 
+
+   private List<Coroutine> activeSpawningCoroutines = new List<Coroutine>();
+
+
+
    protected override void OnEnable()
    {
       base.OnEnable();
@@ -134,54 +139,66 @@ public class SpawnManagerLvls : Spawner
          {
             _geometryToSpawn.Add(geometricFigures.Find(x => x.figure == Constants.GeometryFigure.Hexagon));
          }
-         StartCoroutine(SpawnGeometricFigures());
+         activeSpawningCoroutines.Add(StartCoroutine(SpawnGeometricFigures()));
       }
 
 
       if (_lvlSettings.lasers)
       {
-         StartCoroutine(SpawnLines());
+         activeSpawningCoroutines.Add(StartCoroutine(SpawnLines()));
       }
 
-      if (_lvlSettings.maze)
-      {
-         _mazePrefab = _lvlSettings.obstaclePrefab;
-         StartCoroutine(SpawnMaze());
-      }
 
       if (_lvlSettings.tetris)
       {
-         StartCoroutine(SpawnTetrisPiece());
+         activeSpawningCoroutines.Add(StartCoroutine(SpawnTetrisPiece()));
       }
 
       if (_lvlSettings.tetrisBoss)
       {
-         StartCoroutine(SpawnTetrisEnemies());
+         activeSpawningCoroutines.Add(StartCoroutine(SpawnTetrisEnemies()));
       }
 
       CoinsBehaviour.Lifetime = _lvlSettings.moneyLife;
 
-      StartCoroutine(SpawnMoney());
+      activeSpawningCoroutines.Add(StartCoroutine(SpawnMoney()));
 
       if (availablePowerUps.Count != 0)
       {
-         StartCoroutine(SpawnPowerUps());
+         activeSpawningCoroutines.Add(StartCoroutine(SpawnPowerUps()));
       }
 
 
       Timer.instance.StartCounter();
    }
 
+   private IEnumerator PauseAndResumeSpawning(float time)
+   {
+      foreach (var coroutine in activeSpawningCoroutines)
+      {
+         StopCoroutine(coroutine);
+      }
 
+      activeSpawningCoroutines.Clear();
+
+      foreach (var fullScreenLine in fullScreenLineObjects)
+      {
+         fullScreenLine.DestroyLaser();
+      }
+      fullScreenLineObjects.Clear();
+      yield return new WaitForSeconds(time);
+
+      StartSpawning();
+   }
    #region Spawn Maze
 
    IEnumerator SpawnMaze()
    {
       yield return new WaitForSeconds(_timeBetweenSpawnMaze);
-
+      StartCoroutine(PauseAndResumeSpawning(5f));
       Instantiate(_mazePrefab, obstacleSpawnPoint.position, Quaternion.identity);
       ObstacleBehaviour.speed = _lvlSettings.obstacleSpeed;
-      StopSpawning();
+      
 
    }
 
