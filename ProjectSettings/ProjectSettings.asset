@@ -140,7 +140,7 @@ PlayerSettings:
   loadStoreDebugModeEnabled: 0
   visionOSBundleVersion: 1.0
   tvOSBundleVersion: 1.0
-  bundleVersion: 3.5
+  bundleVersion: 6.1
   preloadedAssets:
   - {fileID: 0}
   - {fileID: 0}
@@ -298,6 +298,7 @@ PlayerSettings:
   - {fileID: 0}
   - {fileID: 0}
   - {fileID: 0}
+  - {fileID: 627074899854781615, guid: b1525790261eb984b9e3cb6cf91069ad, type: 2}
   metroInputSource: 0
   wsaTransparentSwapchain: 0
   m_HolographicPauseOnTrackingLoss: 1
@@ -321,7 +322,7 @@ PlayerSettings:
   applicationIdentifier:
     Android: com.UnknownGames.MoveTheSquare
     Standalone: com.UnknownGames.MovingSquare
-    iPhone: com.UnknownGames.MovingSquare
+    iPhone: MovingSquare-game---GamesUnkown-Moving-Square
   buildNumber:
     Standalone: 0
     VisionOS: 0
@@ -666,6 +667,9 @@ PlayerSettings:
   - serializedVersion: 3
     m_BuildTarget: Android
     m_Formats: 01000000
+  - serializedVersion: 3
+    m_BuildTarget: iOS
+    m_Formats: 03000000
   playModeTestRunnerEnabled: 0
   runPlayModeTestAsEditModeTest: 0
   actionOnDotNetUnhandledException: 1
