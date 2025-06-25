@@ -105,7 +105,7 @@ public class Skin : MonoBehaviour
             ShopManager.instance.SetMoney(currentMoney);
             ShopManager.instance.purchaseAnimation.SetActive(true);
             ShopManager.instance.purchaseAnimation.GetComponent<PurchaseAnimation>().SetSkin(skinData.sprite);
-            ShopManager.instance.StartCoroutine(AnimatePurchase());
+           // ShopManager.instance.StartCoroutine(AnimatePurchase());
             PlayerPrefs.SetInt("unlockedSkin" + skinData.id, 1);
             ClearListener();
             AddListener(true);
