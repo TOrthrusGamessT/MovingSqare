@@ -35,7 +35,6 @@ public class PlayerManager : MonoBehaviour
     public void InitPlayer(SkinData skin)
     {
         _playerBody.sprite = skin.sprite;
-        trail.GetComponent<Renderer>().material.SetTexture("_BaseMap", skin.trailTexture);
 
         ApplyEffect(skin);
     }
