@@ -135,16 +135,18 @@ public class SpawnManagerSurvive : Spawner
     {
         yield return new WaitForSeconds(DificultyManager.instance.enemyTimeDelay);
 
-        EnemyBehaviour objectToSpawn = geometricFigures[Random.Range(0, geometricFigures.Count)];
-        Transform spawnPoint = spawningPoints[Random.Range(0, spawningPoints.Count)];
+        EnemyBehaviour objectToSpawn = geometricFigures[Random.Range(0, geometricFigures.Count)];        Transform spawnPoint = spawningPoints[Random.Range(0, spawningPoints.Count)];
 
         //Set direction and Target 
 
         attentionSignBehaviour = Instantiate(enemyAlertSignPrefab, spawnPoint.position, spawnPoint.rotation)
             .GetComponent<AttentionSignBehaviour>();
         SetEnemyDirection(spawnPoint);
-        attentionSignBehaviour.target =
-            Instantiate(objectToSpawn, positionToSpawn, Quaternion.identity).GetComponent<Transform>();
+        EnemyBehaviour spawnedEnemy = Instantiate(objectToSpawn, positionToSpawn, Quaternion.identity);
+        attentionSignBehaviour.target = spawnedEnemy.GetComponent<Transform>();
+        
+        // Apply random color to the spawned enemy
+        ApplyColor(spawnedEnemy);
 
         StartCoroutine(SpawnGeometricFigures());
     }

@@ -34,6 +34,18 @@ public abstract class Spawner : MonoBehaviour
     public float linesLife;
     public Transform obstacleSpawnPoint;
 
+    private List<Color> brightColorPalette = new List<Color>
+    {
+        Color.HSVToRGB(0f, 0.4f, 1f),        // More saturated Red
+        Color.HSVToRGB(240f/360f, 0.4f, 1f), // More saturated Blue
+        Color.HSVToRGB(60f/360f, 0.4f, 1f),  // More saturated Yellow
+        Color.HSVToRGB(300f/360f, 0.4f, 1f), // More saturated Magenta
+        Color.HSVToRGB(30f/360f, 0.4f, 1f),  // More saturated Orange
+        Color.HSVToRGB(270f/360f, 0.4f, 1f), // More saturated Purple
+        Color.HSVToRGB(330f/360f, 0.4f, 1f), // More saturated Pink
+        Color.HSVToRGB(45f/360f, 0.4f, 1f),  // More saturated Gold
+        Color.HSVToRGB(200f/360f, 0.4f, 1f)  // More saturated Sky Blue
+    };
 
     [Header("Boundaries")]
     [Header("V Values")]
@@ -59,7 +71,6 @@ public abstract class Spawner : MonoBehaviour
     protected AttentionSignBehaviour attentionSignBehaviour;
     protected List<GameObject> availablePowerUps;
     protected List<FullScreenLine> fullScreenLineObjects = new();
-
 
     protected virtual void OnEnable()
     {
@@ -114,6 +125,13 @@ public abstract class Spawner : MonoBehaviour
 
 
     protected abstract IEnumerator SpawnPowerUps();
-
+    protected void ApplyColor(EnemyBehaviour enemy)
+    {
+        if (enemy != null && brightColorPalette.Count > 0)
+        {
+            Color randomColor = brightColorPalette[UnityEngine.Random.Range(0, brightColorPalette.Count)];
+            enemy.SetColor(randomColor);
+        }
+    }
 
 }

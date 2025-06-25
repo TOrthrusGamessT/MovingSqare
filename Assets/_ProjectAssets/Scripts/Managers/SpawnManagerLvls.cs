@@ -261,16 +261,18 @@ public class SpawnManagerLvls : Spawner
       yield return new WaitForSeconds(timeBetweenSpawnsGeometricFigures);
 
       EnemyBehaviour objectToSpawn = _geometryToSpawn[Random.Range(0, _geometryToSpawn.Count)];
-      objectToSpawn.UpdateSpeedBasedOnFigure(_geometryFiguresSpeed);
-      Transform spawnPoint = spawningPoints[Random.Range(0, spawningPoints.Count - 1)];
+      objectToSpawn.UpdateSpeedBasedOnFigure(_geometryFiguresSpeed);      Transform spawnPoint = spawningPoints[Random.Range(0, spawningPoints.Count - 1)];
 
       //Set direction and Target 
 
       attentionSignBehaviour = Instantiate(enemyAlertSignPrefab, spawnPoint.position, spawnPoint.rotation)
          .GetComponent<AttentionSignBehaviour>();
       SetEnemyDirection(spawnPoint);
-      attentionSignBehaviour.target =
-         Instantiate(objectToSpawn, positionToSpawn, Quaternion.identity).GetComponent<Transform>();
+      EnemyBehaviour spawnedEnemy = Instantiate(objectToSpawn, positionToSpawn, Quaternion.identity);
+      attentionSignBehaviour.target = spawnedEnemy.GetComponent<Transform>();
+      
+      // Apply random color to the spawned enemy
+      ApplyColor(spawnedEnemy);
 
       StartCoroutine(SpawnGeometricFigures());
    }

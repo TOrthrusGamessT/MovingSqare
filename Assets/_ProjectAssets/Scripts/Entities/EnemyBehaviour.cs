@@ -8,6 +8,10 @@ public abstract class EnemyBehaviour : MonoBehaviour
     public GeometryFigure figure;
     private Rigidbody2D _rb;
 
+    [SerializeField]
+    private ParticleSystem _trail;
+    [SerializeField]
+    private SpriteRenderer _spriteRenderer;
     public virtual void Start()
     {
         transform.right = GameManager.instance.PlayerPosition - (Vector2)transform.position;
@@ -21,6 +25,22 @@ public abstract class EnemyBehaviour : MonoBehaviour
 
 
     public abstract void UpdateSpeedBasedOnFigure(float speed);
+
+    public void SetColor(Color color)
+    {
+        // Set the sprite renderer color
+        if (_spriteRenderer != null)
+        {
+            _spriteRenderer.color = color;
+        }
+
+        // Set the particle system trail color
+        if (_trail != null)
+        {
+            var mainModule = _trail.main;
+            mainModule.startColor = color;
+        }
+    }
 
     private void Awake()
     {
