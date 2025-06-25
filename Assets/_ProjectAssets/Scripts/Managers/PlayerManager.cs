@@ -38,14 +38,14 @@ public class PlayerManager : MonoBehaviour
 
         ApplyEffect(skin);
     }
-
-
     private void ApplyEffect(SkinData skin)
     {
-
         transform.localScale /= skin.sizeBonus;
         movement.speed*= skin.speedBonus;
         playerLife.AddLife(skin.lives);
+        
+        // Initialize scale effects after applying skin effects
+        movement.InitializeScaleEffects();
     }
 
     private void WinLvl()
