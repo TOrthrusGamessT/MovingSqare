@@ -43,6 +43,9 @@ public class Timer : MonoBehaviour
       set => lvlDuration = value;
    }
 
+   public static bool IsSurviveMode => instance != null && instance.isSurviveMode;
+   public static int ElapsedSeconds => instance != null ? instance.elapsedSeconds : 0;
+
 
    private void OnEnable()
    {
