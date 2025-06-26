@@ -44,8 +44,12 @@ public class PlayerManager : MonoBehaviour
         movement.speed*= skin.speedBonus;
         playerLife.AddLife(skin.lives);
         
-        // Initialize scale effects after applying skin effects
-        movement.InitializeScaleEffects();
+        // Initialize animation effects after applying skin effects
+        var squareAnimator = GetComponent<SquareAnimator>();
+        if (squareAnimator != null)
+        {
+            squareAnimator.InitializeAnimation();
+        }
     }
 
     private void WinLvl()
