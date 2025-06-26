@@ -64,6 +64,7 @@ public class PlayerLife : MonoBehaviour
         Invincible();
         EffectManager.DamageEffect();
         UIManagerGameRoom.instance.DecreaseLife();
+        CameraShaking.Shake();
         if (life <= 0)
         {
             onPlayerDie?.Invoke();
