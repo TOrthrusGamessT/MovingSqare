@@ -62,21 +62,31 @@ public class AdsManager : MonoBehaviour
 
     public static void InitReviveAD()
     {
-        if (rewardedAd.CanShowAd())
+        if (rewardedAd != null && rewardedAd.CanShowAd())
         {
             value = true;
             RegisterEventHandlers(rewardedAd);
             ShowReviveAD(true);
         }
+        else
+        {
+            Debug.LogWarning("Rewarded ad not ready for revive. Loading new ad...");
+            LoadRewardedAd();
+        }
     }
 
     public static void InitDoubleCoinAD()
     {
-        if (rewardedAd.CanShowAd())
+        if (rewardedAd != null && rewardedAd.CanShowAd())
         {
             value = false;
             RegisterEventHandlers(rewardedAd);
             ShowReviveAD(false);
+        }
+        else
+        {
+            Debug.LogWarning("Rewarded ad not ready for double coin. Loading new ad...");
+            LoadRewardedAd();
         }
     }
 
@@ -114,6 +124,7 @@ public class AdsManager : MonoBehaviour
                           + ad.GetResponseInfo());
 
                 rewardedAd = ad;
+                RegisterReloadHandler(ad);
             });
     }
 
@@ -201,12 +212,13 @@ public class AdsManager : MonoBehaviour
         ad.OnAdFullScreenContentClosed += () =>
         {
             Debug.LogWarning("In OnAdFullScreenContentClosed");
-            ad.Destroy();
+            LoadRewardedAd();
         };
         // Raised when the ad failed to open full screen content.
         ad.OnAdFullScreenContentFailed += (AdError error) =>
         {
-            Debug.LogError(error);
+            Debug.LogError("Ad failed to open: " + error);
+            LoadRewardedAd();
         };
     }
 }
