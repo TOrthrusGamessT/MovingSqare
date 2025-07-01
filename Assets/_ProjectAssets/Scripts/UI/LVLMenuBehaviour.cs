@@ -4,16 +4,6 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
-/*
- * Setup Instructions for Line Prefab:
- * 1. Create a new UI Image GameObject
- * 2. Set its Image component Source Image to a white texture or Unity's default UI sprite
- * 3. Set the RectTransform anchor to middle-left (0.0, 0.5)
- * 4. Set the RectTransform pivot to (0, 0.5) 
- * 5. Set initial size to something like (100, 2) for width x height
- * 6. Save as prefab and assign to linePrefab field in LVLMenuBehaviour
- */
-
 public class LVLMenuBehaviour : MonoBehaviour
 {
     public RectTransform lvlWrapper;
@@ -23,6 +13,8 @@ public class LVLMenuBehaviour : MonoBehaviour
     public Color lockedLineColor = Color.gray;
     public float lineWidth = 100f;
     public float lineHeight = 4f;
+    public float horizontalLineMultiplier = 0.9f; // Longer lines for horizontal connections
+    public float diagonalLineMultiplier = 0.7f;   // Shorter lines for diagonal connections
     
     private int maxLvlReached;
     private List<GameObject> lines = new List<GameObject>();
@@ -134,12 +126,16 @@ public class LVLMenuBehaviour : MonoBehaviour
             float distance = direction.magnitude;
             float angle = Mathf.Atan2(direction.y, direction.x) * Mathf.Rad2Deg;
             
+            // Determine if line is horizontal (or nearly horizontal) vs diagonal
+            bool isHorizontal = Mathf.Abs(direction.y) < Mathf.Abs(direction.x) * 0.3f; // If Y change is less than 30% of X change
+            float lineMultiplier = isHorizontal ? horizontalLineMultiplier : diagonalLineMultiplier;
+            
             // Set line position to center between buttons
             Vector2 linePosition = (Vector2)currentPos + direction * 0.5f;
             
             // Configure line transform - use localPosition instead of anchoredPosition
             lineRect.localPosition = linePosition;
-            lineRect.sizeDelta = new Vector2(distance * 0.7f, lineHeight);
+            lineRect.sizeDelta = new Vector2(distance * lineMultiplier, lineHeight);
             lineRect.localRotation = Quaternion.Euler(0, 0, angle);
             
             // Set line color based on unlock status
