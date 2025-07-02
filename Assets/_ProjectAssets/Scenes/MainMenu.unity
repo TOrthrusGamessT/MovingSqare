@@ -194,6 +194,11 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1507053}
   m_CullTransparentMesh: 1
+--- !u!1 &7899274 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 7551253967985201885, guid: 751e4692919b01248946c988e898b265, type: 3}
+  m_PrefabInstance: {fileID: 317191586}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &32542386
 GameObject:
   m_ObjectHideFlags: 0
@@ -447,7 +452,10 @@ PrefabInstance:
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 7551253967985201885, guid: 751e4692919b01248946c988e898b265, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1991045242}
   m_SourcePrefab: {fileID: 100100000, guid: 751e4692919b01248946c988e898b265, type: 3}
 --- !u!224 &63079233 stripped
 RectTransform:
@@ -584,12 +592,20 @@ PrefabInstance:
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 7551253967985201885, guid: 751e4692919b01248946c988e898b265, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 835363288}
   m_SourcePrefab: {fileID: 100100000, guid: 751e4692919b01248946c988e898b265, type: 3}
 --- !u!224 &75109524 stripped
 RectTransform:
   m_CorrespondingSourceObject: {fileID: 7551253967985201884, guid: 751e4692919b01248946c988e898b265, type: 3}
   m_PrefabInstance: {fileID: 75109523}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &120518075 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 7551253967985201885, guid: 751e4692919b01248946c988e898b265, type: 3}
+  m_PrefabInstance: {fileID: 357610504}
   m_PrefabAsset: {fileID: 0}
 --- !u!1 &131416649
 GameObject:
@@ -668,6 +684,11 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 131416649}
   m_CullTransparentMesh: 1
+--- !u!1 &161261967 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 7551253967985201885, guid: 751e4692919b01248946c988e898b265, type: 3}
+  m_PrefabInstance: {fileID: 488253540}
+  m_PrefabAsset: {fileID: 0}
 --- !u!114 &167519050 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 4841140331069530164, guid: 223ef801a9a3b4a7c9fe155744179478, type: 3}
@@ -786,7 +807,10 @@ PrefabInstance:
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 7551253967985201885, guid: 751e4692919b01248946c988e898b265, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 610571594}
   m_SourcePrefab: {fileID: 100100000, guid: 751e4692919b01248946c988e898b265, type: 3}
 --- !u!224 &176097034 stripped
 RectTransform:
@@ -965,6 +989,11 @@ RectTransform:
   m_AnchoredPosition: {x: -1112, y: 561}
   m_SizeDelta: {x: 100, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
+--- !u!1 &255468200 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 7551253967985201885, guid: 751e4692919b01248946c988e898b265, type: 3}
+  m_PrefabInstance: {fileID: 1036820432}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &273695549
 GameObject:
   m_ObjectHideFlags: 0
@@ -1255,13 +1284,37 @@ PrefabInstance:
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 7551253967985201885, guid: 751e4692919b01248946c988e898b265, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 317191593}
   m_SourcePrefab: {fileID: 100100000, guid: 751e4692919b01248946c988e898b265, type: 3}
 --- !u!224 &317191587 stripped
 RectTransform:
   m_CorrespondingSourceObject: {fileID: 7551253967985201884, guid: 751e4692919b01248946c988e898b265, type: 3}
   m_PrefabInstance: {fileID: 317191586}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &317191593
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7899274}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e99f24a9283f82a4aa6f15f023ddcd70, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  touchScale: 0.9
+  pressDuration: 0.1
+  releaseDuration: 0.15
+  useBounceEffect: 1
+  bounceIntensity: 0.1
+  useColorFeedback: 0
+  pressedColor: {r: 0.8, g: 0.8, b: 0.8, a: 1}
+  mobileLightMode: 1
+  respectInteractableState: 1
 --- !u!1001 &324109631
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1361,7 +1414,10 @@ PrefabInstance:
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 7551253967985201885, guid: 751e4692919b01248946c988e898b265, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 2027961820}
   m_SourcePrefab: {fileID: 100100000, guid: 751e4692919b01248946c988e898b265, type: 3}
 --- !u!224 &324109632 stripped
 RectTransform:
@@ -1463,7 +1519,10 @@ PrefabInstance:
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 7551253967985201885, guid: 751e4692919b01248946c988e898b265, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1348554267}
   m_SourcePrefab: {fileID: 100100000, guid: 751e4692919b01248946c988e898b265, type: 3}
 --- !u!224 &328131459 stripped
 RectTransform:
@@ -1531,6 +1590,12 @@ MonoBehaviour:
   lineHeight: 8.45
   horizontalLineMultiplier: 1
   diagonalLineMultiplier: 0.7
+  enableFloatEffect: 1
+  floatAmplitude: 10
+  floatSpeed: 2
+  floatRandomOffset: 2
+  amplitudeVariation: 0.5
+  speedVariation: 0.3
 --- !u!1 &332110511
 GameObject:
   m_ObjectHideFlags: 0
@@ -1737,13 +1802,37 @@ PrefabInstance:
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 7551253967985201885, guid: 751e4692919b01248946c988e898b265, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 357610511}
   m_SourcePrefab: {fileID: 100100000, guid: 751e4692919b01248946c988e898b265, type: 3}
 --- !u!224 &357610505 stripped
 RectTransform:
   m_CorrespondingSourceObject: {fileID: 7551253967985201884, guid: 751e4692919b01248946c988e898b265, type: 3}
   m_PrefabInstance: {fileID: 357610504}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &357610511
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 120518075}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e99f24a9283f82a4aa6f15f023ddcd70, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  touchScale: 0.9
+  pressDuration: 0.1
+  releaseDuration: 0.15
+  useBounceEffect: 1
+  bounceIntensity: 0.1
+  useColorFeedback: 0
+  pressedColor: {r: 0.8, g: 0.8, b: 0.8, a: 1}
+  mobileLightMode: 1
+  respectInteractableState: 1
 --- !u!1 &368072078
 GameObject:
   m_ObjectHideFlags: 0
@@ -1915,7 +2004,10 @@ PrefabInstance:
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 7551253967985201885, guid: 751e4692919b01248946c988e898b265, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 568772473}
   m_SourcePrefab: {fileID: 100100000, guid: 751e4692919b01248946c988e898b265, type: 3}
 --- !u!224 &381145210 stripped
 RectTransform:
@@ -1957,6 +2049,11 @@ RectTransform:
   m_AnchoredPosition: {x: 955, y: -561}
   m_SizeDelta: {x: 100, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
+--- !u!1 &415881469 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 7551253967985201885, guid: 751e4692919b01248946c988e898b265, type: 3}
+  m_PrefabInstance: {fileID: 1646916984}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &429007193
 GameObject:
   m_ObjectHideFlags: 0
@@ -2041,6 +2138,7 @@ GameObject:
   - component: {fileID: 459346033}
   - component: {fileID: 459346032}
   - component: {fileID: 459346031}
+  - component: {fileID: 459346034}
   m_Layer: 5
   m_Name: Start
   m_TagString: Untagged
@@ -2110,7 +2208,7 @@ MonoBehaviour:
     m_SelectedTrigger: Selected
     m_DisabledTrigger: Disabled
   m_Interactable: 1
-  m_TargetGraphic: {fileID: 459346032}
+  m_TargetGraphic: {fileID: 1367036200}
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
@@ -2145,7 +2243,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 459346029}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
   m_Name: 
@@ -2176,6 +2274,27 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 459346029}
   m_CullTransparentMesh: 1
+--- !u!114 &459346034
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 459346029}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e99f24a9283f82a4aa6f15f023ddcd70, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  touchScale: 0.9
+  pressDuration: 0.1
+  releaseDuration: 0.15
+  useBounceEffect: 1
+  bounceIntensity: 0.1
+  useColorFeedback: 1
+  pressedColor: {r: 0.8, g: 0.8, b: 0.8, a: 1}
+  mobileLightMode: 1
+  respectInteractableState: 1
 --- !u!1 &479530029
 GameObject:
   m_ObjectHideFlags: 0
@@ -2411,13 +2530,37 @@ PrefabInstance:
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 7551253967985201885, guid: 751e4692919b01248946c988e898b265, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 488253547}
   m_SourcePrefab: {fileID: 100100000, guid: 751e4692919b01248946c988e898b265, type: 3}
 --- !u!224 &488253541 stripped
 RectTransform:
   m_CorrespondingSourceObject: {fileID: 7551253967985201884, guid: 751e4692919b01248946c988e898b265, type: 3}
   m_PrefabInstance: {fileID: 488253540}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &488253547
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 161261967}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e99f24a9283f82a4aa6f15f023ddcd70, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  touchScale: 0.9
+  pressDuration: 0.1
+  releaseDuration: 0.15
+  useBounceEffect: 1
+  bounceIntensity: 0.1
+  useColorFeedback: 0
+  pressedColor: {r: 0.8, g: 0.8, b: 0.8, a: 1}
+  mobileLightMode: 1
+  respectInteractableState: 1
 --- !u!1 &507977905
 GameObject:
   m_ObjectHideFlags: 0
@@ -2852,6 +2995,32 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 522817681}
   m_CullTransparentMesh: 1
+--- !u!1 &568772467 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 7551253967985201885, guid: 751e4692919b01248946c988e898b265, type: 3}
+  m_PrefabInstance: {fileID: 381145209}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &568772473
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 568772467}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e99f24a9283f82a4aa6f15f023ddcd70, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  touchScale: 0.9
+  pressDuration: 0.1
+  releaseDuration: 0.15
+  useBounceEffect: 1
+  bounceIntensity: 0.1
+  useColorFeedback: 0
+  pressedColor: {r: 0.8, g: 0.8, b: 0.8, a: 1}
+  mobileLightMode: 1
+  respectInteractableState: 1
 --- !u!1 &585931112
 GameObject:
   m_ObjectHideFlags: 0
@@ -2924,6 +3093,32 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 585931112}
   m_CullTransparentMesh: 1
+--- !u!1 &610571588 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 7551253967985201885, guid: 751e4692919b01248946c988e898b265, type: 3}
+  m_PrefabInstance: {fileID: 176097033}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &610571594
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 610571588}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e99f24a9283f82a4aa6f15f023ddcd70, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  touchScale: 0.9
+  pressDuration: 0.1
+  releaseDuration: 0.15
+  useBounceEffect: 1
+  bounceIntensity: 0.1
+  useColorFeedback: 0
+  pressedColor: {r: 0.8, g: 0.8, b: 0.8, a: 1}
+  mobileLightMode: 1
+  respectInteractableState: 1
 --- !u!1001 &616211888
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -3019,7 +3214,10 @@ PrefabInstance:
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 7551253967985201885, guid: 751e4692919b01248946c988e898b265, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 726056510}
   m_SourcePrefab: {fileID: 100100000, guid: 751e4692919b01248946c988e898b265, type: 3}
 --- !u!224 &616211889 stripped
 RectTransform:
@@ -3093,6 +3291,32 @@ RectTransform:
   m_AnchoredPosition: {x: -1112, y: -443}
   m_SizeDelta: {x: 100, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
+--- !u!1 &726056504 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 7551253967985201885, guid: 751e4692919b01248946c988e898b265, type: 3}
+  m_PrefabInstance: {fileID: 616211888}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &726056510
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 726056504}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e99f24a9283f82a4aa6f15f023ddcd70, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  touchScale: 0.9
+  pressDuration: 0.1
+  releaseDuration: 0.15
+  useBounceEffect: 1
+  bounceIntensity: 0.1
+  useColorFeedback: 0
+  pressedColor: {r: 0.8, g: 0.8, b: 0.8, a: 1}
+  mobileLightMode: 1
+  respectInteractableState: 1
 --- !u!1 &736278149
 GameObject:
   m_ObjectHideFlags: 0
@@ -8644,13 +8868,42 @@ PrefabInstance:
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 7551253967985201885, guid: 751e4692919b01248946c988e898b265, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 2114394884}
   m_SourcePrefab: {fileID: 100100000, guid: 751e4692919b01248946c988e898b265, type: 3}
 --- !u!224 &805868663 stripped
 RectTransform:
   m_CorrespondingSourceObject: {fileID: 7551253967985201884, guid: 751e4692919b01248946c988e898b265, type: 3}
   m_PrefabInstance: {fileID: 805868662}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &835363282 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 7551253967985201885, guid: 751e4692919b01248946c988e898b265, type: 3}
+  m_PrefabInstance: {fileID: 75109523}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &835363288
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 835363282}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e99f24a9283f82a4aa6f15f023ddcd70, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  touchScale: 0.9
+  pressDuration: 0.1
+  releaseDuration: 0.15
+  useBounceEffect: 1
+  bounceIntensity: 0.1
+  useColorFeedback: 0
+  pressedColor: {r: 0.8, g: 0.8, b: 0.8, a: 1}
+  mobileLightMode: 1
+  respectInteractableState: 1
 --- !u!1 &845075518
 GameObject:
   m_ObjectHideFlags: 0
@@ -9521,13 +9774,37 @@ PrefabInstance:
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 7551253967985201885, guid: 751e4692919b01248946c988e898b265, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1036820439}
   m_SourcePrefab: {fileID: 100100000, guid: 751e4692919b01248946c988e898b265, type: 3}
 --- !u!224 &1036820433 stripped
 RectTransform:
   m_CorrespondingSourceObject: {fileID: 7551253967985201884, guid: 751e4692919b01248946c988e898b265, type: 3}
   m_PrefabInstance: {fileID: 1036820432}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &1036820439
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 255468200}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e99f24a9283f82a4aa6f15f023ddcd70, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  touchScale: 0.9
+  pressDuration: 0.1
+  releaseDuration: 0.15
+  useBounceEffect: 1
+  bounceIntensity: 0.1
+  useColorFeedback: 0
+  pressedColor: {r: 0.8, g: 0.8, b: 0.8, a: 1}
+  mobileLightMode: 1
+  respectInteractableState: 1
 --- !u!1 &1038754667
 GameObject:
   m_ObjectHideFlags: 0
@@ -9739,6 +10016,7 @@ GameObject:
   - component: {fileID: 1077591788}
   - component: {fileID: 1077591787}
   - component: {fileID: 1077591786}
+  - component: {fileID: 1077591789}
   m_Layer: 5
   m_Name: Music
   m_TagString: Untagged
@@ -9808,7 +10086,7 @@ MonoBehaviour:
     m_SelectedTrigger: Selected
     m_DisabledTrigger: Disabled
   m_Interactable: 1
-  m_TargetGraphic: {fileID: 1077591787}
+  m_TargetGraphic: {fileID: 51358950}
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
@@ -9862,6 +10140,27 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1077591784}
   m_CullTransparentMesh: 1
+--- !u!114 &1077591789
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1077591784}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e99f24a9283f82a4aa6f15f023ddcd70, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  touchScale: 0.9
+  pressDuration: 0.1
+  releaseDuration: 0.15
+  useBounceEffect: 1
+  bounceIntensity: 0.1
+  useColorFeedback: 0
+  pressedColor: {r: 0.8, g: 0.8, b: 0.8, a: 1}
+  mobileLightMode: 1
+  respectInteractableState: 1
 --- !u!1 &1111067310
 GameObject:
   m_ObjectHideFlags: 0
@@ -10172,7 +10471,10 @@ PrefabInstance:
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 7551253967985201885, guid: 751e4692919b01248946c988e898b265, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1818136084}
   m_SourcePrefab: {fileID: 100100000, guid: 751e4692919b01248946c988e898b265, type: 3}
 --- !u!224 &1119722034 stripped
 RectTransform:
@@ -10583,12 +10885,20 @@ PrefabInstance:
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 7551253967985201885, guid: 751e4692919b01248946c988e898b265, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1705550987}
   m_SourcePrefab: {fileID: 100100000, guid: 751e4692919b01248946c988e898b265, type: 3}
 --- !u!224 &1148257801 stripped
 RectTransform:
   m_CorrespondingSourceObject: {fileID: 7551253967985201884, guid: 751e4692919b01248946c988e898b265, type: 3}
   m_PrefabInstance: {fileID: 1148257800}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &1184216904 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 7551253967985201885, guid: 751e4692919b01248946c988e898b265, type: 3}
+  m_PrefabInstance: {fileID: 1331157958}
   m_PrefabAsset: {fileID: 0}
 --- !u!1 &1207724174
 GameObject:
@@ -10783,6 +11093,7 @@ GameObject:
   - component: {fileID: 1286793749}
   - component: {fileID: 1286793748}
   - component: {fileID: 1286793747}
+  - component: {fileID: 1286793750}
   m_Layer: 5
   m_Name: Sound
   m_TagString: Untagged
@@ -10852,7 +11163,7 @@ MonoBehaviour:
     m_SelectedTrigger: Selected
     m_DisabledTrigger: Disabled
   m_Interactable: 1
-  m_TargetGraphic: {fileID: 1286793748}
+  m_TargetGraphic: {fileID: 1111067312}
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
@@ -10906,6 +11217,27 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1286793745}
   m_CullTransparentMesh: 1
+--- !u!114 &1286793750
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1286793745}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e99f24a9283f82a4aa6f15f023ddcd70, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  touchScale: 0.9
+  pressDuration: 0.1
+  releaseDuration: 0.15
+  useBounceEffect: 1
+  bounceIntensity: 0.1
+  useColorFeedback: 0
+  pressedColor: {r: 0.8, g: 0.8, b: 0.8, a: 1}
+  mobileLightMode: 1
+  respectInteractableState: 1
 --- !u!1 &1326212484
 GameObject:
   m_ObjectHideFlags: 0
@@ -11076,7 +11408,10 @@ PrefabInstance:
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 7551253967985201885, guid: 751e4692919b01248946c988e898b265, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1676666081}
   m_SourcePrefab: {fileID: 100100000, guid: 751e4692919b01248946c988e898b265, type: 3}
 --- !u!224 &1330615415 stripped
 RectTransform:
@@ -11182,13 +11517,37 @@ PrefabInstance:
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 7551253967985201885, guid: 751e4692919b01248946c988e898b265, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1331157965}
   m_SourcePrefab: {fileID: 100100000, guid: 751e4692919b01248946c988e898b265, type: 3}
 --- !u!224 &1331157959 stripped
 RectTransform:
   m_CorrespondingSourceObject: {fileID: 7551253967985201884, guid: 751e4692919b01248946c988e898b265, type: 3}
   m_PrefabInstance: {fileID: 1331157958}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &1331157965
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1184216904}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e99f24a9283f82a4aa6f15f023ddcd70, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  touchScale: 0.9
+  pressDuration: 0.1
+  releaseDuration: 0.15
+  useBounceEffect: 1
+  bounceIntensity: 0.1
+  useColorFeedback: 0
+  pressedColor: {r: 0.8, g: 0.8, b: 0.8, a: 1}
+  mobileLightMode: 1
+  respectInteractableState: 1
 --- !u!1 &1338459197
 GameObject:
   m_ObjectHideFlags: 0
@@ -11365,6 +11724,32 @@ MonoBehaviour:
   backgroundFadeTime: 0.8
   skin: {fileID: 762012645}
   background: {fileID: 1695517907}
+--- !u!1 &1348554261 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 7551253967985201885, guid: 751e4692919b01248946c988e898b265, type: 3}
+  m_PrefabInstance: {fileID: 328131458}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &1348554267
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1348554261}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e99f24a9283f82a4aa6f15f023ddcd70, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  touchScale: 0.9
+  pressDuration: 0.1
+  releaseDuration: 0.15
+  useBounceEffect: 1
+  bounceIntensity: 0.1
+  useColorFeedback: 0
+  pressedColor: {r: 0.8, g: 0.8, b: 0.8, a: 1}
+  mobileLightMode: 1
+  respectInteractableState: 1
 --- !u!1 &1367036198
 GameObject:
   m_ObjectHideFlags: 0
@@ -11706,6 +12091,7 @@ GameObject:
   - component: {fileID: 1415988967}
   - component: {fileID: 1415988966}
   - component: {fileID: 1415988965}
+  - component: {fileID: 1415988968}
   m_Layer: 5
   m_Name: Shop
   m_TagString: Untagged
@@ -11774,7 +12160,7 @@ MonoBehaviour:
     m_SelectedTrigger: Selected
     m_DisabledTrigger: Disabled
   m_Interactable: 1
-  m_TargetGraphic: {fileID: 1415988966}
+  m_TargetGraphic: {fileID: 1724854602}
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
@@ -11797,7 +12183,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1415988963}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
   m_Name: 
@@ -11828,6 +12214,27 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1415988963}
   m_CullTransparentMesh: 1
+--- !u!114 &1415988968
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1415988963}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e99f24a9283f82a4aa6f15f023ddcd70, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  touchScale: 0.9
+  pressDuration: 0.1
+  releaseDuration: 0.15
+  useBounceEffect: 1
+  bounceIntensity: 0.1
+  useColorFeedback: 1
+  pressedColor: {r: 0.8, g: 0.8, b: 0.8, a: 1}
+  mobileLightMode: 1
+  respectInteractableState: 1
 --- !u!1001 &1418791546
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -11927,7 +12334,10 @@ PrefabInstance:
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 7551253967985201885, guid: 751e4692919b01248946c988e898b265, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 2056246105}
   m_SourcePrefab: {fileID: 100100000, guid: 751e4692919b01248946c988e898b265, type: 3}
 --- !u!224 &1418791547 stripped
 RectTransform:
@@ -12247,6 +12657,11 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1497670878}
   m_CullTransparentMesh: 1
+--- !u!1 &1503504877 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 7551253967985201885, guid: 751e4692919b01248946c988e898b265, type: 3}
+  m_PrefabInstance: {fileID: 2045527592}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1587102833
 GameObject:
   m_ObjectHideFlags: 0
@@ -12550,13 +12965,37 @@ PrefabInstance:
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 7551253967985201885, guid: 751e4692919b01248946c988e898b265, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1646916991}
   m_SourcePrefab: {fileID: 100100000, guid: 751e4692919b01248946c988e898b265, type: 3}
 --- !u!224 &1646916985 stripped
 RectTransform:
   m_CorrespondingSourceObject: {fileID: 7551253967985201884, guid: 751e4692919b01248946c988e898b265, type: 3}
   m_PrefabInstance: {fileID: 1646916984}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &1646916991
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 415881469}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e99f24a9283f82a4aa6f15f023ddcd70, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  touchScale: 0.9
+  pressDuration: 0.1
+  releaseDuration: 0.15
+  useBounceEffect: 1
+  bounceIntensity: 0.1
+  useColorFeedback: 0
+  pressedColor: {r: 0.8, g: 0.8, b: 0.8, a: 1}
+  mobileLightMode: 1
+  respectInteractableState: 1
 --- !u!1 &1659153068
 GameObject:
   m_ObjectHideFlags: 0
@@ -12693,6 +13132,32 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1659153068}
   m_CullTransparentMesh: 1
+--- !u!1 &1676666075 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 7551253967985201885, guid: 751e4692919b01248946c988e898b265, type: 3}
+  m_PrefabInstance: {fileID: 1330615414}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &1676666081
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1676666075}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e99f24a9283f82a4aa6f15f023ddcd70, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  touchScale: 0.9
+  pressDuration: 0.1
+  releaseDuration: 0.15
+  useBounceEffect: 1
+  bounceIntensity: 0.1
+  useColorFeedback: 0
+  pressedColor: {r: 0.8, g: 0.8, b: 0.8, a: 1}
+  mobileLightMode: 1
+  respectInteractableState: 1
 --- !u!1 &1687168929
 GameObject:
   m_ObjectHideFlags: 0
@@ -12806,6 +13271,32 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1695517905}
   m_CullTransparentMesh: 1
+--- !u!1 &1705550981 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 7551253967985201885, guid: 751e4692919b01248946c988e898b265, type: 3}
+  m_PrefabInstance: {fileID: 1148257800}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &1705550987
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1705550981}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e99f24a9283f82a4aa6f15f023ddcd70, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  touchScale: 0.9
+  pressDuration: 0.1
+  releaseDuration: 0.15
+  useBounceEffect: 1
+  bounceIntensity: 0.1
+  useColorFeedback: 0
+  pressedColor: {r: 0.8, g: 0.8, b: 0.8, a: 1}
+  mobileLightMode: 1
+  respectInteractableState: 1
 --- !u!1 &1724854600
 GameObject:
   m_ObjectHideFlags: 0
@@ -12980,7 +13471,10 @@ PrefabInstance:
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 7551253967985201885, guid: 751e4692919b01248946c988e898b265, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1969637593}
   m_SourcePrefab: {fileID: 100100000, guid: 751e4692919b01248946c988e898b265, type: 3}
 --- !u!224 &1733386299 stripped
 RectTransform:
@@ -13202,7 +13696,7 @@ MonoBehaviour:
     m_SelectedTrigger: Selected
     m_DisabledTrigger: Disabled
   m_Interactable: 1
-  m_TargetGraphic: {fileID: 1777570615}
+  m_TargetGraphic: {fileID: 310152572}
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
@@ -13249,7 +13743,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1777570612}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
   m_Name: 
@@ -13381,6 +13875,32 @@ MonoBehaviour:
   m_ChildScaleWidth: 0
   m_ChildScaleHeight: 0
   m_ReverseArrangement: 0
+--- !u!1 &1818136078 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 7551253967985201885, guid: 751e4692919b01248946c988e898b265, type: 3}
+  m_PrefabInstance: {fileID: 1119722033}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &1818136084
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1818136078}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e99f24a9283f82a4aa6f15f023ddcd70, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  touchScale: 0.9
+  pressDuration: 0.1
+  releaseDuration: 0.15
+  useBounceEffect: 1
+  bounceIntensity: 0.1
+  useColorFeedback: 0
+  pressedColor: {r: 0.8, g: 0.8, b: 0.8, a: 1}
+  mobileLightMode: 1
+  respectInteractableState: 1
 --- !u!224 &1896883382 stripped
 RectTransform:
   m_CorrespondingSourceObject: {fileID: 4841140330262006930, guid: 223ef801a9a3b4a7c9fe155744179478, type: 3}
@@ -13824,6 +14344,84 @@ RectTransform:
   m_AnchoredPosition: {x: 295, y: -1235}
   m_SizeDelta: {x: 100, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
+--- !u!1 &1969637587 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 7551253967985201885, guid: 751e4692919b01248946c988e898b265, type: 3}
+  m_PrefabInstance: {fileID: 1733386298}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &1969637593
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1969637587}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e99f24a9283f82a4aa6f15f023ddcd70, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  touchScale: 0.9
+  pressDuration: 0.1
+  releaseDuration: 0.15
+  useBounceEffect: 1
+  bounceIntensity: 0.1
+  useColorFeedback: 0
+  pressedColor: {r: 0.8, g: 0.8, b: 0.8, a: 1}
+  mobileLightMode: 1
+  respectInteractableState: 1
+--- !u!1 &1991045236 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 7551253967985201885, guid: 751e4692919b01248946c988e898b265, type: 3}
+  m_PrefabInstance: {fileID: 63079232}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &1991045242
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1991045236}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e99f24a9283f82a4aa6f15f023ddcd70, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  touchScale: 0.9
+  pressDuration: 0.1
+  releaseDuration: 0.15
+  useBounceEffect: 1
+  bounceIntensity: 0.1
+  useColorFeedback: 0
+  pressedColor: {r: 0.8, g: 0.8, b: 0.8, a: 1}
+  mobileLightMode: 1
+  respectInteractableState: 1
+--- !u!1 &2027961814 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 7551253967985201885, guid: 751e4692919b01248946c988e898b265, type: 3}
+  m_PrefabInstance: {fileID: 324109631}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &2027961820
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2027961814}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e99f24a9283f82a4aa6f15f023ddcd70, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  touchScale: 0.9
+  pressDuration: 0.1
+  releaseDuration: 0.15
+  useBounceEffect: 1
+  bounceIntensity: 0.1
+  useColorFeedback: 0
+  pressedColor: {r: 0.8, g: 0.8, b: 0.8, a: 1}
+  mobileLightMode: 1
+  respectInteractableState: 1
 --- !u!1001 &2045527592
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -13919,13 +14517,63 @@ PrefabInstance:
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 7551253967985201885, guid: 751e4692919b01248946c988e898b265, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 2045527599}
   m_SourcePrefab: {fileID: 100100000, guid: 751e4692919b01248946c988e898b265, type: 3}
 --- !u!224 &2045527593 stripped
 RectTransform:
   m_CorrespondingSourceObject: {fileID: 7551253967985201884, guid: 751e4692919b01248946c988e898b265, type: 3}
   m_PrefabInstance: {fileID: 2045527592}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &2045527599
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1503504877}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e99f24a9283f82a4aa6f15f023ddcd70, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  touchScale: 0.9
+  pressDuration: 0.1
+  releaseDuration: 0.15
+  useBounceEffect: 1
+  bounceIntensity: 0.1
+  useColorFeedback: 0
+  pressedColor: {r: 0.8, g: 0.8, b: 0.8, a: 1}
+  mobileLightMode: 1
+  respectInteractableState: 1
+--- !u!1 &2056246099 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 7551253967985201885, guid: 751e4692919b01248946c988e898b265, type: 3}
+  m_PrefabInstance: {fileID: 1418791546}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &2056246105
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2056246099}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e99f24a9283f82a4aa6f15f023ddcd70, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  touchScale: 0.9
+  pressDuration: 0.1
+  releaseDuration: 0.15
+  useBounceEffect: 1
+  bounceIntensity: 0.1
+  useColorFeedback: 0
+  pressedColor: {r: 0.8, g: 0.8, b: 0.8, a: 1}
+  mobileLightMode: 1
+  respectInteractableState: 1
 --- !u!1 &2057530534
 GameObject:
   m_ObjectHideFlags: 0
@@ -13960,7 +14608,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: -0.0015869141, y: -412}
+  m_AnchoredPosition: {x: -0.0014648438, y: -412}
   m_SizeDelta: {x: -515.94, y: 291.27002}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &2057530536
@@ -14217,6 +14865,32 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2087978195}
   m_CullTransparentMesh: 1
+--- !u!1 &2114394878 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 7551253967985201885, guid: 751e4692919b01248946c988e898b265, type: 3}
+  m_PrefabInstance: {fileID: 805868662}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &2114394884
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2114394878}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e99f24a9283f82a4aa6f15f023ddcd70, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  touchScale: 0.9
+  pressDuration: 0.1
+  releaseDuration: 0.15
+  useBounceEffect: 1
+  bounceIntensity: 0.1
+  useColorFeedback: 0
+  pressedColor: {r: 0.8, g: 0.8, b: 0.8, a: 1}
+  mobileLightMode: 1
+  respectInteractableState: 1
 --- !u!1 &2131723122
 GameObject:
   m_ObjectHideFlags: 0

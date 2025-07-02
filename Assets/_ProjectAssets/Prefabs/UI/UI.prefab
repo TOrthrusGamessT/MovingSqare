@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 221012582}
   - component: {fileID: 221012581}
   - component: {fileID: 221012580}
+  - component: {fileID: 6353216967302115176}
   m_Layer: 5
   m_Name: Home
   m_TagString: Untagged
@@ -157,6 +158,27 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+--- !u!114 &6353216967302115176
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 221012578}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e99f24a9283f82a4aa6f15f023ddcd70, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  touchScale: 0.9
+  pressDuration: 0.1
+  releaseDuration: 0.15
+  useBounceEffect: 1
+  bounceIntensity: 0.1
+  useColorFeedback: 0
+  pressedColor: {r: 0.8, g: 0.8, b: 0.8, a: 1}
+  mobileLightMode: 1
+  respectInteractableState: 1
 --- !u!1 &233143372
 GameObject:
   m_ObjectHideFlags: 0
@@ -481,6 +503,7 @@ GameObject:
   - component: {fileID: 1346765379}
   - component: {fileID: 1346765378}
   - component: {fileID: 1346765377}
+  - component: {fileID: 8566905697151988958}
   m_Layer: 5
   m_Name: RESUME
   m_TagString: Untagged
@@ -614,6 +637,27 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+--- !u!114 &8566905697151988958
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1346765375}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e99f24a9283f82a4aa6f15f023ddcd70, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  touchScale: 0.9
+  pressDuration: 0.1
+  releaseDuration: 0.15
+  useBounceEffect: 1
+  bounceIntensity: 0.1
+  useColorFeedback: 0
+  pressedColor: {r: 0.8, g: 0.8, b: 0.8, a: 1}
+  mobileLightMode: 1
+  respectInteractableState: 1
 --- !u!1 &1425333691
 GameObject:
   m_ObjectHideFlags: 0
@@ -1214,6 +1258,7 @@ GameObject:
   - component: {fileID: 3453989458173560217}
   - component: {fileID: 1730033205838276450}
   - component: {fileID: 895850069231870781}
+  - component: {fileID: 7774480132459832635}
   m_Layer: 5
   m_Name: Next
   m_TagString: Untagged
@@ -1371,6 +1416,27 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+--- !u!114 &7774480132459832635
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2976693034883371112}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e99f24a9283f82a4aa6f15f023ddcd70, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  touchScale: 0.9
+  pressDuration: 0.1
+  releaseDuration: 0.15
+  useBounceEffect: 1
+  bounceIntensity: 0.1
+  useColorFeedback: 0
+  pressedColor: {r: 0.8, g: 0.8, b: 0.8, a: 1}
+  mobileLightMode: 1
+  respectInteractableState: 1
 --- !u!1 &3648714188573584923
 GameObject:
   m_ObjectHideFlags: 0
@@ -2328,6 +2394,7 @@ GameObject:
   - component: {fileID: 3648714189677063716}
   - component: {fileID: 3648714189677063717}
   - component: {fileID: 3648714189677063718}
+  - component: {fileID: 6771991630891245252}
   m_Layer: 5
   m_Name: Restart
   m_TagString: Untagged
@@ -2414,7 +2481,7 @@ MonoBehaviour:
     m_SelectOnRight: {fileID: 0}
   m_Transition: 1
   m_Colors:
-    m_NormalColor: {r: 0.990566, g: 0.93832916, b: 0.2476415, a: 1}
+    m_NormalColor: {r: 1, g: 0.36320752, b: 0.87277704, a: 1}
     m_HighlightedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 1}
     m_PressedColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 1}
     m_SelectedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 1}
@@ -2461,6 +2528,27 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+--- !u!114 &6771991630891245252
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3648714189677063712}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e99f24a9283f82a4aa6f15f023ddcd70, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  touchScale: 0.9
+  pressDuration: 0.1
+  releaseDuration: 0.15
+  useBounceEffect: 1
+  bounceIntensity: 0.1
+  useColorFeedback: 0
+  pressedColor: {r: 0.8, g: 0.8, b: 0.8, a: 1}
+  mobileLightMode: 1
+  respectInteractableState: 1
 --- !u!1 &3648714189760419711
 GameObject:
   m_ObjectHideFlags: 0
@@ -2684,6 +2772,7 @@ GameObject:
   - component: {fileID: 3648714189867868682}
   - component: {fileID: 3648714189867868683}
   - component: {fileID: 3648714189867868676}
+  - component: {fileID: 6061361656410148909}
   m_Layer: 5
   m_Name: Home
   m_TagString: Untagged
@@ -2829,6 +2918,27 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+--- !u!114 &6061361656410148909
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3648714189867868678}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e99f24a9283f82a4aa6f15f023ddcd70, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  touchScale: 0.9
+  pressDuration: 0.1
+  releaseDuration: 0.15
+  useBounceEffect: 1
+  bounceIntensity: 0.1
+  useColorFeedback: 0
+  pressedColor: {r: 0.8, g: 0.8, b: 0.8, a: 1}
+  mobileLightMode: 1
+  respectInteractableState: 1
 --- !u!1 &3648714189925880117
 GameObject:
   m_ObjectHideFlags: 0
@@ -3505,6 +3615,7 @@ GameObject:
   - component: {fileID: 3648714190481094103}
   - component: {fileID: 3648714190481094096}
   - component: {fileID: 3648714190481094097}
+  - component: {fileID: 1836784909738655204}
   m_Layer: 5
   m_Name: Revive
   m_TagString: Untagged
@@ -3614,6 +3725,27 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls: []
+--- !u!114 &1836784909738655204
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3648714190481094099}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e99f24a9283f82a4aa6f15f023ddcd70, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  touchScale: 0.9
+  pressDuration: 0.1
+  releaseDuration: 0.15
+  useBounceEffect: 1
+  bounceIntensity: 0.1
+  useColorFeedback: 0
+  pressedColor: {r: 0.8, g: 0.8, b: 0.8, a: 1}
+  mobileLightMode: 1
+  respectInteractableState: 1
 --- !u!1 &3648714190532794963
 GameObject:
   m_ObjectHideFlags: 0
@@ -4192,6 +4324,7 @@ GameObject:
   - component: {fileID: 2133242818572974747}
   - component: {fileID: 2339936192962679095}
   - component: {fileID: 2425087189152555134}
+  - component: {fileID: 5599256896346499336}
   m_Layer: 5
   m_Name: DoubleCoin
   m_TagString: Untagged
@@ -4301,6 +4434,27 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls: []
+--- !u!114 &5599256896346499336
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8355042232046692004}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e99f24a9283f82a4aa6f15f023ddcd70, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  touchScale: 0.9
+  pressDuration: 0.1
+  releaseDuration: 0.15
+  useBounceEffect: 1
+  bounceIntensity: 0.1
+  useColorFeedback: 0
+  pressedColor: {r: 0.8, g: 0.8, b: 0.8, a: 1}
+  mobileLightMode: 1
+  respectInteractableState: 1
 --- !u!1001 &8182470160317322971
 PrefabInstance:
   m_ObjectHideFlags: 0
