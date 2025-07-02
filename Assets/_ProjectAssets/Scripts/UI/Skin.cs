@@ -105,13 +105,14 @@ public class Skin : MonoBehaviour
             ShopManager.instance.SetMoney(currentMoney);
             ShopManager.instance.purchaseAnimation.SetActive(true);
             ShopManager.instance.purchaseAnimation.GetComponent<PurchaseAnimation>().SetSkin(skinData.sprite);
-           // ShopManager.instance.StartCoroutine(AnimatePurchase());
+            // ShopManager.instance.StartCoroutine(AnimatePurchase());
             PlayerPrefs.SetInt("unlockedSkin" + skinData.id, 1);
             ClearListener();
             AddListener(true);
             _upgradesContainer.gameObject.SetActive(true);
             SetDescription();
             priceText.text = description;
+            skinImageShow.texture = skinData.sprite.texture;
         }
         else
         {
@@ -128,14 +129,6 @@ public class Skin : MonoBehaviour
         skinImageShow.DOColor(red, 0.5f).OnComplete(() => skinImageShow.DOColor(white, 0.5f));
     }
 
-    IEnumerator AnimatePurchase()
-    {
-        LeanTween.scale(skinImageShow.gameObject, Vector3.zero, 1f);
-        yield return new WaitForSeconds(1f);
-        skinImageShow.texture = skinData.sprite.texture;
-        priceText.color = Color.white;
-        LeanTween.scale(skinImageShow.gameObject, Vector3.one, 0.5f).setEase(LeanTweenType.easeOutBack);
-    }
 
     public void Unselect(Texture2D unselectedTex = null)
     {

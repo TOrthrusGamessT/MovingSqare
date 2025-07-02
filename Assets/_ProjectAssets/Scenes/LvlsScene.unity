@@ -1054,6 +1054,10 @@ PrefabInstance:
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_TargetAssemblyTypeName
       value: UIManagerGameRoom, Assembly-CSharp
       objectReference: {fileID: 0}
+    - target: {fileID: 1425333692, guid: 0565bcfb184537347b50f13119c5bfb7, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: -150.04498
+      objectReference: {fileID: 0}
     - target: {fileID: 1725254312, guid: 0565bcfb184537347b50f13119c5bfb7, type: 3}
       propertyPath: m_Color.a
       value: 1
@@ -2330,6 +2334,8 @@ MonoBehaviour:
   skins: {fileID: 11400000, guid: cf0e038a3d8ba154db01ab386130d8bc, type: 2}
   difficultySpeed: 10
   extraMoneyIncrease: 15
+  enableMusicReactiveBackground: 1
+  musicReactiveBackground: {fileID: 0}
 --- !u!1 &1818368308
 GameObject:
   m_ObjectHideFlags: 0
@@ -2732,19 +2738,6 @@ MonoBehaviour:
   timeBetweenSpawnLasers: 0
   linesLife: 0
   obstacleSpawnPoint: {fileID: 2205941659688731135}
-  brightColorPalette:
-  - {r: 1, g: 0.6367924, b: 0.6367924, a: 1}
-  - {r: 0.62793696, g: 0.9716981, b: 0.62793696, a: 1}
-  - {r: 0.752, g: 0.752, b: 1, a: 1}
-  - {r: 1, g: 1, b: 0.645, a: 1}
-  - {r: 1, g: 0.745, b: 1, a: 1}
-  - {r: 0.652, g: 1, b: 1, a: 1}
-  - {r: 1, g: 0.844, b: 0.68799996, a: 1}
-  - {r: 0.851, g: 0.702, b: 1, a: 1}
-  - {r: 1, g: 0.752, b: 0.876, a: 1}
-  - {r: 0.766, g: 1, b: 0.68799996, a: 1}
-  - {r: 1, g: 0.90775, b: 0.631, a: 1}
-  - {r: 0.652, g: 0.913, b: 1, a: 1}
   maxV: 4.41
   minV: -2.93
   maxW: 4.24
