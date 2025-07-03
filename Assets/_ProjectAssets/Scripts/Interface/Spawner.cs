@@ -40,10 +40,10 @@ public abstract class Spawner : MonoBehaviour
         Color.HSVToRGB(240f/360f, 0.4f, 1f), // More saturated Blue
         Color.HSVToRGB(60f/360f, 0.4f, 1f),  // More saturated Yellow
         Color.HSVToRGB(300f/360f, 0.4f, 1f), // More saturated Magenta
-        Color.HSVToRGB(30f/360f, 0.4f, 1f),  // More saturated Orange
+        Color.HSVToRGB(30f/360f, 0.4f, 1f),  // More saturated Orange`
         Color.HSVToRGB(270f/360f, 0.4f, 1f), // More saturated Purple
         Color.HSVToRGB(330f/360f, 0.4f, 1f), // More saturated Pink
-        Color.HSVToRGB(45f/360f, 0.4f, 1f),  // More saturated Gold
+        Color.HSVToRGB(45f/360f, 0.4f, 1f),  // More saturated  Gold
         Color.HSVToRGB(200f/360f, 0.4f, 1f)  // More saturated Sky Blue
     };
 
