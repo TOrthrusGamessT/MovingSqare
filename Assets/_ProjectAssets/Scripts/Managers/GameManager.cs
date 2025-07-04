@@ -33,7 +33,6 @@ public class GameManager : MonoBehaviour
 
     [Header("Music-Reactive Background")]
     [SerializeField] private bool enableMusicReactiveBackground = true;
-    [SerializeField] private SurviveMusicReactive musicReactiveBackground;
 
     [HideInInspector]
     public Vector2 PlayerPosition => player.position;
@@ -85,11 +84,6 @@ public class GameManager : MonoBehaviour
     {
         CoinsBehaviour.amount = (int)moneyMultiplayer;
 
-        // Initialize music-reactive background
-        if (enableMusicReactiveBackground)
-        {
-            InitializeMusicReactiveBackground();
-        }
 
         yield return new WaitForSeconds(2f);
         spawnManagerSurvive.StartSpawning();
@@ -97,36 +91,11 @@ public class GameManager : MonoBehaviour
         StartCoroutine(IncreaseMoneyValue());
     }
 
-    private void InitializeMusicReactiveBackground()
-    {
-        // Find or create music-reactive background
-        if (musicReactiveBackground == null)
-        {
-            musicReactiveBackground = FindFirstObjectByType<SurviveMusicReactive>();
-        }
-
-        if (musicReactiveBackground == null)
-        {
-            // Create a new GameObject with the music-reactive background
-            GameObject musicReactiveGO = new GameObject("Survive Music Reactive Background");
-            musicReactiveBackground = musicReactiveGO.AddComponent<SurviveMusicReactive>();
-            Debug.Log("Created SurviveMusicReactive background for Survive mode");
-        }
-
-        // Start the music-reactive background
-        musicReactiveBackground.StartSurviveMode();
-    }
-
 
     public void GameOver()
     {
         if (!alreadyOver)
         {
-            // Stop music-reactive background
-            if (musicReactiveBackground != null)
-            {
-                musicReactiveBackground.StopSurviveMode();
-            }
 
             onGameOver?.Invoke();
             if (!askedAd)
@@ -166,12 +135,6 @@ public class GameManager : MonoBehaviour
     private void StartCoroutine()
     {
         StartCoroutine(IncreaseMoneyValue());
-        
-        // Restart music-reactive background if enabled
-        if (enableMusicReactiveBackground && musicReactiveBackground != null)
-        {
-            musicReactiveBackground.StartSurviveMode();
-        }
     }
 
     private IEnumerator IncreaseMoneyValue()
