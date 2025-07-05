@@ -1,0 +1,5 @@
+E:/OrthrusGames/MoveTheSquare/MovingSqare/.utmp/Debug/l303kd2c/armeabi-v7a/CMakeFiles/edit_cache.dir
+E:/OrthrusGames/MoveTheSquare/MovingSqare/.utmp/Debug/l303kd2c/armeabi-v7a/CMakeFiles/rebuild_cache.dir
+E:/OrthrusGames/MoveTheSquare/MovingSqare/.utmp/Debug/l303kd2c/armeabi-v7a/FramePacing/CMakeFiles/swappywrapper.dir
+E:/OrthrusGames/MoveTheSquare/MovingSqare/.utmp/Debug/l303kd2c/armeabi-v7a/FramePacing/CMakeFiles/edit_cache.dir
+E:/OrthrusGames/MoveTheSquare/MovingSqare/.utmp/Debug/l303kd2c/armeabi-v7a/FramePacing/CMakeFiles/rebuild_cache.dir
