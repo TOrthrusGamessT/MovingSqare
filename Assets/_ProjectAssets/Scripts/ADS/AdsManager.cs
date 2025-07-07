@@ -50,42 +50,50 @@ public class AdsManager : MonoBehaviour
 
     private void Start()
     {
-
         // Initialize the Google Mobile Ads SDK.
+        Debug.Log("Initializing Google Mobile Ads SDK...");
         MobileAds.Initialize((InitializationStatus initStatus) =>
         {
+            Debug.Log("Google Mobile Ads SDK initialized successfully");
+            foreach (var adapterStatus in initStatus.getAdapterStatusMap())
+            {
+                Debug.Log($"Adapter: {adapterStatus.Key}, Status: {adapterStatus.Value.InitializationState}, Description: {adapterStatus.Value.Description}");
+            }
             LoadRewardedAd();
         });
-
     }
 
 
     public static void InitReviveAD()
     {
+        Debug.Log("InitReviveAD called");
         if (rewardedAd != null && rewardedAd.CanShowAd())
         {
+            Debug.Log("Rewarded ad is ready for revive");
             value = true;
             RegisterEventHandlers(rewardedAd);
             ShowReviveAD(true);
         }
         else
         {
-            Debug.LogWarning("Rewarded ad not ready for revive. Loading new ad...");
+            Debug.LogWarning($"Rewarded ad not ready for revive. Ad null: {rewardedAd == null}, CanShow: {rewardedAd?.CanShowAd()}");
             LoadRewardedAd();
         }
     }
 
     public static void InitDoubleCoinAD()
     {
+        Debug.Log("InitDoubleCoinAD called");
         if (rewardedAd != null && rewardedAd.CanShowAd())
         {
+            Debug.Log("Rewarded ad is ready for double coin");
             value = false;
             RegisterEventHandlers(rewardedAd);
             ShowReviveAD(false);
         }
         else
         {
-            Debug.LogWarning("Rewarded ad not ready for double coin. Loading new ad...");
+            Debug.LogWarning($"Rewarded ad not ready for double coin. Ad null: {rewardedAd == null}, CanShow: {rewardedAd?.CanShowAd()}");
             LoadRewardedAd();
         }
     }
@@ -102,7 +110,7 @@ public class AdsManager : MonoBehaviour
             rewardedAd = null;
         }
 
-        Debug.Log("Loading the rewarded ad.");
+        Debug.Log($"Loading the rewarded ad with ID: {_adUnitId}");
 
         // create our request used to load the ad.
         var adRequest = new AdRequest();
@@ -114,18 +122,33 @@ public class AdsManager : MonoBehaviour
                 // if error is not null, the load request failed.
                 if (error != null || ad == null)
                 {
-
-                    Debug.LogError("Rewarded ad failed to load an ad " +
-                                   "with error : " + error);
+                    Debug.LogError($"Rewarded ad failed to load with error: {error}");
+                    if (error != null)
+                    {
+                        Debug.LogError($"Error Code: {error.GetCode()}, Error Message: {error.GetMessage()}");
+                        Debug.LogError($"Error Domain: {error.GetDomain()}, Error Cause: {error.GetCause()}");
+                    }
+                    
+                    // Retry loading after a delay
+                    if (instance != null)
+                    {
+                        instance.StartCoroutine(RetryLoadAd());
+                    }
                     return;
                 }
 
-                Debug.Log("Rewarded ad loaded with response : "
-                          + ad.GetResponseInfo());
+                Debug.Log($"Rewarded ad loaded successfully with response: {ad.GetResponseInfo()}");
 
                 rewardedAd = ad;
                 RegisterReloadHandler(ad);
             });
+    }
+
+    private static IEnumerator RetryLoadAd()
+    {
+        Debug.Log("Retrying ad load in 5 seconds...");
+        yield return new WaitForSeconds(5f);
+        LoadRewardedAd();
     }
 
     private static void ShowReviveAD(bool value)
@@ -220,5 +243,26 @@ public class AdsManager : MonoBehaviour
             Debug.LogError("Ad failed to open: " + error);
             LoadRewardedAd();
         };
+    }
+
+    // Test methods to verify AdMob functionality
+    public static void TestAdMobConnection()
+    {
+        Debug.Log("Testing AdMob connection...");
+        
+        // Test ad request
+        var testRequest = new AdRequest();
+        Debug.Log($"Test AdRequest created successfully");
+        
+        // Check if we can get device info
+        Debug.Log($"Device info available: {SystemInfo.deviceModel}");
+        Debug.Log($"Internet reachability: {Application.internetReachability}");
+    }
+
+    public static bool IsAdReady()
+    {
+        bool isReady = rewardedAd != null && rewardedAd.CanShowAd();
+        Debug.Log($"Ad ready status: {isReady}");
+        return isReady;
     }
 }
