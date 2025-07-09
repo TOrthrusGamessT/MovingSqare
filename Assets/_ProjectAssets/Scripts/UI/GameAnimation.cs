@@ -19,17 +19,19 @@ public class GameAnimation : MonoBehaviour
     public float delayBetweenSquares = 0.05f;
     public float scaleMultiplier = 1.5f;
     public float rotationAmount = 180f;
-     private float originalTimerFontSize;
+    private float originalTimerFontSize;
+    private Vector3 originalTimerPosition;
 
 
     private List<GameObject> animationSquares = new List<GameObject>();
 
     private void Start()
     {
-        // Store original timer font size
+        // Store original timer font size and position
         if (timerText != null)
         {
             originalTimerFontSize = timerText.fontSize;
+            originalTimerPosition = timerText.transform.position;
         }
     }
 
@@ -65,17 +67,22 @@ public class GameAnimation : MonoBehaviour
         // Clean up
         ClearAnimationSquares();
 
-        // Bounce out hard and reset timerText font size and rotation
+        // Bounce out hard and reset timerText font size, rotation, and position
         if (timerText != null)
         {
             LeanTween.cancel(timerText.gameObject); // Cancel ongoing animations
-            LeanTween.value(timerText.gameObject, (float val) => { timerText.fontSize = val; }, timerText.fontSize, originalTimerFontSize, 0.25f)
+            
+            // Reset font size
+            LeanTween.value(timerText.gameObject, (float val) => { timerText.fontSize = val; }, 
+                timerText.fontSize, originalTimerFontSize, 0.25f)
                 .setEase(LeanTweenType.easeInBounce);
-            LeanTween.rotateZ(timerText.gameObject, 0f, 0.2f).setEase(LeanTweenType.easeInOutSine);
+            
+            // Reset rotation
+            LeanTween.rotateZ(timerText.gameObject, 0f, 0.2f)
+                .setEase(LeanTweenType.easeInOutSine);
             
             // Reset position to original
-            Vector3 currentPos = timerText.transform.position;
-            LeanTween.moveY(timerText.gameObject, currentPos.y + 50f, 0.3f)
+            LeanTween.move(timerText.gameObject, originalTimerPosition, 0.3f)
                 .setEase(LeanTweenType.easeOutBack);
         }
     }
@@ -262,8 +269,7 @@ public class GameAnimation : MonoBehaviour
             .setEase(LeanTweenType.easeOutBounce);
 
         // Move timer text down a bit during the animation
-        Vector3 originalPosition = timerText.transform.position;
-        LeanTween.moveY(timerText.gameObject, originalPosition.y - 1f, 0.5f)
+        LeanTween.moveY(timerText.gameObject, originalTimerPosition.y - 50f, 0.5f)
             .setEase(LeanTweenType.easeOutBack);
 
         // Shake with rotation - continuous shaking
