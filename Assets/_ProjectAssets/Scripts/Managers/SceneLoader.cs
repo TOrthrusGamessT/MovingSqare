@@ -69,6 +69,10 @@ public class SceneLoader : MonoBehaviour
             EasyTransition.TransitionManager.Instance()
                 .Transition(1, TransitionSettings[Random.Range(0, TransitionSettings.Length)]
                     , 0);
+            FireBase.LogCustomEvent("survive_scene_loaded", new System.Collections.Generic.Dictionary<string, object>
+            {
+                { "scene_index", SceneManager.GetActiveScene().buildIndex }
+            });
         }
     }
 
@@ -99,6 +103,11 @@ public class SceneLoader : MonoBehaviour
                 .Transition(2, TransitionSettings[Random.Range(0, TransitionSettings.Length)]
                     , 0);
             onSceneNewSceneLoad?.Invoke();
+
+            FireBase.LogCustomEvent("lvl_scene_loaded", new System.Collections.Generic.Dictionary<string, object>
+            {
+                { "scene_index", SceneManager.GetActiveScene().buildIndex }
+            });
         }
     }
 
