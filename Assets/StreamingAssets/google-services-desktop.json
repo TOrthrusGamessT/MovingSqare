@@ -1,83 +1,28 @@
 {
   "project_info": {
-    "project_number": "130545012424",
-    "firebase_url": "https://movingsquare-d2648-default-rtdb.firebaseio.com",
-    "project_id": "movingsquare-d2648",
-    "storage_bucket": "movingsquare-d2648.appspot.com"
+    "project_number": "1055561929430",
+    "project_id": "movethesquare",
+    "storage_bucket": "movethesquare.firebasestorage.app"
   },
   "client": [
     {
       "client_info": {
-        "mobilesdk_app_id": "1:130545012424:android:0d0fad20eb9f9f94cf9ffd",
+        "mobilesdk_app_id": "1:1055561929430:android:cd46ca720c9de045b72f77",
         "android_client_info": {
           "package_name": "com.UnknownGames.MoveTheSquare"
         }
       },
-      "oauth_client": [
-        {
-          "client_id": "130545012424-f81cpn2ia8rni5a006sjkgu9prh6eukc.apps.googleusercontent.com",
-          "client_type": 3
-        }
-      ],
+      "oauth_client": [],
       "api_key": [
         {
-          "current_key": "AIzaSyB3ucINinsrUK8VRFxC8oX3l5E0cNssn90"
+          "current_key": "AIzaSyAz1pgZFK3JMDFMTaLhNHjco9oCDXbuenc"
         }
       ],
       "services": {
         "appinvite_service": {
-          "other_platform_oauth_client": [
-            {
-              "client_id": "130545012424-f81cpn2ia8rni5a006sjkgu9prh6eukc.apps.googleusercontent.com",
-              "client_type": 3
-            },
-            {
-              "client_id": "130545012424-el38dug5dbl22q3idlr79go2nos4hloc.apps.googleusercontent.com",
-              "client_type": 2,
-              "ios_info": {
-                "bundle_id": "com.UnknownGames.MovingSquare"
-              }
-            }
-          ]
+          "other_platform_oauth_client": []
         }
       }
-    },
-    {
-      "client_info": {
-        "mobilesdk_app_id": "1:130545012424:android:b087d33e97570683cf9ffd",
-        "android_client_info": {
-          "package_name": "com.UnknownGames.MovingSquare"
-        }
-      },
-      "oauth_client": [
-        {
-          "client_id": "130545012424-f81cpn2ia8rni5a006sjkgu9prh6eukc.apps.googleusercontent.com",
-          "client_type": 3
-        }
-      ],
-      "api_key": [
-        {
-          "current_key": "AIzaSyB3ucINinsrUK8VRFxC8oX3l5E0cNssn90"
-        }
-      ],
-      "services": {
-        "appinvite_service": {
-          "other_platform_oauth_client": [
-            {
-              "client_id": "130545012424-f81cpn2ia8rni5a006sjkgu9prh6eukc.apps.googleusercontent.com",
-              "client_type": 3
-            },
-            {
-              "client_id": "130545012424-el38dug5dbl22q3idlr79go2nos4hloc.apps.googleusercontent.com",
-              "client_type": 2,
-              "ios_info": {
-                "bundle_id": "com.UnknownGames.MovingSquare"
-              }
-            }
-          ]
-        }
-      },
-      "admob_app_id": "ca-app-pub-1693425253915137~8313731956"
     }
   ],
   "configuration_version": "1"
