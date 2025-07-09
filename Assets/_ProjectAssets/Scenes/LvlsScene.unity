@@ -2628,7 +2628,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 178476164381607094, guid: 20a448c1914d7b34a94be25d5b8459b0, type: 3}
       propertyPath: m_Enabled
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 178476164381607096, guid: 20a448c1914d7b34a94be25d5b8459b0, type: 3}
       propertyPath: cameraShaking
