@@ -264,7 +264,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 85aeddc97c7da7d40a5d836118adc84a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 3.3
+  speed: 3
   deadEffect: {fileID: 938355462728799340, guid: 5104cb0027b01e844b6a7c790b66bb6a, type: 3}
   figure: 0
   _trail: {fileID: 5742908072576222247}

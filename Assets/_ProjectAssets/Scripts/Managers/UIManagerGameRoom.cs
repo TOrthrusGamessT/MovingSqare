@@ -41,6 +41,8 @@ public class UIManagerGameRoom : MonoBehaviour
     [SerializeField] private TextMeshProUGUI highScorePauseMenu;
     [SerializeField] private TextMeshProUGUI moneyCollectedPauseMenu;
 
+    [SerializeField] private GameAnimation gameAnimation;
+
     private int index = 0;
     private bool canWatchDoubleCoinAD = true;
     private bool canWatchReviveAD = true;
@@ -123,6 +125,14 @@ public class UIManagerGameRoom : MonoBehaviour
 
     public void FinishLvlState()
     {
+        StartCoroutine(FinishLvlStateCoroutine());
+    }
+
+    private IEnumerator FinishLvlStateCoroutine()
+    {
+        gameAnimation?.StartWinAnimation();
+        yield return new WaitForSeconds(2f);
+
         maineMenu.SetActive(true);
         UpdateScoreUI();
 
@@ -163,17 +173,6 @@ public class UIManagerGameRoom : MonoBehaviour
         }).setEaseInQuad().setDelay(0.5f);
     }
 
-    private void FadeOutEffect()
-    {
-        LeanTween.value(1, 0, 1f).setOnUpdate(value =>
-        {
-            mainUI.alpha = value;
-
-        }).setEaseInQuad().setOnComplete(() =>
-        {
-            mainUI.gameObject.SetActive(false);
-        });
-    }
 
     private void UpdateScoreUI()
     {
