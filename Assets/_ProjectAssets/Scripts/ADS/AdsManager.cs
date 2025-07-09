@@ -110,26 +110,42 @@ public class AdsManager : MonoBehaviour
             rewardedAd = null;
         }
 
-        Debug.Log($"Loading the rewarded ad with ID: {_adUnitId}");
+        Debug.Log($"[AdsManager] Loading rewarded ad with ID: {_adUnitId}");
 
-        // create our request used to load the ad.
+        // Create our request to load the ad.
         var adRequest = new AdRequest();
 
-        // send the request to load the ad.
+        // Send the request to load the ad.
         RewardedAd.Load(_adUnitId, adRequest,
             (RewardedAd ad, LoadAdError error) =>
             {
-                // if error is not null, the load request failed.
                 if (error != null || ad == null)
                 {
-                    Debug.LogError($"Rewarded ad failed to load with error: {error}");
+                    Debug.LogError($"[AdsManager] Rewarded ad failed to load: {error}");
                     if (error != null)
                     {
-                        Debug.LogError($"Error Code: {error.GetCode()}, Error Message: {error.GetMessage()}");
-                        Debug.LogError($"Error Domain: {error.GetDomain()}, Error Cause: {error.GetCause()}");
+                        int code = error.GetCode();
+                        Debug.LogError($"[AdsManager] Error Code: {code}, Message: {error.GetMessage()}");
+                        Debug.LogError($"[AdsManager] Domain: {error.GetDomain()}, Cause: {error.GetCause()}");
+
+                        if (code == 3)
+                        {
+                            // Error 3 = NO FILL
+                            Debug.LogWarning("[AdsManager] No ad inventory available (error code 3). Waiting longer before retrying.");
+
+                            // Optional: Notify UI that ads are unavailable
+                            // OnAdUnavailable?.Invoke();
+
+                            if (instance != null)
+                            {
+                                instance.StartCoroutine(RetryLoadAd(30f)); // Wait 30 seconds
+                            }
+
+                            return;
+                        }
                     }
-                    
-                    // Retry loading after a delay
+
+                    // For other errors, use normal retry delay
                     if (instance != null)
                     {
                         instance.StartCoroutine(RetryLoadAd());
@@ -137,11 +153,18 @@ public class AdsManager : MonoBehaviour
                     return;
                 }
 
-                Debug.Log($"Rewarded ad loaded successfully with response: {ad.GetResponseInfo()}");
+                Debug.Log($"[AdsManager] Rewarded ad loaded successfully. ResponseInfo: {ad.GetResponseInfo()}");
 
                 rewardedAd = ad;
                 RegisterReloadHandler(ad);
             });
+    }
+
+    private static IEnumerator RetryLoadAd(float delaySeconds = 5f)
+    {
+        Debug.Log($"[AdsManager] Retrying ad load in {delaySeconds} seconds...");
+        yield return new WaitForSeconds(delaySeconds);
+        LoadRewardedAd();
     }
 
     private static IEnumerator RetryLoadAd()
@@ -159,17 +182,20 @@ public class AdsManager : MonoBehaviour
 
             rewardedAd.Show((Reward reward) =>
             {
-                if (value)
+                MainThreadDispatcher.Enqueue(() =>
                 {
-                    Debug.Log("Revive AD Finish");
-                    onReviveADFinish?.Invoke();
-                }
-                else
-                {
-                    Debug.Log("Double AD Finish");
-                    onDoubleMoneyADFinish?.Invoke();
-                }
-                LoadRewardedAd();
+                    if (value)
+                    {
+                        Debug.Log("Revive AD Finish");
+                        onReviveADFinish?.Invoke();
+                    }
+                    else
+                    {
+                        Debug.Log("Double AD Finish");
+                        onDoubleMoneyADFinish?.Invoke();
+                    }
+                    LoadRewardedAd();
+                });
             });
         }
     }
@@ -249,11 +275,11 @@ public class AdsManager : MonoBehaviour
     public static void TestAdMobConnection()
     {
         Debug.Log("Testing AdMob connection...");
-        
+
         // Test ad request
         var testRequest = new AdRequest();
         Debug.Log($"Test AdRequest created successfully");
-        
+
         // Check if we can get device info
         Debug.Log($"Device info available: {SystemInfo.deviceModel}");
         Debug.Log($"Internet reachability: {Application.internetReachability}");

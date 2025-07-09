@@ -1,7 +1,7 @@
 # ninja log v5
 3	798	7718703509417022	GameActivity/CMakeFiles/game.dir/UGAApplication.cpp.o	46fd77b6d6099f06
-42	158	7718703503043020	FramePacing/CMakeFiles/swappywrapper.dir/UnitySwappyWrapper.cpp.o	2b7f3a1454159388
-158	279	7718703504306545	E:/OrthrusGames/MoveTheSquare/MovingSqare/Library/Bee/Android/Prj/IL2CPP/Gradle/unityLibrary/build/intermediates/cxx/Debug/l303kd2c/obj/arm64-v8a/libswappywrapper.so	b039da4aba7199c6
+1	228	7737807887178802	FramePacing/CMakeFiles/swappywrapper.dir/UnitySwappyWrapper.cpp.o	2b7f3a1454159388
+229	355	7737807888432698	E:/OrthrusGames/MoveTheSquare/MovingSqare/Library/Bee/Android/Prj/IL2CPP/Gradle/unityLibrary/build/intermediates/cxx/Debug/l303kd2c/obj/arm64-v8a/libswappywrapper.so	b039da4aba7199c6
 26	661	7718703508080168	GameActivity/CMakeFiles/game.dir/UGAInputKeyEvent.cpp.o	ae05259e90e18e3d
 17	653	7718703507974335	GameActivity/CMakeFiles/game.dir/UGAConfiguration.cpp.o	cf7e089cdc688f4d
 36	692	7718703508430394	GameActivity/CMakeFiles/game.dir/UGASoftKeyboard.cpp.o	a9285b0cbc2d7ae1
@@ -10,5 +10,5 @@
 12	713	7718703508635368	GameActivity/CMakeFiles/game.dir/UGADebug.cpp.o	b71d8cb4098bff5c
 21	762	7718703509114619	GameActivity/CMakeFiles/game.dir/UGAInput.cpp.o	a0933d7b9d2873c2
 799	913	7718703510587958	E:/OrthrusGames/MoveTheSquare/MovingSqare/Library/Bee/Android/Prj/IL2CPP/Gradle/unityLibrary/build/intermediates/cxx/Debug/l303kd2c/obj/arm64-v8a/libgame.so	e0c1bbaa6b7b8311
-1	251	7734063227128835	FramePacing/CMakeFiles/swappywrapper.dir/UnitySwappyWrapper.cpp.o	2b7f3a1454159388
-251	393	7734063228563853	E:/OrthrusGames/MoveTheSquare/MovingSqare/Library/Bee/Android/Prj/IL2CPP/Gradle/unityLibrary/build/intermediates/cxx/Debug/l303kd2c/obj/arm64-v8a/libswappywrapper.so	b039da4aba7199c6
+1	105	7737811286890951	FramePacing/CMakeFiles/swappywrapper.dir/UnitySwappyWrapper.cpp.o	2b7f3a1454159388
+106	211	7737811287981995	E:/OrthrusGames/MoveTheSquare/MovingSqare/Library/Bee/Android/Prj/IL2CPP/Gradle/unityLibrary/build/intermediates/cxx/Debug/l303kd2c/obj/arm64-v8a/libswappywrapper.so	b039da4aba7199c6
