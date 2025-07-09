@@ -40,7 +40,7 @@ public class Skin : MonoBehaviour
         skinData = data;
         SetDescription();
         SetStatus(bought);
-        if(isSelected)Select();
+        if (isSelected) Select();
     }
 
     public void SetStatus(bool bought)
@@ -55,7 +55,7 @@ public class Skin : MonoBehaviour
             priceText.color = Color.white;
             priceText.text = "";
             _upgradesContainer.gameObject.SetActive(true);
-           
+
         }
         else
         {
@@ -69,7 +69,7 @@ public class Skin : MonoBehaviour
     private void SetDescription()
     {
         // If you want to use bonuses in the description, you can format them here
-         // Update sliders with skin bonuses
+        // Update sliders with skin bonuses
         if (speedSlider != null)
         {
             speedSlider.value = skinData.speedBonus;
@@ -113,6 +113,12 @@ public class Skin : MonoBehaviour
             SetDescription();
             priceText.text = description;
             skinImageShow.texture = skinData.sprite.texture;
+            FireBase.LogCustomEvent("skin_bought", new System.Collections.Generic.Dictionary<string, object>
+            {
+                { "skin_id", skinData.id },
+                { "skin_name", skinImageShow.texture.name },
+                { "price", skinData.price }
+            });
         }
         else
         {

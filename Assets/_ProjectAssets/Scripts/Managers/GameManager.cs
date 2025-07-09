@@ -1,6 +1,15 @@
 using System;
 using System.Collections;
+using Firebase.Analytics;
 using UnityEngine;
+
+public enum GameMode
+{
+    Survive,
+    Gameplay,
+    Boss,
+    Tutorial
+}
 
 public class GameManager : MonoBehaviour
 {
@@ -40,7 +49,9 @@ public class GameManager : MonoBehaviour
     private bool alreadyOver;
     private static bool askedAd;
     private float moneyMultiplayer = 2;
-    private int index;
+
+    [Header("Game Mode")]
+    [SerializeField] private GameMode currentGameMode = GameMode.Survive;
 
     public Transform Player => player;
 
@@ -156,6 +167,5 @@ public class GameManager : MonoBehaviour
     {
         Time.timeScale = 1;
     }
-
 
 }

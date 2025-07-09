@@ -1093,6 +1093,10 @@ PrefabInstance:
       propertyPath: m_Color.g
       value: 0.44705883
       objectReference: {fileID: 0}
+    - target: {fileID: 3648714189139709083, guid: 0565bcfb184537347b50f13119c5bfb7, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 3648714189551688332, guid: 0565bcfb184537347b50f13119c5bfb7, type: 3}
       propertyPath: m_Name
       value: UI
@@ -2335,6 +2339,7 @@ MonoBehaviour:
   difficultySpeed: 10
   extraMoneyIncrease: 15
   enableMusicReactiveBackground: 1
+  currentGameMode: 0
 --- !u!1 &1818368308
 GameObject:
   m_ObjectHideFlags: 0

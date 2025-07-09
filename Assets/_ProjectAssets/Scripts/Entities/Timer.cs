@@ -1,5 +1,4 @@
 using System;
-using System.Collections;
 using System.Threading;
 using Cysharp.Threading.Tasks;
 using TMPro;
@@ -117,6 +116,11 @@ public class Timer : MonoBehaviour
          UpdateUITimer(lvlDuration);
          if (lvlDuration == 0)
          {
+            FireBase.LogCustomEvent("lvl_completed", new System.Collections.Generic.Dictionary<string, object>
+            {
+               { "level_index", LVLIndexer.currentLvlIndex + 1 },
+               { "total_time_seconds", ElapsedSeconds }
+            });
             onCounterEnd?.Invoke();
             break;
          }
@@ -126,11 +130,21 @@ public class Timer : MonoBehaviour
    private async UniTask StartSurviveModeTimer()
    {
       elapsedSeconds = 0;
-      while (true)
+      try
       {
-         await UniTask.Delay(TimeSpan.FromSeconds(1), cancellationToken: this.GetCancellationTokenOnDestroy());
-         elapsedSeconds++;
-         UpdateUITimer(elapsedSeconds);
+         while (true)
+         {
+            await UniTask.Delay(TimeSpan.FromSeconds(1), cancellationToken: this.GetCancellationTokenOnDestroy());
+            elapsedSeconds++;
+            UpdateUITimer(elapsedSeconds);
+         }
+      }
+      catch (OperationCanceledException)
+      {
+         FireBase.LogCustomEvent("survive_mode_timer_stopped", new System.Collections.Generic.Dictionary<string, object>
+         {
+            { "elapsed_seconds", elapsedSeconds }
+         });
       }
    }
 }

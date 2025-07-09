@@ -180,6 +180,10 @@ public class AdsManager : MonoBehaviour
         {
             Debug.Log("Before Showing Revive AD");
 
+            FireBase.LogCustomEvent("revive_ad_shown", new System.Collections.Generic.Dictionary<string, object>
+            {
+                { "ad_type", value ? "revive" : "double_coin" }
+            });
             rewardedAd.Show((Reward reward) =>
             {
                 MainThreadDispatcher.Enqueue(() =>
@@ -194,6 +198,11 @@ public class AdsManager : MonoBehaviour
                         Debug.Log("Double AD Finish");
                         onDoubleMoneyADFinish?.Invoke();
                     }
+
+                    FireBase.LogCustomEvent("revive_ad_finished", new System.Collections.Generic.Dictionary<string, object>
+                    {
+                        { "ad_type", value ? "revive" : "double_coin" }
+                    });
                     LoadRewardedAd();
                 });
             });

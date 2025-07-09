@@ -41,11 +41,11 @@ public class ShopManager : MonoBehaviour
     public GameObject skinsOn;
     public GameObject upgradesOn;
 
-    [Header("Item Main Image")] 
+    [Header("Item Main Image")]
     public Texture2D unBoughtImage;
-    private readonly List<ShopItem> shopElements = new ();
-    private  List<BgMovement> bkSquares = new();
-    private Dictionary<int,bool> skinStatus = new();
+    private readonly List<ShopItem> shopElements = new();
+    private List<BgMovement> bkSquares = new();
+    private Dictionary<int, bool> skinStatus = new();
     private ElementType elementType;
 
 
@@ -57,19 +57,19 @@ public class ShopManager : MonoBehaviour
         InitPlayerPrefs();
         InitShopElements(elementType);
     }
-    
+
 
     private void InitPlayerPrefs()
     {
         foreach (var skinData in skinsData.skins)
         {
-            skinStatus.Add(skinData.id, PlayerPrefs.HasKey($"unlockedSkin{skinData.id}"));   
+            skinStatus.Add(skinData.id, PlayerPrefs.HasKey($"unlockedSkin{skinData.id}"));
         }
 
         selectedSkin = PlayerPrefs.HasKey("currentSkin") ? PlayerPrefs.GetInt("currentSkin") : 0;
     }
-    
-  
+
+
     public void ChangeSelectedSkin(int skinID)
     {
         Skin skin = contentContainer.transform.GetChild(selectedSkin).GetComponent<Skin>();
@@ -86,7 +86,11 @@ public class ShopManager : MonoBehaviour
         DestroyAllShopElements();
         InitPlayerPrefs();
         InitShopElements(elementType);
-   }
+        FireBase.LogCustomEvent("shop_opened", new System.Collections.Generic.Dictionary<string, object>
+        {
+            { "element_type", elementType.ToString() }
+        });
+    }
     private void InitShopElements(ElementType elementType)
     {
         //header
@@ -101,18 +105,18 @@ public class ShopManager : MonoBehaviour
         }
         else
         {
-            
+
             foreach (var t in upgradesPool.items)
             {
-               
-                    shopElements.Add(Instantiate(powerUpContainer, contentContainer)
-                        .GetComponent<ShopItem>().Initialize(t, skinStatus[t.id]));
-                
+
+                shopElements.Add(Instantiate(powerUpContainer, contentContainer)
+                    .GetComponent<ShopItem>().Initialize(t, skinStatus[t.id]));
+
             }
-            
+
         }
     }
-    
+
     private void SetBkSquares()
     {
         foreach (var square in bkSquares)
@@ -120,22 +124,27 @@ public class ShopManager : MonoBehaviour
             square.SetSkin();
         }
     }
-   
-    private void DestroyAllShopElements(){
+
+    private void DestroyAllShopElements()
+    {
         shopElements.Clear();
         skinStatus.Clear();
-        foreach (Transform child in contentContainer) {
-	        GameObject.Destroy(child.gameObject);
+        foreach (Transform child in contentContainer)
+        {
+            GameObject.Destroy(child.gameObject);
         }
     }
 
     public void SetMoney(int cash)
     {
-        if(cash<1000){
-            money.text =cash.ToString();
-        }else{
-            cash = cash/1000;
-            money.text = cash +"k";
+        if (cash < 1000)
+        {
+            money.text = cash.ToString();
+        }
+        else
+        {
+            cash = cash / 1000;
+            money.text = cash + "k";
         }
     }
 }

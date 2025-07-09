@@ -11,7 +11,7 @@ public class LVLButtonBehaviour : MonoBehaviour
     public RawImage bk;
     public Texture2D inactiveTexture2D;
 
-    public void Init(string lvlIndex,bool reached)
+    public void Init(string lvlIndex, bool reached)
     {
         text.text = lvlIndex;
         SetStatus(reached);
@@ -23,15 +23,19 @@ public class LVLButtonBehaviour : MonoBehaviour
         {
             GetComponent<Button>().onClick.AddListener(() =>
             {
-                LVLIndexer.currentLvlIndex = int.Parse(text.text)-1;
+                LVLIndexer.currentLvlIndex = int.Parse(text.text) - 1;
                 SceneLoader.instance.LoadLvlScene();
+                FireBase.LogCustomEvent("lvl_button_clicked", new System.Collections.Generic.Dictionary<string, object>
+                {
+                    { "level_index", int.Parse(text.text) }
+                });
             });
         }
         else
         {
-            text.color= Color.white;
+            text.color = Color.white;
             bk.texture = inactiveTexture2D;
         }
     }
-    
+
 }

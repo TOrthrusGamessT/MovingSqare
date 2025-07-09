@@ -67,6 +67,10 @@ public class PlayerLife : MonoBehaviour
         CameraShaking.Shake();
         if (life <= 0)
         {
+            FireBase.LogCustomEvent("player_died", new System.Collections.Generic.Dictionary<string, object>
+            {
+                { "total_seconds_survived", Timer.ElapsedSeconds }
+            });
             onPlayerDie?.Invoke();
             GameManager.instance.GameOver();
         }

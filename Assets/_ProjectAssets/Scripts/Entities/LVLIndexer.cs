@@ -41,6 +41,12 @@ public class LVLIndexer : MonoBehaviour
         int maxLvl = PlayerPrefs.GetInt("MaxLvlReached", 0);
         if (maxLvl <= currentLvlIndex)
             PlayerPrefs.SetInt("MaxLvlReached", currentLvlIndex + 1);
+
+        FireBase.LogCustomEvent("lvl_completed", new System.Collections.Generic.Dictionary<string, object>
+        {
+            { "level_index", currentLvlIndex + 1 },
+            { "total_time_seconds", Timer.ElapsedSeconds }
+        });
     }
 
     public void NextLevel()

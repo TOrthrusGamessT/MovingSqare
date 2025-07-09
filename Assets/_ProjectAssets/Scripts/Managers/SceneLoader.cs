@@ -40,6 +40,11 @@ public class SceneLoader : MonoBehaviour
                 .Transition(SceneManager.GetActiveScene().buildIndex
                     , TransitionSettings[Random.Range(0, TransitionSettings.Length)], 0);
             onSceneNewSceneLoad?.Invoke();
+
+            FireBase.LogCustomEvent("game_scene_reloaded", new System.Collections.Generic.Dictionary<string, object>
+            {
+                { "scene_index", SceneManager.GetActiveScene().buildIndex }
+            });
         }
     }
 
@@ -76,6 +81,11 @@ public class SceneLoader : MonoBehaviour
             isLoading = !isLoading;
             EasyTransition.TransitionManager.Instance()
                 .Transition(0, TransitionSettings[Random.Range(0, TransitionSettings.Length)], 0);
+
+            FireBase.LogCustomEvent("main_menu_loaded", new System.Collections.Generic.Dictionary<string, object>
+            {
+                { "scene_index", SceneManager.GetActiveScene().buildIndex }
+            });
         }
 
     }

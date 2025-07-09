@@ -89,6 +89,12 @@ public class PowerUp : ShopItem
             PlayerPrefs.SetInt(effects[0].name, upgradeStage);
             SetStatus();
             Select();
+            FireBase.LogCustomEvent("power_up_bought", new System.Collections.Generic.Dictionary<string, object>
+            {
+                { "power_up_name", effects[0].name },
+                { "upgrade_stage", upgradeStage },
+                { "element_type", type.ToString() }
+            });
         }
         else
         {
