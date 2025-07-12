@@ -20,14 +20,11 @@ public class SpawnManagerLvls : Spawner
    public GameObject[] tetrisPrefabs;
    public GameObject tetrisDestroyEffect;
 
-   private GameObject _mazePrefab;
    private float _geometryFiguresSpeed;
    private float _tetrisEnemiesSpeed;
    private float _timeBetweenSpawnMaze;
    private bool _lvlOver;
-   private float _timeBetweenSpawnTetris;
    private float _timeBetweenSpawnTetrisEnemies;
-   private int _tetrisPeacesOnTime;
    private LvlSettings _lvlSettings;
 
    private List<EnemyBehaviour> _geometryToSpawn = new List<EnemyBehaviour>();
@@ -78,7 +75,6 @@ public class SpawnManagerLvls : Spawner
       timeBetweenSpawnLasers = _lvlSettings.timeBetweenSpawnLasers;
       linesLife = _lvlSettings.linesLife;
       _timeBetweenSpawnMaze = _lvlSettings.timeBetweenSpawnMaze;
-      _mazePrefab = _lvlSettings.obstaclePrefab;
       _geometryFiguresSpeed = _lvlSettings.geometricFiguresSpeed;
       _tetrisEnemiesSpeed = _lvlSettings.tetrisEnemiesSpeed;
       _timeBetweenSpawnTetrisEnemies = _lvlSettings.timeBetweenSpawnTetrisEnemies;
@@ -190,19 +186,6 @@ public class SpawnManagerLvls : Spawner
 
       StartSpawning();
    }
-   #region Spawn Maze
-
-   IEnumerator SpawnMaze()
-   {
-      yield return new WaitForSeconds(_timeBetweenSpawnMaze);
-      StartCoroutine(PauseAndResumeSpawning(5f));
-      Instantiate(_mazePrefab, obstacleSpawnPoint.position, Quaternion.identity);
-      ObstacleBehaviour.speed = _lvlSettings.obstacleSpeed;
-      
-
-   }
-
-   #endregion
 
    #region Spawn fullScreenLines
 
