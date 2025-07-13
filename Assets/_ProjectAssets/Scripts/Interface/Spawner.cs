@@ -74,16 +74,12 @@ public abstract class Spawner : MonoBehaviour
 
     protected virtual void OnEnable()
     {
-        BossGameplay.OnBossAppear += StopSpawning;
-        BossGameplay.OnBossDisappear += StartSpawning;
         GameManager.onGameOver += StopSpawning;
         AdsManager.onReviveADFinish += StartSpawning;
     }
 
     protected virtual void OnDisable()
     {
-        BossGameplay.OnBossAppear -= StopSpawning;
-        BossGameplay.OnBossDisappear -= StartSpawning;
         GameManager.onGameOver -= StopSpawning;
         AdsManager.onReviveADFinish -= StartSpawning;
     }

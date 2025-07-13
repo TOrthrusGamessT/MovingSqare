@@ -10,7 +10,6 @@ public class LvlSettings : ScriptableObject
    public bool circle;
    public bool hexagon;
    public bool lasers;
-   public bool maze;
    public bool tetris;
    public bool tetrisBoss;
    public bool lvl10Boss;
