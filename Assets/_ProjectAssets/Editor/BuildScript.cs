@@ -5,9 +5,9 @@ using UnityEditor;
 public static class BuildScript
 {
     static readonly string[] SCENES = {
-        "_ProjectAssets/Scenes/MainMenu.unity",
-        "_ProjectAssets/Scenes/Survive.unity",
-        "_ProjectAssets/Scenes/LvlsScene.unity",
+        "Assets/_ProjectAssets/Scenes/MainMenu.unity",
+        "Assets/_ProjectAssets/Scenes/Survive.unity",
+        "Assets/_ProjectAssets/Scenes/LvlsScene.unity",
     };
 
     public static void PerformBuildAndroid()
