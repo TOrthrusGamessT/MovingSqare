@@ -10,27 +10,18 @@ public class BossController : MonoBehaviour
     public GameObject boomerangPrefab;
     public Transform leftBarrierSpawnPPoint;
     public Transform rightBarrierSpawnPPoint;
-    public Constants.BarrierSet[] barierSet;
-    public ParticleSystem[] destroyEffect;
-    public float timeBetweenSpawnBarrier;
-    public RectTransform rewardText;
 
-    public GameObject littleBarrier;
-    public GameObject mediumBarrier;
-    public GameObject bigBarrier;
+    public ParticleSystem[] destroyEffect;
+    public RectTransform rewardText;
 
     public GameObject head;
     public GameObject[] guns;
     public GameObject shield;
-    [HideInInspector] public bool inAnimation;
     public SpawnManagerLvls spawnManagerLvl;
-    public bool nextStage;
 
 
     private Animator _animator;
-    private GameObject barier;
     private Rigidbody2D _rb;
-    private int life = 2;
 
     private void Awake()
     {
@@ -38,14 +29,53 @@ public class BossController : MonoBehaviour
         _rb = GetComponent<Rigidbody2D>();
     }
 
-    public void ActivateLasers()
+    public void BossApeareanceAnimation()
     {
-        foreach (var laser in lasers)
-        {
-            laser.Play();
-        }
+        LeanTween.moveLocalY(gameObject, 2.951164f, 4f).setEaseInQuad().setOnComplete(() => _animator.SetTrigger("StartBossBehaviour"));
     }
 
+    public void SpawnEnemiesFromBelow()
+    {
+        UniTask.Void(async () =>
+        {
+            bool finishAnimation = false;
+
+            LeanTween.scaleX(shield, 4.68f, 2.5f).setEaseInQuad().setOnComplete(() =>
+            {
+                spawnManagerLvl.SpawnEnemiesFromBelow();
+                finishAnimation = true;
+            });
+
+            await UniTask.WaitUntil(() => finishAnimation);
+
+            await UniTask.Delay(TimeSpan.FromSeconds(35f));
+
+            DeactivateShield();
+        });
+    }
+
+    public async UniTask ActivateShield()
+    {
+        LeanTween.scaleX(shield, 4.68f, 2.5f).setEaseInQuad().setOnComplete(() =>
+                {
+                    LeanTween.moveY(shield, -3.54f, 2f).setEaseInQuad().setOnComplete(() =>
+                    {
+                        LeanTween.moveLocalY(shield, 1.83f, 0.5f).setEaseInQuad();
+                    });
+                });
+        //5f = 2.5+2+0.5
+        await UniTask.Delay(TimeSpan.FromSeconds(5f));
+        return;
+    }
+    public async UniTask DeactivateShield()
+    {
+        LeanTween.scaleX(shield, 0, 2.5f).setEaseInQuad();
+        await UniTask.Delay(TimeSpan.FromSeconds(2.5f));
+        return;
+    }
+
+
+#region Boomerang
     public void SpawnBoomerang()
     {
         Boomerang boomerang = Instantiate(boomerangPrefab, boomerangSpawnPoint.position, Quaternion.identity)
@@ -55,7 +85,7 @@ public class BossController : MonoBehaviour
         HeadAnimation();
     }
 
-    private void HeadAnimation()
+     private void HeadAnimation()
     {
         LeanTween.moveLocalY(head.gameObject, -0.11f, 4.5f).setEaseInCubic().setOnComplete(() =>
         {
@@ -70,120 +100,20 @@ public class BossController : MonoBehaviour
             });
         }
     }
-
-    public void SecondAttackBegin()
+#endregion
+#region TakeDamage
+    private void OnParticleCollision(GameObject other)
     {
-        UniTask.Void(async () =>
-        {
-            bool finishAnimation = false;
-
-            LeanTween.scaleX(shield, 4.68f, 2.5f).setEaseInQuad().setOnComplete(() =>
-            {
-                spawnManagerLvl.StartSecondAttack();
-                finishAnimation = true;
-            });
-
-            await UniTask.WaitUntil(() => finishAnimation);
-
-            await UniTask.Delay(TimeSpan.FromSeconds(35f));
-
-            DeactivateShield();
-        });
+        TakeDamage();
     }
 
-    [ContextMenu("ThirdAttack")]
-    public void ThirdAttackBegin()
+        private void TakeDamage()
     {
-        UniTask.Void(async () =>
-        {
-            bool finishAnimation = false;
-
-            LeanTween.scaleX(shield, 4.68f, 2.5f).setEaseInQuad().setOnComplete(() =>
-                {
-                    LeanTween.moveY(shield, -3.54f, 2f).setEaseInQuad().setOnComplete(() =>
-                    {
-                        finishAnimation = true;
-                        LeanTween.moveLocalY(shield, 1.83f, 0.5f).setEaseInQuad();
-                    });
-                });
-
-            await UniTask.WaitUntil(() => finishAnimation);
-
-            foreach (var t in barierSet)
-            {
-                switch (t.barrierPosition)
-                {
-                    case Constants.BarrierPosition.Left:
-                        {
-                            DefineBarrierType(t.barrierType);
-                            GameObject newBarrier =
-                                Instantiate(barier, leftBarrierSpawnPPoint.position, Quaternion.identity);
-                            newBarrier.GetComponent<BarierBehaviour>().Appear(Constants.BarrierPosition.Left);
-                            break;
-                        }
-
-                    case Constants.BarrierPosition.Right:
-                        {
-                            DefineBarrierType(t.barrierType);
-                            GameObject newBarrier =
-                                Instantiate(barier, rightBarrierSpawnPPoint.position, Quaternion.identity);
-                            newBarrier.GetComponent<BarierBehaviour>().Appear(Constants.BarrierPosition.Right);
-                            break;
-                        }
-                }
-
-                await UniTask.Delay((int)timeBetweenSpawnBarrier * 1000);
-            }
-
-            UniTask.Delay(TimeSpan.FromSeconds(2.5f));
-            DeactivateShield();
-            _animator.SetTrigger("FinishThirdAttack");
-        });
-    }
-
-    private void DefineBarrierType(Constants.BarrierType barrierType)
-    {
-        switch (barrierType)
-        {
-            case Constants.BarrierType.LittleBarrier:
-                {
-                    barier = littleBarrier;
-                    break;
-                }
-            case Constants.BarrierType.MediumBarrier:
-                {
-                    barier = mediumBarrier;
-                    break;
-                }
-
-            case Constants.BarrierType.BigBarrier:
-                {
-                    barier = bigBarrier;
-                    break;
-                }
-        }
-    }
-
-    private void DeactivateShield()
-    {
-        LeanTween.scaleX(shield, 0, 2.5f).setEaseInQuad();
-    }
-
-    private void TakeDamage()
-    {
-        if (life == 0)
-        {
-            _animator.SetTrigger("Death");
-        }
-        else
-        {
-            _animator.SetBool("NextStage", true);
-            nextStage = true;
-            life--;
-        }
+        //TODO: As scoate din timp vri-o 10 sec poate
 
     }
-
+    #endregion
+   
     public void Death()
     {
         GetComponent<BoxCollider2D>().enabled = false;
@@ -201,17 +131,5 @@ public class BossController : MonoBehaviour
             UIManagerGameRoom.instance.FinishLvlState();
         });
 
-
-
-    }
-
-    public void SetBossPosition()
-    {
-        LeanTween.moveLocalY(gameObject, 2.951164f, 4f).setEaseInQuad().setOnComplete(() => _animator.SetTrigger("StartBossBehaviour"));
-    }
-
-    private void OnParticleCollision(GameObject other)
-    {
-        TakeDamage();
     }
 }

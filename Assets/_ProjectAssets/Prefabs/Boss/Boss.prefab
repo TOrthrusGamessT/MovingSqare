@@ -34301,9 +34301,7 @@ MonoBehaviour:
   - {fileID: 5731594155342168610}
   - {fileID: 5731594155947935068}
   shield: {fileID: 0}
-  inAnimation: 0
   spawnManagerLvl: {fileID: 0}
-  nextStage: 0
 --- !u!61 &1174452391
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -39229,7 +39227,7 @@ ParticleSystem:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5731594154769240929}
   serializedVersion: 8
-  lengthInSec: 0.05
+  lengthInSec: 2
   simulationSpeed: 1
   stopAction: 0
   cullingMode: 0
@@ -44168,7 +44166,7 @@ ParticleSystem:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5731594155020195222}
   serializedVersion: 8
-  lengthInSec: 0.05
+  lengthInSec: 2
   simulationSpeed: 1
   stopAction: 0
   cullingMode: 0
@@ -93288,7 +93286,7 @@ ParticleSystem:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6174593297149088898}
   serializedVersion: 8
-  lengthInSec: 0.05
+  lengthInSec: 2
   simulationSpeed: 1
   stopAction: 0
   cullingMode: 0

@@ -109,6 +109,7 @@ public class SpawnManagerLvls : Spawner
       if (_lvlOver)
          return;
 
+      Timer.instance.StartCounter();
       if (_lvlSettings.lvl10Boss)
       {
          boss.SetActive(true);
@@ -165,7 +166,7 @@ public class SpawnManagerLvls : Spawner
       }
 
 
-      Timer.instance.StartCounter();
+      
    }
 
    private IEnumerator PauseAndResumeSpawning(float time)
@@ -401,7 +402,7 @@ public class SpawnManagerLvls : Spawner
 
    #region SpawnBossAttacks
 
-   public void StartSecondAttack()
+   public void SpawnEnemiesFromBelow()
    {
 
       UniTask.Void(async () =>
