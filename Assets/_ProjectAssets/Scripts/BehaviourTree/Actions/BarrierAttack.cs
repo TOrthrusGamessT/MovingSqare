@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class BarrierAttack : StateMachineBehaviour
 {
+    //TODO: one barrier should be enough, just change its size
     public GameObject littleBarrier;
     public GameObject mediumBarrier;
     public GameObject bigBarrier;

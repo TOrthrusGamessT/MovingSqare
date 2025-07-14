@@ -4,7 +4,7 @@ public class Appear : StateMachineBehaviour
 {
     override public void OnStateEnter(Animator animator, AnimatorStateInfo stateInfo, int layerIndex)
     {
-        animator.GetComponent<BossController>().BossApeareanceAnimation();
+        LeanTween.moveLocalY( animator.gameObject, 2.951164f, 4f).setEaseInQuad().setOnComplete(() => animator.SetTrigger("StartBossBehaviour"));
     }
     
     override public void OnStateUpdate(Animator animator, AnimatorStateInfo stateInfo, int layerIndex)

@@ -379,6 +379,18 @@ AnimatorState:
   m_MirrorParameter: 
   m_CycleOffsetParameter: 
   m_TimeParameter: 
+--- !u!114 &-2761467229279256316
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: acaa584547c183045906afad250a3f46, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1102 &-2203719869101805699
 AnimatorState:
   serializedVersion: 6
@@ -649,8 +661,7 @@ AnimatorState:
   m_CycleOffset: 0
   m_Transitions:
   - {fileID: 7137573296340164875}
-  m_StateMachineBehaviours:
-  - {fileID: 8255561925913902278}
+  m_StateMachineBehaviours: []
   m_Position: {x: 50, y: 50, z: 0}
   m_IKOnFeet: 0
   m_WriteDefaultValues: 1
@@ -727,7 +738,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 49911c03e656a2f49916a984fdad9514, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  optionsAvailable: 2
+  optionsAvailable: 3
 --- !u!1101 &2670146365272477900
 AnimatorStateTransition:
   m_ObjectHideFlags: 1
@@ -1019,7 +1030,8 @@ AnimatorState:
   m_CycleOffset: 0
   m_Transitions:
   - {fileID: 6242846386924687497}
-  m_StateMachineBehaviours: []
+  m_StateMachineBehaviours:
+  - {fileID: -2761467229279256316}
   m_Position: {x: 50, y: 50, z: 0}
   m_IKOnFeet: 0
   m_WriteDefaultValues: 1
@@ -1066,7 +1078,10 @@ AnimatorStateTransition:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_Name: 
-  m_Conditions: []
+  m_Conditions:
+  - m_ConditionMode: 1
+    m_ConditionEvent: CanExitState
+    m_EventTreshold: 0
   m_DstStateMachine: {fileID: 0}
   m_DstState: {fileID: -241028439429519642}
   m_Solo: 0
@@ -1076,7 +1091,7 @@ AnimatorStateTransition:
   m_TransitionDuration: 0.25
   m_TransitionOffset: 0
   m_ExitTime: 0.75
-  m_HasExitTime: 1
+  m_HasExitTime: 0
   m_HasFixedDuration: 1
   m_InterruptionSource: 0
   m_OrderedInterruption: 1
@@ -1240,6 +1255,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cf46a917aa14f8e4aa3ecee412639d43, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _bossController: {fileID: 0}
 --- !u!114 &8458677212123616578
 MonoBehaviour:
   m_ObjectHideFlags: 1

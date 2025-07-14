@@ -29,31 +29,9 @@ public class BossController : MonoBehaviour
         _rb = GetComponent<Rigidbody2D>();
     }
 
-    public void BossApeareanceAnimation()
-    {
-        LeanTween.moveLocalY(gameObject, 2.951164f, 4f).setEaseInQuad().setOnComplete(() => _animator.SetTrigger("StartBossBehaviour"));
-    }
 
-    public void SpawnEnemiesFromBelow()
-    {
-        UniTask.Void(async () =>
-        {
-            bool finishAnimation = false;
-
-            LeanTween.scaleX(shield, 4.68f, 2.5f).setEaseInQuad().setOnComplete(() =>
-            {
-                spawnManagerLvl.SpawnEnemiesFromBelow();
-                finishAnimation = true;
-            });
-
-            await UniTask.WaitUntil(() => finishAnimation);
-
-            await UniTask.Delay(TimeSpan.FromSeconds(35f));
-
-            DeactivateShield();
-        });
-    }
-
+    
+#region Shield
     public async UniTask ActivateShield()
     {
         LeanTween.scaleX(shield, 4.68f, 2.5f).setEaseInQuad().setOnComplete(() =>
@@ -73,7 +51,7 @@ public class BossController : MonoBehaviour
         await UniTask.Delay(TimeSpan.FromSeconds(2.5f));
         return;
     }
-
+#endregion
 
 #region Boomerang
     public void SpawnBoomerang()

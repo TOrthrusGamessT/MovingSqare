@@ -402,36 +402,37 @@ public class SpawnManagerLvls : Spawner
 
    #region SpawnBossAttacks
 
-   public void SpawnEnemiesFromBelow()
-   {
+   public async UniTask SpawnEnemiesFromBelow(int enemiesPerWave = 10,float delayBetweenSpawns = 1f,int spawnPointIndex = 3,float speedMultiplier = 1f,List<EnemyBehaviour> enemiesToSpawn = null)
+   {  
+      int roundTime = enemiesPerWave;
+      int geometricFigureIndex = 0;
+      Transform spawnPoint = spawningPoints[spawnPointIndex];
+      
+      // Use custom enemy list or default to all geometric figures
+      var enemyList = enemiesToSpawn ?? geometricFigures;
 
-      UniTask.Void(async () =>
+      while (geometricFigureIndex < enemyList.Count)
       {
-         int roundTime = 10;
-         int geometricFigureIndex = 0;
-         while (geometricFigureIndex < geometricFigures.Count)
+         EnemyBehaviour objectToSpawn = enemyList[geometricFigureIndex];
+         objectToSpawn.UpdateSpeedBasedOnFigure(_geometryFiguresSpeed * speedMultiplier);
+         objectToSpawn.SetTransformRight();
+
+
+         attentionSignBehaviour = Instantiate(enemyAlertSignPrefab, spawnPoint.position, spawnPoint.rotation)
+            .GetComponent<AttentionSignBehaviour>();
+         SetEnemyDirection(spawnPoint);
+         attentionSignBehaviour.target =
+            Instantiate(objectToSpawn, positionToSpawn, Quaternion.identity).GetComponent<Transform>();
+
+         await UniTask.Delay(TimeSpan.FromSeconds(delayBetweenSpawns));
+         roundTime--;
+         if (roundTime == 0)
          {
-            EnemyBehaviour objectToSpawn = geometricFigures[geometricFigureIndex];
-            objectToSpawn.UpdateSpeedBasedOnFigure(_geometryFiguresSpeed);
-            objectToSpawn.SetTransformRight();
-
-            Transform spawnPoint = spawningPoints[3];
-
-            attentionSignBehaviour = Instantiate(enemyAlertSignPrefab, spawnPoint.position, spawnPoint.rotation)
-               .GetComponent<AttentionSignBehaviour>();
-            SetEnemyDirection(spawnPoint);
-            attentionSignBehaviour.target =
-               Instantiate(objectToSpawn, positionToSpawn, Quaternion.identity).GetComponent<Transform>();
-
-            await UniTask.Delay(TimeSpan.FromSeconds(1));
-            roundTime--;
-            if (roundTime == 0)
-            {
-               roundTime = 10;
-               geometricFigureIndex++;
-            }
+            roundTime = enemiesPerWave;
+            geometricFigureIndex++;
          }
-      });
+      }
+      return;
    }
 
    #endregion

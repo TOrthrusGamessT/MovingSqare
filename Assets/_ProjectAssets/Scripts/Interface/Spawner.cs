@@ -20,6 +20,7 @@ public abstract class Spawner : MonoBehaviour
     public List<EnemyBehaviour> geometricFigures;
     public GameObject enemyAlertSignPrefab;
     public GameObject laser;
+    //TODO: add a fucking NWSE as an enum, it's confusing as fuck
     public List<Transform> spawningPoints;
 
     [Header("Helpers")]
