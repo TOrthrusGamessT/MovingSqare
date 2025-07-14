@@ -61,12 +61,19 @@ public class ShopManager : MonoBehaviour
 
     private void InitPlayerPrefs()
     {
+        if (PlayerPrefs.HasKey("currentSkin"))
+        {
+            selectedSkin = PlayerPrefs.GetInt("currentSkin");
+        }
+        else
+        {
+            selectedSkin = 0;
+            PlayerPrefs.SetInt("unlockedSkin0", 0);
+        }
         foreach (var skinData in skinsData.skins)
         {
             skinStatus.Add(skinData.id, PlayerPrefs.HasKey($"unlockedSkin{skinData.id}"));
         }
-
-        selectedSkin = PlayerPrefs.HasKey("currentSkin") ? PlayerPrefs.GetInt("currentSkin") : 0;
     }
 
 

@@ -1868,7 +1868,7 @@ RectTransform:
   m_AnchorMin: {x: 0, y: 0.5}
   m_AnchorMax: {x: 1, y: 0.5}
   m_AnchoredPosition: {x: 0, y: -248.52002}
-  m_SizeDelta: {x: -515.94, y: 119.58}
+  m_SizeDelta: {x: 0, y: 119.58}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &368072080
 MonoBehaviour:
@@ -9396,16 +9396,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e4eae6deac3184acaa3d9abe522d2c01, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  textFade:
-  - {fileID: 1937889619}
   money: {fileID: 167519050}
-  main: {fileID: 1816431716}
-  shop: {fileID: 520736453}
-  topBar: {fileID: 0}
-  startButton: {fileID: 459346029}
-  gameModeMenu: {fileID: 0}
+  shopButton: {fileID: 1415988963}
+  lvlButton: {fileID: 459346029}
   SceneLoader: {fileID: 207147062}
   lvlMenu: {fileID: 331507355}
+  shopMenu: {fileID: 520736453}
 --- !u!4 &946065209
 Transform:
   m_ObjectHideFlags: 0
