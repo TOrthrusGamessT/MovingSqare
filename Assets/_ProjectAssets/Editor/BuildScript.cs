@@ -10,6 +10,13 @@ public static class BuildScript
 
     public static void PerformBuildAndroid()
     {
+        string buildDirectory = "Builds/Android";
+        if (!System.IO.Directory.Exists(buildDirectory))
+        {
+            System.IO.Directory.CreateDirectory(buildDirectory);
+        }
+
+
         string buildNumber = Environment.GetEnvironmentVariable("BUILD_NUMBER");
         if (string.IsNullOrEmpty(buildNumber))
         {
