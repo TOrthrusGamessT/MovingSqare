@@ -19,7 +19,7 @@ MonoBehaviour:
     width: 2560
     height: 1349
   m_ShowMode: 4
-  m_Title: Inspector
+  m_Title: Hierarchy
   m_RootView: {fileID: 2}
   m_MinSize: {x: 875, y: 300}
   m_MaxSize: {x: 10000, y: 10000}
@@ -118,7 +118,7 @@ MonoBehaviour:
   m_MinSize: {x: 400, y: 100}
   m_MaxSize: {x: 32384, y: 16192}
   vertical: 1
-  controlID: 116
+  controlID: 113
   draggingID: 0
 --- !u!114 &6
 MonoBehaviour:
@@ -144,7 +144,7 @@ MonoBehaviour:
   m_MinSize: {x: 400, y: 100}
   m_MaxSize: {x: 32384, y: 16192}
   vertical: 0
-  controlID: 117
+  controlID: 114
   draggingID: 0
 --- !u!114 &7
 MonoBehaviour:
@@ -170,7 +170,7 @@ MonoBehaviour:
   m_MinSize: {x: 300, y: 100}
   m_MaxSize: {x: 24288, y: 16192}
   vertical: 1
-  controlID: 62
+  controlID: 57
   draggingID: 0
 --- !u!114 &8
 MonoBehaviour:
@@ -197,7 +197,7 @@ MonoBehaviour:
   m_MinSize: {x: 300, y: 50}
   m_MaxSize: {x: 24288, y: 8096}
   vertical: 0
-  controlID: 55
+  controlID: 58
   draggingID: 0
 --- !u!114 &9
 MonoBehaviour:
@@ -288,7 +288,7 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 1
   m_Script: {fileID: 12006, guid: 0000000000000000e000000000000000, type: 0}
-  m_Name: ConsoleWindow
+  m_Name: ProjectBrowser
   m_EditorClassIdentifier: 
   m_Children: []
   m_Position:
@@ -297,15 +297,15 @@ MonoBehaviour:
     y: 936
     width: 1996
     height: 357
-  m_MinSize: {x: 101, y: 126}
-  m_MaxSize: {x: 4001, y: 4026}
-  m_ActualView: {fileID: 19}
+  m_MinSize: {x: 231, y: 276}
+  m_MaxSize: {x: 10001, y: 10026}
+  m_ActualView: {fileID: 18}
   m_Panes:
   - {fileID: 18}
   - {fileID: 19}
   - {fileID: 20}
-  m_Selected: 1
-  m_LastSelected: 0
+  m_Selected: 0
+  m_LastSelected: 1
 --- !u!114 &13
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -451,7 +451,7 @@ MonoBehaviour:
       scrollPos: {x: 0, y: 0}
       m_SelectedIDs: 
       m_LastClickedID: 0
-      m_ExpandedIDs: 5258feffc059feff3060feffdc61feff3c64feffe470feff2e81feffaa83feff8290feffc493feff0296feff4299feff109cfeffee9efeffd0acfeffdcacfeff80aefeffa4befeffd4befeff6ed7feffdcd8feff48dffefff0e0feff4ce3feff5af5feffc8f6feff34fdfeffdcfefeff3601ffff6610ffffd411fffff617ffffaa19ffff0a1cffff5026ffffb027ffff2c2effffe42fffff4832ffff6e41ffffdc42ffff4849fffff04affff4a4dffff9a5cffff085effff8064ffff3466ffff9468ffff6a84ffffd885ffffec8bffff948dffffec8fffff829afffff09bffff5aa2ffff02a4ffff5aa6ffff8eb3fffffcb4ffff76bbffff2ebdffff90bfffffd8f3ffffe4f8ffff667401006a750100d675010074760100ba760100f8760100a87d0100d27d01004e7f0100707f0100128a0100628b01000c8c0100fe9e0100e0ac01006ead0100ccad0100
+      m_ExpandedIDs: c8caffff36ccffffa2d2ffff4ad4ffffa6d6ffff76e4ffffe4e5ffff50ecfffff8edffff54f0ffffe4faffff
       m_RenameOverlay:
         m_UserAcceptedRename: 0
         m_Name: 
@@ -1277,7 +1277,7 @@ MonoBehaviour:
   m_Pos:
     serializedVersion: 2
     x: 0
-    y: 1015
+    y: 960
     width: 1995
     height: 331
   m_SerializedDataModeController:
@@ -1302,7 +1302,7 @@ MonoBehaviour:
     m_SkipHidden: 0
     m_SearchArea: 1
     m_Folders:
-    - Assets/_ProjectAssets/Scenes
+    - Assets
     m_Globs: []
     m_ProductIds: 
     m_AnyWithAssetOrigin: 0
@@ -1312,15 +1312,15 @@ MonoBehaviour:
   m_ViewMode: 1
   m_StartGridSize: 16
   m_LastFolders:
-  - Assets/_ProjectAssets/Scenes
+  - Assets
   m_LastFoldersGridSize: 16
   m_LastProjectPath: E:\OrthrusGames\MoveTheSquare\MovingSqare
   m_LockTracker:
     m_IsLocked: 0
   m_FolderTreeState:
-    scrollPos: {x: 0, y: 111}
-    m_SelectedIDs: 80c10000
-    m_LastClickedID: 49536
+    scrollPos: {x: 0, y: 0}
+    m_SelectedIDs: 48c40000
+    m_LastClickedID: 50248
     m_ExpandedIDs: 00000000cac30000ccc30000cec30000d0c30000
     m_RenameOverlay:
       m_UserAcceptedRename: 0
@@ -1376,9 +1376,9 @@ MonoBehaviour:
       m_Icon: {fileID: 0}
       m_ResourceFile: 
   m_ListAreaState:
-    m_SelectedInstanceIDs: c0c10000
-    m_LastClickedInstanceID: 49600
-    m_HadKeyboardFocusLastEvent: 1
+    m_SelectedInstanceIDs: 
+    m_LastClickedInstanceID: 0
+    m_HadKeyboardFocusLastEvent: 0
     m_ExpandedInstanceIDs: c623000056d3000062d300000cc2000000740000ccc400000a7a00000e85000000c90000bc7300006c9b000014790000d077000000000000329600001075000018750000c2760000ae780000887a0000aa790000667b00006eed0000
     m_RenameOverlay:
       m_UserAcceptedRename: 0
@@ -1430,7 +1430,7 @@ MonoBehaviour:
   m_Pos:
     serializedVersion: 2
     x: 0
-    y: 960
+    y: 1015
     width: 1995
     height: 331
   m_SerializedDataModeController:

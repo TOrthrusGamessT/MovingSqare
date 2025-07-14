@@ -1,5 +1,5 @@
 # ninja log v5
-1	103	7734077302898147	FramePacing/CMakeFiles/swappywrapper.dir/UnitySwappyWrapper.cpp.o	dd63221dc69fa7fd
-104	182	7734077303680099	E:/OrthrusGames/MoveTheSquare/MovingSqare/Library/Bee/Android/Prj/IL2CPP/Gradle/unityLibrary/build/intermediates/cxx/RelWithDebInfo/1q6n6vz5/obj/arm64-v8a/libswappywrapper.so	4e6771d36458d0cc
 1	95	7734079900944625	FramePacing/CMakeFiles/swappywrapper.dir/UnitySwappyWrapper.cpp.o	dd63221dc69fa7fd
 96	179	7734079901794190	E:/OrthrusGames/MoveTheSquare/MovingSqare/Library/Bee/Android/Prj/IL2CPP/Gradle/unityLibrary/build/intermediates/cxx/RelWithDebInfo/1q6n6vz5/obj/arm64-v8a/libswappywrapper.so	4e6771d36458d0cc
+1	245	7739555361037368	FramePacing/CMakeFiles/swappywrapper.dir/UnitySwappyWrapper.cpp.o	dd63221dc69fa7fd
+246	384	7739555362424565	E:/OrthrusGames/MoveTheSquare/MovingSqare/Library/Bee/Android/Prj/IL2CPP/Gradle/unityLibrary/build/intermediates/cxx/RelWithDebInfo/1q6n6vz5/obj/arm64-v8a/libswappywrapper.so	4e6771d36458d0cc
