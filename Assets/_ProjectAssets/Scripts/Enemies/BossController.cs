@@ -6,16 +6,12 @@ using UnityEngine;
 public class BossController : MonoBehaviour
 {
     public List<ParticleSystem> lasers;
-    public Transform boomerangSpawnPoint;
     public GameObject boomerangPrefab;
     public Transform leftBarrierSpawnPPoint;
     public Transform rightBarrierSpawnPPoint;
 
     public ParticleSystem[] destroyEffect;
     public RectTransform rewardText;
-
-    public GameObject head;
-    public GameObject[] guns;
     public GameObject shield;
     public SpawnManagerLvls spawnManagerLvl;
 
@@ -27,6 +23,10 @@ public class BossController : MonoBehaviour
     {
         _animator = GetComponent<Animator>();
         _rb = GetComponent<Rigidbody2D>();
+        Timer.onCounterEnd += () =>
+        {
+            _animator.SetTrigger("Destroy");
+        };
     }
 
 
@@ -52,62 +52,4 @@ public class BossController : MonoBehaviour
         return;
     }
 #endregion
-
-#region Boomerang
-    public void SpawnBoomerang()
-    {
-        Boomerang boomerang = Instantiate(boomerangPrefab, boomerangSpawnPoint.position, Quaternion.identity)
-            .GetComponent<Boomerang>();
-        boomerang.Instantiate(GameObject.FindWithTag("Player").transform);
-
-        HeadAnimation();
-    }
-
-     private void HeadAnimation()
-    {
-        LeanTween.moveLocalY(head.gameObject, -0.11f, 4.5f).setEaseInCubic().setOnComplete(() =>
-        {
-            LeanTween.moveLocalY(head.gameObject, -1.111098f, 0.5f).setEaseInCubic();
-        });
-
-        foreach (var gun in guns)
-        {
-            LeanTween.moveLocalY(gun.gameObject, 0.93f, 4.5f).setEaseInCubic().setOnComplete(() =>
-            {
-                LeanTween.moveLocalY(gun.gameObject, 0.14f, 0.5f).setEaseInCubic();
-            });
-        }
-    }
-#endregion
-#region TakeDamage
-    private void OnParticleCollision(GameObject other)
-    {
-        TakeDamage();
-    }
-
-        private void TakeDamage()
-    {
-        //TODO: As scoate din timp vri-o 10 sec poate
-
-    }
-    #endregion
-   
-    public void Death()
-    {
-        GetComponent<BoxCollider2D>().enabled = false;
-        _rb.gravityScale = 1;
-        _rb.linearDamping = 16;
-        foreach (var particleSystem in destroyEffect)
-        {
-            particleSystem.Play();
-        }
-
-        LeanTween.rotate(gameObject, new Vector3(0, 0, 180), 30f).setEaseInQuad();
-        LeanTween.scale(rewardText, new Vector3(1, 1, 1), 1f).setEaseInQuad().setOnComplete(() =>
-        {
-            DataManager.MoneyCollected = 500;
-            UIManagerGameRoom.instance.FinishLvlState();
-        });
-
-    }
 }
