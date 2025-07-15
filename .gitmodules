@@ -1,0 +1,3 @@
+[submodule "Assets/ExternalPackages"]
+	path = Assets/ExternalPackages
+	url = https://github.com/Leggacys/UnityPlugins.git
