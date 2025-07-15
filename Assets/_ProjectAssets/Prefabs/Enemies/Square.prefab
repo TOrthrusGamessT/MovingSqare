@@ -115,7 +115,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2023566006283250090}
   serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalRotation: {x: 0, y: 0, z: 0.99984986, w: 0.017328987}
   m_LocalPosition: {x: 1.46, y: 3.07, z: 0}
   m_LocalScale: {x: 0.29999998, y: 0.29999998, z: 0}
   m_ConstrainProportionsScale: 1
@@ -264,7 +264,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 85aeddc97c7da7d40a5d836118adc84a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 3
+  speed: 3.3
   deadEffect: {fileID: 938355462728799340, guid: 5104cb0027b01e844b6a7c790b66bb6a, type: 3}
   figure: 0
   _trail: {fileID: 5742908072576222247}

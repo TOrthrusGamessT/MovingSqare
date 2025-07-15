@@ -58,8 +58,6 @@ public class GameManager : MonoBehaviour
 
     private void OnEnable()
     {
-        BossGameplay.OnBossAppear += StopCoroutine;
-        BossGameplay.OnBossDisappear += StartCoroutine;
         onGameOver += StopCoroutine;
         Timer.onCounterEnd += StopCoroutine;
 
@@ -71,8 +69,6 @@ public class GameManager : MonoBehaviour
 
     private void OnDisable()
     {
-        BossGameplay.OnBossAppear -= StopCoroutine;
-        BossGameplay.OnBossDisappear -= StartCoroutine;
         onGameOver -= StopCoroutine;
         Timer.onCounterEnd -= StopCoroutine;
 
