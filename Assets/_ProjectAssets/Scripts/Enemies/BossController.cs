@@ -2,6 +2,7 @@ using System;
 using System.Collections.Generic;
 using Cysharp.Threading.Tasks;
 using UnityEngine;
+using Random = UnityEngine.Random;
 
 public class BossController : MonoBehaviour
 {
@@ -34,6 +35,7 @@ public class BossController : MonoBehaviour
 #region Shield
     public async UniTask ActivateShield()
     {
+        shield.GetComponent<SpriteRenderer>().color = Constants.brightColorPalette[Random.Range(0, Constants.brightColorPalette.Count)];
         LeanTween.scaleX(shield, 4.68f, 2.5f).setEaseInQuad().setOnComplete(() =>
                 {
                     LeanTween.moveY(shield, -3.54f, 2f).setEaseInQuad().setOnComplete(() =>

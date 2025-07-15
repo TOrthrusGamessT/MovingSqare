@@ -421,8 +421,11 @@ public class SpawnManagerLvls : Spawner
          attentionSignBehaviour = Instantiate(enemyAlertSignPrefab, spawnPoint.position, spawnPoint.rotation)
             .GetComponent<AttentionSignBehaviour>();
          SetEnemyDirection(spawnPoint);
-         attentionSignBehaviour.target =
-            Instantiate(objectToSpawn, positionToSpawn, Quaternion.identity).GetComponent<Transform>();
+         EnemyBehaviour spawnedEnemy = Instantiate(objectToSpawn, positionToSpawn, Quaternion.identity);
+         attentionSignBehaviour.target = spawnedEnemy.GetComponent<Transform>();
+      
+         // Apply random color to the spawned enemy
+         ApplyColor(spawnedEnemy);
 
          await UniTask.Delay(TimeSpan.FromSeconds(delayBetweenSpawns));
          roundTime--;

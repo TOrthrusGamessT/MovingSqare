@@ -31,7 +31,7 @@ public class BarrierAttack : StateMachineBehaviour
         {
 
             await _bossController.ActivateShield();
-
+            GameObject newBarrier = null;
             foreach (var t in barierSet)
             {
                 switch (t.barrierPosition)
@@ -39,7 +39,7 @@ public class BarrierAttack : StateMachineBehaviour
                     case Constants.BarrierPosition.Left:
                         {
                             DefineBarrierType(t.barrierType);
-                            GameObject newBarrier =
+                            newBarrier =
                                 Instantiate(barier, _bossController.leftBarrierSpawnPPoint.position, Quaternion.identity);
                             newBarrier.GetComponent<BarierBehaviour>().Appear(Constants.BarrierPosition.Left);
                             break;
@@ -48,11 +48,16 @@ public class BarrierAttack : StateMachineBehaviour
                     case Constants.BarrierPosition.Right:
                         {
                             DefineBarrierType(t.barrierType);
-                            GameObject newBarrier =
+                            newBarrier =
                                 Instantiate(barier, _bossController.rightBarrierSpawnPPoint.position, Quaternion.identity);
                             newBarrier.GetComponent<BarierBehaviour>().Appear(Constants.BarrierPosition.Right);
                             break;
                         }
+                }
+                if (newBarrier != null)
+                {
+                    newBarrier.GetComponent<SpriteRenderer>().color =
+                        Constants.brightColorPalette[Random.Range(0, Constants.brightColorPalette.Count)];
                 }
 
                 await UniTask.Delay((int)(timeBetweenSpawnBarrier * 1000));
