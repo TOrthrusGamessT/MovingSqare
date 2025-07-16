@@ -14,6 +14,10 @@ public static class BuildScript
     {
         string buildNumber = Environment.GetEnvironmentVariable("BUILD_NUMBER") ?? "1";
 
+        int buildNumberInt = int.Parse(buildNumber);
+        buildNumberInt += 24;
+        buildNumber = buildNumberInt.ToString();
+
         // Set version
         PlayerSettings.bundleVersion = $"6.0.{buildNumber}";
         PlayerSettings.Android.bundleVersionCode = int.Parse(buildNumber);
