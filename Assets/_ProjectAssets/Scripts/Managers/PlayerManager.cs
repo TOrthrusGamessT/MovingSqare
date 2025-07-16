@@ -9,6 +9,7 @@ public class PlayerManager : MonoBehaviour
     public ParticleSystem trail;
 
     [SerializeField] private SpriteRenderer _playerBody;
+    private Vector3 baseSize = new Vector3(0.1f, 0.1f, 1f);
 
 
 
@@ -40,7 +41,7 @@ public class PlayerManager : MonoBehaviour
     }
     private void ApplyEffect(SkinData skin)
     {
-        transform.localScale /= skin.sizeBonus;
+        transform.localScale = baseSize / skin.sizeBonus;
         movement.speed*= skin.speedBonus;
         playerLife.AddLife(skin.lives);
         
