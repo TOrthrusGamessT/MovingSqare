@@ -12,19 +12,28 @@ public static class BuildScript
 
     public static void PerformBuildAndroid()
     {
-        string buildNumber = Environment.GetEnvironmentVariable("BUILD_NUMBER") ?? "1";
+        string buildNumberStr = Environment.GetEnvironmentVariable("BUILD_NUMBER") ?? "1";
+        int buildNumber = 1;
 
-        int buildNumberInt = int.Parse(buildNumber);
-        buildNumberInt += 24;
-        buildNumber = buildNumberInt.ToString();
+        if (!int.TryParse(buildNumberStr, out buildNumber))
+        {
+            Debug.LogWarning($"[BuildScript] Invalid BUILD_NUMBER env var '{buildNumberStr}', defaulting to 1");
+            buildNumber = 1;
+        }
 
-        // Set version
-        PlayerSettings.bundleVersion = $"6.0.{buildNumber}";
-        PlayerSettings.Android.bundleVersionCode = int.Parse(buildNumber);
+        int minVersionCode = 618;
+        int versionCode = minVersionCode + buildNumber;
+
+        Debug.Log($"[BuildScript] Using BUILD_NUMBER: {buildNumber}");
+        Debug.Log($"[BuildScript] Calculated versionCode: {versionCode}");
+
+        PlayerSettings.bundleVersion = $"1.0.{versionCode}";
+        PlayerSettings.Android.bundleVersionCode = versionCode;
 
         string buildDirectory = "Builds/Android";
         Directory.CreateDirectory(buildDirectory);
-        string pathToBuild = Path.Combine(buildDirectory, $"v1.6.{buildNumber}.apk");
+
+        string pathToBuild = Path.Combine(buildDirectory, $"v1.6.{versionCode}.aab");
 
         PlayerSettings.Android.keystoreName = Environment.GetEnvironmentVariable("KEYSTORE_PATH");
         PlayerSettings.Android.keystorePass = Environment.GetEnvironmentVariable("KEYSTORE_PASS");
@@ -33,4 +42,6 @@ public static class BuildScript
 
         BuildPipeline.BuildPlayer(SCENES, pathToBuild, BuildTarget.Android, BuildOptions.None);
     }
+
+
 }
