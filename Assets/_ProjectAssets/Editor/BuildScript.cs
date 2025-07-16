@@ -37,6 +37,9 @@ public static class BuildScript
         PlayerSettings.Android.keyaliasName = Environment.GetEnvironmentVariable("KEY_ALIAS");
         PlayerSettings.Android.keyaliasPass = Environment.GetEnvironmentVariable("KEY_ALIAS_PASS");
 
+        PlayerSettings.Android.useCustomKeystore = true;
+        EditorUserBuildSettings.buildAppBundle = true;
+
         BuildPipeline.BuildPlayer(SCENES, pathToBuild, BuildTarget.Android, BuildOptions.None);
     }
 
