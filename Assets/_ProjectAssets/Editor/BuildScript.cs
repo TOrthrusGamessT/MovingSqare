@@ -12,11 +12,14 @@ public static class BuildScript
 
     public static void PerformBuildAndroid()
     {
-        string buildNumber = Environment.GetEnvironmentVariable("BUILD_NUMBER") ?? "local";
+        string buildNumber = Environment.GetEnvironmentVariable("BUILD_NUMBER") ?? "1";
+
+        // Set version
+        PlayerSettings.bundleVersion = $"6.0.{buildNumber}";
+        PlayerSettings.Android.bundleVersionCode = int.Parse(buildNumber);
 
         string buildDirectory = "Builds/Android";
         Directory.CreateDirectory(buildDirectory);
-
         string pathToBuild = Path.Combine(buildDirectory, $"v1.6.{buildNumber}.apk");
 
         PlayerSettings.Android.keystoreName = Environment.GetEnvironmentVariable("KEYSTORE_PATH");
