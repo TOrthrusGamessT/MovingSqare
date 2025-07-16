@@ -11,7 +11,6 @@ public class CoinsBehaviour : MonoBehaviour
 
     [SerializeField] private GameObject destroyVFX;
     [SerializeField] private GameObject vfx;
-    [SerializeField] private ColectMoneyEffect textEffect;
 
     public static int Lifetime
     {
@@ -64,8 +63,6 @@ public class CoinsBehaviour : MonoBehaviour
         if (col.gameObject.CompareTag("Player"))
         {
             _combo++;
-            ColectMoneyEffect colectMoneyEffect = Instantiate(textEffect, transform.position + Vector3.forward * -9.125f, Quaternion.identity);
-            colectMoneyEffect.ShowText(_combo);
             Instantiate(vfx, transform.position, Quaternion.identity);
             BackgroundParticlesManager.instance.TakeCoinAnimation();
             SoundManager.instance.PlaySoundEffect(Constants.Sounds.PickCoin);
@@ -84,8 +81,6 @@ public class CoinsBehaviour : MonoBehaviour
     {
         Instantiate(destroyVFX, transform.position, Quaternion.identity);
         onCoinDestroy?.Invoke(false);
-        ColectMoneyEffect colectMoneyEffect = Instantiate(textEffect, transform.position + Vector3.forward * -9.125f, Quaternion.identity);
-        colectMoneyEffect.ShowText(0);
         _combo = 0;
         Destroy(gameObject);
     }
