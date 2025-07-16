@@ -17,15 +17,12 @@ public static class BuildScript
 
         if (!int.TryParse(buildNumberStr, out buildNumber))
         {
-            Debug.LogWarning($"[BuildScript] Invalid BUILD_NUMBER env var '{buildNumberStr}', defaulting to 1");
             buildNumber = 1;
         }
 
         int minVersionCode = 618;
         int versionCode = minVersionCode + buildNumber;
 
-        Debug.Log($"[BuildScript] Using BUILD_NUMBER: {buildNumber}");
-        Debug.Log($"[BuildScript] Calculated versionCode: {versionCode}");
 
         PlayerSettings.bundleVersion = $"1.0.{versionCode}";
         PlayerSettings.Android.bundleVersionCode = versionCode;
