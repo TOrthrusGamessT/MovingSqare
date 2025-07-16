@@ -3,7 +3,7 @@ platform :android do
     supply(
       json_key: ENV["SUPPLY_JSON_KEY"],
       package_name: "com.UnknownGames.MoveTheSquare",
-      track: "open",
+      track: "internal",
       aab: ENV["AAB_PATH"]
     )
   end
