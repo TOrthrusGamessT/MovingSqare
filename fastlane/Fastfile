@@ -3,8 +3,8 @@ platform :android do
     supply(
       json_key: ENV["SUPPLY_JSON_KEY"],
       package_name: "com.UnknownGames.MoveTheSquare",
-      apk: Dir["Builds/Android/*.apk"].first,
-      track: "open"
+      track: "open",
+      aab: ENV["AAB_PATH"]
     )
   end
 end
