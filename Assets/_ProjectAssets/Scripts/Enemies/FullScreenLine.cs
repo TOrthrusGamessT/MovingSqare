@@ -5,19 +5,17 @@ using UnityEngine;
 public class FullScreenLine : MonoBehaviour
 {
     [SerializeField]
-    [ColorUsageAttribute(true,true,0f,8f,0.125f,3f)]
+    [ColorUsage(true, true)]
     private Color neutralColor;
-    [ColorUsageAttribute(true,true,0f,8f,0.125f,3f)]
-    [SerializeField] private Color activeColor;
 
 
-    private Collider2D collider2D;
+    private Collider2D laserCollider;
     private int initIdLeanTween;
 
     // Start is called before the first frame update
     void Awake()
     {
-        collider2D = GetComponent<Collider2D>();
+        laserCollider = GetComponent<Collider2D>();
         Init();
     }
 
@@ -43,11 +41,12 @@ public class FullScreenLine : MonoBehaviour
     public void Activate()
     {
         Color c = GetComponent<SpriteRenderer>().color;
+        Color randomActiveColor = Constants.brightColorPalette[UnityEngine.Random.Range(0, Constants.brightColorPalette.Count)];
 
         LeanTween.value(0, 1, 0.3f).setOnUpdate(value =>
         {
-            GetComponent<SpriteRenderer>().color = Color.Lerp(c, activeColor, value);
-        }).setOnComplete(() => collider2D.enabled = true);
+            GetComponent<SpriteRenderer>().color = Color.Lerp(c, randomActiveColor, value);
+        }).setOnComplete(() => laserCollider.enabled = true);
     }
 
     public void DestroyLaser()
@@ -55,7 +54,7 @@ public class FullScreenLine : MonoBehaviour
         LeanTween.cancel(gameObject);
 
         Color c = GetComponent<SpriteRenderer>().color;
-        collider2D.enabled = false;
+        laserCollider.enabled = false;
 
         LeanTween.value(0, 1, 0.3f).setOnUpdate(value =>
         {
