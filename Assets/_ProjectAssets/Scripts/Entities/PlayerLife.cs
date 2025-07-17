@@ -1,6 +1,7 @@
 using System;
 using DG.Tweening;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class PlayerLife : MonoBehaviour
 {
@@ -8,7 +9,11 @@ public class PlayerLife : MonoBehaviour
     public static Action<int> onPlayerGotLife;
 
     [SerializeField] private SpriteRenderer _playerBody;
+
+    private float invincibleDuration = 3f; // Duration of invincibility effect in seconds
+    [SerializeField] private Image fillImage; // Reference to the fill image for invincibility effect
     private BoxCollider2D _boxCollider2D;
+
 
 
     private int life = 1;
@@ -79,12 +84,46 @@ public class PlayerLife : MonoBehaviour
 
     private void Invincible()
     {
+        // Cancel any existing invincibility animations
+        _playerBody.DOKill();
+        fillImage.DOKill();
+        CancelInvoke(nameof(EnableCollider));
+        
         _boxCollider2D.enabled = false;
 
-        _playerBody.DOFade(0.5f, 0.5f)
-            .SetLoops(10, LoopType.Yoyo)
-            .SetEase(Ease.InOutCubic)
-            .OnComplete(() => _boxCollider2D.enabled = true);
+        // Reset initial states
+        fillImage.fillAmount = 1f;
+        _playerBody.color = new Color(_playerBody.color.r, _playerBody.color.g, _playerBody.color.b, 1f);
+
+        // Create a synchronized sequence
+        Sequence invincibilitySequence = DOTween.Sequence();
+        
+        // Add both animations to the same sequence for perfect synchronization
+        float fadeInterval = 0.25f;
+        int loopCount = Mathf.FloorToInt(invincibleDuration / (fadeInterval * 2));
+        
+        invincibilitySequence.Join(fillImage.DOFillAmount(0f, invincibleDuration).SetEase(Ease.Linear));
+        invincibilitySequence.Join(_playerBody.DOFade(0.5f, fadeInterval)
+            .SetLoops(loopCount, LoopType.Yoyo)
+            .SetEase(Ease.InOutCubic));
+        
+        // Ensure both animations complete at the same time
+        invincibilitySequence.OnComplete(() => {
+            _playerBody.color = new Color(_playerBody.color.r, _playerBody.color.g, _playerBody.color.b, 1f);
+            _boxCollider2D.enabled = true;
+        });
+
+        // Backup timer to ensure collider is re-enabled even if animation fails
+        Invoke(nameof(EnableCollider), invincibleDuration + 0.1f);
+    }
+
+    private void EnableCollider()
+    {
+        if (_boxCollider2D != null)
+        {
+            _boxCollider2D.enabled = true;
+            _playerBody.color = new Color(_playerBody.color.r, _playerBody.color.g, _playerBody.color.b, 1f);
+        }
     }
 
     private void OnTriggerEnter2D(Collider2D col)
