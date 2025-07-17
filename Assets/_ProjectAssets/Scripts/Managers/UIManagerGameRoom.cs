@@ -156,8 +156,9 @@ public class UIManagerGameRoom : MonoBehaviour
 
     private void RemoveDoubleCoinButton()
     {
-        doubleCoin.SetActive(false);
-        DataManager.MoneyCollected = DataManager.MoneyCollected * 2;
+        doubleCoin?.SetActive(false);
+        DataManager.MoneyCollected *= 2;
+        Debug.Log($"Money collected after double coin: {DataManager.MoneyCollected}");
         UpdateScoreUI();
     }
 

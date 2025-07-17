@@ -13,10 +13,16 @@ public class Timer : MonoBehaviour
 
    private void Awake()
    {
-      instance = FindObjectOfType<Timer>();
-
       if (instance == null)
+      {
          instance = this;
+         DontDestroyOnLoad(gameObject);
+      }
+      else if (instance != this)
+      {
+         Destroy(gameObject);
+         return;
+      }
 
       if (isSurviveMode)
       {
@@ -31,15 +37,16 @@ public class Timer : MonoBehaviour
    [SerializeField] private TextMeshProUGUI timerText;
 
 
-   private static int lvlDuration;
+   private int lvlDuration;
    private CancellationTokenSource _ct = new();
    private UniTask _counterTask = default;
    private int elapsedSeconds = 0;
+   private bool isTimerPaused = false;
 
 
    public static int Duration
    {
-      set => lvlDuration = value;
+      set => instance.lvlDuration = value;
    }
 
    public static bool IsSurviveMode => instance != null && instance.isSurviveMode;
@@ -54,13 +61,20 @@ public class Timer : MonoBehaviour
    private void OnDisable()
    {
       PlayerLife.onPlayerDie -= PauseTimer;
+      _ct?.Cancel();
+      _ct?.Dispose();
    }
 
    public async void StartCounter()
    {
+      if (isTimerPaused) return;
+      
       await AnimateTimerUp(lvlDuration);
-      _counterTask = Counter();
-      _counterTask.Forget();
+      if (!isTimerPaused) // Check again after animation
+      {
+         _counterTask = Counter();
+         _counterTask.Forget();
+      }
    }
 
    private async UniTask AnimateTimerUp(float totalSeconds)
@@ -90,40 +104,66 @@ public class Timer : MonoBehaviour
 
    private void PauseTimer()
    {
-      _ct.Cancel();
-      _ct.Dispose();
-      _ct = new();
+      isTimerPaused = true;
+      try
+      {
+         _ct?.Cancel();
+      }
+      catch (ObjectDisposedException)
+      {
+         // Token already disposed, ignore
+      }
+      
+      _ct?.Dispose();
+      _ct = new CancellationTokenSource();
       _counterTask = default;
    }
 
    private void ResumeTimer()
    {
-      if (_counterTask.Status != UniTaskStatus.Pending)
+      if (isTimerPaused && (_counterTask.Status != UniTaskStatus.Pending))
       {
+         isTimerPaused = false;
          _counterTask = Counter();
          _counterTask.Forget();
       }
    }
 
+   public void ResumeTimerPublic()
+   {
+      ResumeTimer();
+   }
+
 
    private async UniTask Counter()
    {
-      while (true)
+      try
       {
-         await UniTask.Delay(TimeSpan.FromSeconds(1), cancellationToken: _ct.Token);
-
-         lvlDuration--;
-         UpdateUITimer(lvlDuration);
-         if (lvlDuration == 0)
+         while (!isTimerPaused && lvlDuration > 0)
          {
-            FireBase.LogCustomEvent("lvl_completed", new System.Collections.Generic.Dictionary<string, object>
+            await UniTask.Delay(TimeSpan.FromSeconds(1), cancellationToken: _ct.Token);
+
+            if (isTimerPaused) break; // Double-check after delay
+
+            lvlDuration--;
+            UpdateUITimer(lvlDuration);
+            
+            if (lvlDuration <= 0)
             {
-               { "level_index", LVLIndexer.currentLvlIndex + 1 },
-               { "total_time_seconds", ElapsedSeconds }
-            });
-            onCounterEnd?.Invoke();
-            break;
+               FireBase.LogCustomEvent("lvl_completed", new System.Collections.Generic.Dictionary<string, object>
+               {
+                  { "level_index", LVLIndexer.currentLvlIndex + 1 },
+                  { "total_time_seconds", ElapsedSeconds }
+               });
+               onCounterEnd?.Invoke();
+               break;
+            }
          }
+      }
+      catch (OperationCanceledException)
+      {
+         // Timer was cancelled/paused, this is expected behavior
+         Debug.Log("Timer was paused/cancelled");
       }
    }
 
