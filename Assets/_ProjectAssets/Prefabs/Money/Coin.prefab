@@ -140,7 +140,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   destroyVFX: {fileID: 6450760655621099055, guid: caf897b5e0fc82c4cbb68c6113290c98, type: 3}
   vfx: {fileID: 8771525543244618934, guid: 8fc8a1c5df286cf4182d6b60b550ad7e, type: 3}
-  textEffect: {fileID: 1292860757, guid: 0bb694dfc9cd66a40957b2b5e96635e2, type: 3}
 --- !u!50 &6783904948524483311
 Rigidbody2D:
   serializedVersion: 5

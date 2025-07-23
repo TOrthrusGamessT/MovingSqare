@@ -11,15 +11,6 @@ public class CameraShaking : MonoBehaviour
         originalPosition = transform.position;
     }
 
-    private void OnEnable()
-    {
-        Boomerang.onBoomerangHit += Shake;
-    }
-
-    private void OnDisable()
-    {
-        Boomerang.onBoomerangHit -= Shake;
-    }
 
     public static void Shake()
     {
